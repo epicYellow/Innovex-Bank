@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Innovex_Bank.ContentViews"
              x:Class="Innovex_Bank.ContentPages.AccountManagement"
-             Title="AccountManagement">
-    <VerticalStackLayout>
-        <Label 
-            Text="AccountManagement"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+
+    <FlexLayout>
+        <local:PageHeader/>
+    </FlexLayout>
+
+
+
 </ContentPage>
