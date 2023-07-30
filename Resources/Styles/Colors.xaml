@@ -12,6 +12,7 @@
     <Color x:Key="SecondaryWhite">#f4f4f4</Color>
     <Color x:Key="TersWhite">#f2f2f2</Color>
     <Color x:Key="Black">#1F1F22</Color>
+    <Color x:Key="LightBlack">#2b2b2b</Color>
     <Color x:Key="AppGray">#4B4B4B</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>
     <Color x:Key="Gray200">#C8C8C8</Color>
