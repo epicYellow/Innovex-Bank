@@ -5,7 +5,7 @@
              Title="AccountManagement">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="AccountManagement"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
