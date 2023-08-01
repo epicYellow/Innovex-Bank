@@ -11,7 +11,7 @@ public partial class AppShell : Shell
     {
         base.OnAppearing();
 
-        await Task.Delay(1000);
+        await Task.Delay(2000);
 
         var color = FlyoutBackgroundColor;
         FlyoutBackgroundColor = Colors.DarkBlue;

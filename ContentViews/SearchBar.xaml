@@ -5,7 +5,7 @@
 
     <Border Stroke="{DynamicResource Primary}">
         <HorizontalStackLayout MaximumHeightRequest="40" Spacing="20" Padding="10,0,15,0">
-            <Entry HorizontalOptions="Center" MinimumHeightRequest="40" MinimumWidthRequest="300" Placeholder="Search Accounts..."/>
+            <Entry HorizontalOptions="Center" MinimumHeightRequest="40" MinimumWidthRequest="180" Placeholder="Search Accounts..."/>
             <Image HorizontalOptions="Center" MaximumWidthRequest="25" MinimumHeightRequest="25" Source="search.png"/>
         </HorizontalStackLayout>
     </Border>

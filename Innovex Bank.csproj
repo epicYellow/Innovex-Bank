@@ -60,7 +60,7 @@
 	  <MauiXaml Update="ContentPages\AccountManagement.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentViews\AccountManagement\UserItem.xaml">
+	  <MauiXaml Update="ContentViews\AccountManagement\AccountUserItem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\PageHeader.xaml">

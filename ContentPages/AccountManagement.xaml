@@ -2,37 +2,83 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
+             xmlns:AccManControls="clr-namespace:Innovex_Bank.ContentViews.AccountManagement"
              x:Class="Innovex_Bank.ContentPages.AccountManagement"
              BackgroundColor="{DynamicResource SecondaryWhite}">
 
-    <StackLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
         <Controls:PageHeader/>
-        
-        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,20">
+
+        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
             <Controls:TopSectionViewItem />
             <Controls:TopSectionViewItem />
             <Controls:TopSectionViewItem />
             <Controls:TopSectionViewItem />
         </FlexLayout>
 
-        <FlexLayout Wrap="Wrap" HeightRequest="65" Direction="Row" AlignItems="Center" JustifyContent="SpaceBetween" Margin="40,20,40,0">
-            <Label Text="All Accounts" FontSize="Medium" FontAttributes="Bold" TextColor="{DynamicResource Black}"/>
-            <Controls:SearchBar/>
-            <Button Margin="30,0,0,0" Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
-        </FlexLayout>
+        <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
-        <FlexLayout Wrap="Wrap" Margin="40,25,40,20" Direction="Row" JustifyContent="SpaceBetween">
+        <Grid Margin="40,25,40,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             
-            <HorizontalStackLayout BackgroundColor="Red" Margin="0,15,0,0" FlexLayout.AlignSelf="Start" FlexLayout.Basis="50%">
-                
-            </HorizontalStackLayout>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <HorizontalStackLayout BackgroundColor="Green" Margin="0,15,0,0" FlexLayout.AlignSelf="Start" FlexLayout.Basis="50%" Spacing="150">
-                <Label Text="Hllo"/>
-                <Label Text="Hllo"/>
-            </HorizontalStackLayout>
-            
-        </FlexLayout>
+            <VerticalStackLayout Grid.Column="0" Grid.Row="0" Padding="0,0,25,0">
+                <Label Text="All Accounts" Margin="0,0,0,25" FontSize="Medium" FontAttributes="Bold" TextColor="{DynamicResource Black}"/>
+               
+                <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
+                    <Controls:SearchBar/>
+                    <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+                </FlexLayout>
+               
+            </VerticalStackLayout>
+           
+
+            <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout >
+                        <AccManControls:AccountUserItem/>
+                        <AccManControls:AccountUserItem/>
+                    </StackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+
+            <StackLayout Grid.Column="1" Grid.Row="0" FlexLayout.AlignSelf="Start">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
+                    <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="Accountholder Name" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
+
+                    <Button Grid.Column="0" HorizontalOptions="Start" Grid.Row="1" Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1" Margin="0,20,0,20"/>
+                    <Button Grid.Column="1" HorizontalOptions="End" Grid.Row="1" Text="Filter" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
+                         BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+
+                </Grid>
+                <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <FlexLayout BackgroundColor="red" Wrap="Wrap" Grid.Column="1" Grid.Row="1" Margin="0,20,0,0" FlexLayout.AlignSelf="Start"
+                JustifyContent="SpaceBetween">
+                <Label Text="user Info" TextColor="Black"/>
+            </FlexLayout>
+        </Grid>
     </StackLayout>
 
 
