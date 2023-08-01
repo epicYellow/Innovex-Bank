@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Innovex_Bank"
     xmlns:ContentPages="clr-namespace:Innovex_Bank.ContentPages"
-    FlyoutBackgroundColor="{DynamicResource Primary}"
-    Shell.FlyoutBehavior="Locked">
+    Shell.FlyoutBehavior="Locked"
+    FlyoutBackgroundColor="{DynamicResource Primary}">
 
     <Shell.FlyoutHeader>
         <StackLayout Padding="30">

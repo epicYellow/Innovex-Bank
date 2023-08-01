@@ -5,31 +5,35 @@
              x:Class="Innovex_Bank.ContentPages.AccountManagement"
              BackgroundColor="{DynamicResource SecondaryWhite}">
 
-    <FlexLayout Direction="Column">
+    <StackLayout>
         <Controls:PageHeader/>
-        <HorizontalStackLayout HorizontalOptions="Fill" Padding="30">
-            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="20">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="20" HorizontalOptions="End">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-        </HorizontalStackLayout>
         
-    </FlexLayout>
+        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,20">
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+        </FlexLayout>
 
+        <FlexLayout Wrap="Wrap" HeightRequest="65" Direction="Row" AlignItems="Center" JustifyContent="SpaceBetween" Margin="40,20,40,0">
+            <Label Text="All Accounts" FontSize="Medium" FontAttributes="Bold" TextColor="{DynamicResource Black}"/>
+            <Controls:SearchBar/>
+            <Button Margin="30,0,0,0" Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+        </FlexLayout>
+
+        <FlexLayout Wrap="Wrap" Margin="40,25,40,20" Direction="Row" JustifyContent="SpaceBetween">
+            
+            <HorizontalStackLayout BackgroundColor="Red" Margin="0,15,0,0" FlexLayout.AlignSelf="Start" FlexLayout.Basis="50%">
+                
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout BackgroundColor="Green" Margin="0,15,0,0" FlexLayout.AlignSelf="Start" FlexLayout.Basis="50%" Spacing="150">
+                <Label Text="Hllo"/>
+                <Label Text="Hllo"/>
+            </HorizontalStackLayout>
+            
+        </FlexLayout>
+    </StackLayout>
 
 
 </ContentPage>

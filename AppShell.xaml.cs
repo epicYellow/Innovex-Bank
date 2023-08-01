@@ -6,4 +6,15 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 	}
+
+    async protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        await Task.Delay(1000);
+
+        var color = FlyoutBackgroundColor;
+        FlyoutBackgroundColor = Colors.DarkBlue;
+        FlyoutBackgroundColor = color;
+    }
 }
