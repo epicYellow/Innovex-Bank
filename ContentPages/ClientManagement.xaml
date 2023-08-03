@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
+             BackgroundColor="{DynamicResource SecondaryWhite}"
+             x:Class="Innovex_Bank.ContentPages.ClientManagement">
+    <StackLayout VerticalOptions="FillAndExpand">
+
+        <Controls:PageHeader/>
+
+        <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+            <Label Text="Total Staff: 256" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
+            <Controls:SearchBar/>
+            <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+        </FlexLayout>
+
+        <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+        <FlexLayout Margin="20,20,20,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" HeightRequest="30" >
+            <Label      Margin="20,0,0,0"
+                        Text="Client Id"
+                        WidthRequest="100"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+            <Label      Text="Name and Surname"
+                        WidthRequest="100"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+            <Label      Text="Id Number"
+                        VerticalOptions="Center" 
+                        WidthRequest="120"
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+            <Label      Text="Income"
+                        VerticalOptions="Center" 
+                        WidthRequest="100"
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+            <VerticalStackLayout WidthRequest="80"></VerticalStackLayout>
+            <Image Source="info_circle.png" Margin="0,0,20,0"/>
+        </FlexLayout>
+
+        <ScrollView VerticalOptions="Fill">
+            <StackLayout VerticalOptions="Fill">
+                <Controls:UserItem/>
+                <Controls:UserItem/>
+                <Controls:UserItem/>
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+</ContentView>

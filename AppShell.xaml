@@ -21,11 +21,15 @@
     <FlyoutItem Title="Accounts">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Funds">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
-    </FlyoutItem>
     <FlyoutItem Title="Staff">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
     </FlyoutItem>
+    <FlyoutItem Title="Client">
+        <ShellContent ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Funds">
+        <ShellContent ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
+    </FlyoutItem>
+    
 
 </Shell>
