@@ -18,6 +18,9 @@
     <FlyoutItem Title="Home">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
     </FlyoutItem>
+    <FlyoutItem Title="DashBoard">
+        <ShellContent ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
+    </FlyoutItem>
     <FlyoutItem Title="Accounts">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
     </FlyoutItem>
