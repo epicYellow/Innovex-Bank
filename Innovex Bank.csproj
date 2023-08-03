@@ -61,6 +61,9 @@
 	  <MauiXaml Update="ContentPages\AccountManagement.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\FundsManagement.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\AccountManagement\AccountUserItem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -7,6 +7,7 @@
              BackgroundColor="{DynamicResource SecondaryWhite}">
 
     <StackLayout VerticalOptions="FillAndExpand">
+
         <Controls:PageHeader/>
 
         <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
@@ -107,7 +108,7 @@
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                    <Image Source="" Margin="0,0,10,0"/>
+                    <Image Source="info_circle.png" Margin="0,0,10,0"/>
                 </FlexLayout>
                 
                 <AccManControls:TransactionItem/>
