@@ -8,35 +8,43 @@
     
     <StackLayout  >
         <Controls:PageHeader />
-        <FlexLayout HorizontalOptions="Fill" Padding="20" JustifyContent="SpaceBetween" >
+        <FlexLayout HorizontalOptions="Fill" Padding="20" JustifyContent="SpaceBetween"  Margin="50">
             <VerticalStackLayout HorizontalOptions="StartAndExpand" Padding="20" >
 
                 <Label Text="Total Clients" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
-                <Label Text="Total Client description here to come " TextColor="Black" Padding="10"/>
-                <Label Text="256" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/> 
+                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
 
-                <Button Text="Manage" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="10" BorderWidth="2" BorderColor="Black" CornerRadius="0" />
+                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
             </VerticalStackLayout>
 
             <VerticalStackLayout HorizontalOptions="Center"  Padding="20" >
                 <Label Text="Total Admin Staff" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
-                <Label Text="Total Client description here to come " TextColor="Black" Padding="10"/>
-                <Label Text="256" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/>
+                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
 
-                <Button Text="Manage" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="10" BorderWidth="2" BorderColor="Black" CornerRadius="0" />
+                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
 
             </VerticalStackLayout>
             <VerticalStackLayout HorizontalOptions="End"  Padding="20">
-                <Label Text="Total Cheque and Savings Accounts" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
-                <Label Text="Total Client description here to come " TextColor="Black" Padding="10"/>
-                <Label Text="256" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="Total Cheque and Savings Accounts" TextColor="Black" FontAttributes="Bold" FontSize="Large" />
+                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/>
+                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
 
-                <Button Text="Manage" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="10" BorderWidth="2" BorderColor="Black" CornerRadius="0" />
+                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
 
             </VerticalStackLayout>
         </FlexLayout>
 
-       
+
+        <FlexLayout HorizontalOptions="Center" Margin="0,0,0,50">
+            <Line Stroke="black"
+                X2="1400" 
+              />
+        </FlexLayout>
+        
+
+
 
         <FlexLayout HorizontalOptions="Fill">
             
@@ -50,21 +58,21 @@
             
          
             <VerticalStackLayout  WidthRequest="800">
-                <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
-                <Label Text="Funds pool description" TextColor="Black" Margin="25, 20, 0, 0"></Label>
+                <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="Funds pool description" TextColor="Black" Margin="5, 20, 0, 0"></Label>
 
                 <VerticalStackLayout >
-                    <Label Text="R10 000 000" TextColor="Blue" FontSize="40" Margin="0, 20, 0, 0" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                    <Label Text="R10 000 000" TextColor="#252B63" FontSize="40" Margin="0, 20, 0, 0" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                     <FlexLayout JustifyContent="SpaceBetween" HorizontalOptions="Center" Margin="0, 20, 0, 0" WidthRequest="500">
                         <VerticalStackLayout >
-                            <Label Text="Total withdrawn" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="Total Withdrawn:" TextColor="Black" HorizontalOptions="Center" />
                             <Label Text="R10 000 000" TextColor="red" FontSize="25" FontAttributes="Bold"/>
                         </VerticalStackLayout>
                         <VerticalStackLayout>
                             <Label Text="18%" TextColor="green" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                         <VerticalStackLayout>
-                            <Label Text="Total withdrawn" TextColor="Black" HorizontalOptions="Center"/>
+                            <Label Text="Total Deposited:" TextColor="Black" HorizontalOptions="Center"/>
                             <Label Text="R10 000 000" TextColor="Green" FontSize="25" FontAttributes="Bold"/>
 
                         </VerticalStackLayout>
@@ -85,6 +93,9 @@
                     <VerticalStackLayout>
                         <AddControls:TransactionCard></AddControls:TransactionCard>
                         <AddControls:TransactionCard></AddControls:TransactionCard>
+                        <AddControls:TransactionCard></AddControls:TransactionCard>
+                        <AddControls:TransactionCard></AddControls:TransactionCard>
+
                         <AddControls:TransactionCard></AddControls:TransactionCard>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
