@@ -24,5 +24,8 @@
     <FlyoutItem Title="Accounts">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
     </FlyoutItem>
+    <FlyoutItem Title="Login">
+        <ShellContent ContentTemplate="{DataTemplate ContentPages:Login}"/>
+    </FlyoutItem>
 
 </Shell>
