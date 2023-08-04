@@ -1,8 +1,8 @@
 namespace Innovex_Bank.ContentViews.AccountManagement;
 
-public partial class UserItem : ContentView
+public partial class TransactionItem : ContentView
 {
-	public UserItem()
+	public TransactionItem()
 	{
 		InitializeComponent();
 	}

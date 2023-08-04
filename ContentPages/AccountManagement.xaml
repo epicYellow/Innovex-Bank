@@ -2,34 +2,119 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
+             xmlns:AccManControls="clr-namespace:Innovex_Bank.ContentViews.AccountManagement"
              x:Class="Innovex_Bank.ContentPages.AccountManagement"
              BackgroundColor="{DynamicResource SecondaryWhite}">
 
-    <FlexLayout Direction="Column">
-        <Controls:PageHeader/>
-        <HorizontalStackLayout HorizontalOptions="Fill" Padding="30">
-            <VerticalStackLayout HorizontalOptions="StartAndExpand" Spacing="20">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="20" HorizontalOptions="End">
-                <Label Text="Total Clients" TextColor="{DynamicResource Black}" FontAttributes="Bold" FontSize="Medium"/>
-                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
-            </VerticalStackLayout>
-        </HorizontalStackLayout>
-        
-    </FlexLayout>
+    <StackLayout VerticalOptions="FillAndExpand">
 
+        <Controls:PageHeader/>
+
+        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+        </FlexLayout>
+
+        <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+        <Grid Margin="40,25,40,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Column="0" Grid.Row="0" Padding="0,0,25,0">
+                <Label Text="All Accounts" Margin="0,0,0,25" FontSize="Medium" FontAttributes="Bold" TextColor="{DynamicResource Black}"/>
+               
+                <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
+                    <Controls:SearchBar/>
+                    <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+                </FlexLayout>
+               
+            </VerticalStackLayout>
+           
+
+            <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout >
+                        <AccManControls:AccountUserItem/>
+                        <AccManControls:AccountUserItem/>
+                    </StackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+
+            <StackLayout Grid.Column="1" Grid.Row="0" FlexLayout.AlignSelf="Start">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
+                    <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="Accountholder Name" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
+
+                    <Button Grid.Column="0" HorizontalOptions="Start" Grid.Row="1" Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1" Margin="0,20,0,20"/>
+                    <Button Grid.Column="1" HorizontalOptions="End" Grid.Row="1" Text="Filter" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
+                         BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+
+                </Grid>
+                <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+
+
+            <StackLayout Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" FlexLayout.AlignSelf="Start">
+                <FlexLayout Margin="0,10,0,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" HeightRequest="30" >
+                    <Label 
+                        Margin="10,0,0,0"
+                        Text="Transaction Id"
+                        WidthRequest="100"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+                    <Label 
+                        Text="Amount"
+                        WidthRequest="100"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+                    <Label 
+                        Text="Fee"
+                        VerticalOptions="Center" 
+                        WidthRequest="120"
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+                    <Label 
+                        Text=""
+                        VerticalOptions="Center" 
+                        WidthRequest="100"
+                        HorizontalOptions="Center" 
+                        FontSize="Caption"
+                        TextColor="{DynamicResource Black}"/>
+                    <Image Source="info_circle.png" Margin="0,0,10,0"/>
+                </FlexLayout>
+                
+                <AccManControls:TransactionItem/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
 
 
 </ContentPage>

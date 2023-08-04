@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.FundsManagement"
+             xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+    <VerticalStackLayout VerticalOptions="Fill">
+        <Controls:PageHeader/>
+        <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Interest" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Interest" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Interest" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+            </VerticalStackLayout>
+        </FlexLayout>
+        
+        <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+        <Button Text="End Month" Margin="40" HorizontalOptions="EndAndExpand" VerticalOptions="End" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" MaximumWidthRequest="250" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+    </VerticalStackLayout>
+</ContentPage>
