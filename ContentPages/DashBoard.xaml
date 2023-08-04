@@ -48,7 +48,7 @@
 
         <FlexLayout HorizontalOptions="Fill">
             
-            <VerticalStackLayout  WidthRequest="700">
+            <VerticalStackLayout >
                 <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
 
                 <AddControls:UserCard></AddControls:UserCard>
@@ -57,7 +57,7 @@
             </VerticalStackLayout>
             
          
-            <VerticalStackLayout  WidthRequest="800">
+            <VerticalStackLayout  >
                 <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" />
                 <Label Text="Funds pool description" TextColor="Black" Margin="5, 20, 0, 0"></Label>
 
