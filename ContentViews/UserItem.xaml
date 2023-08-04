@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentViews.UserItem">
+
+    <FlexLayout Margin="40,0,40,10" JustifyContent="SpaceBetween" AlignItems="Center" HeightRequest="54" BackgroundColor="White" Padding="10,0,10,0">
+        <VerticalStackLayout VerticalOptions="Center" Margin="10,0,0,0">
+            <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
+            <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="Gold"/>
+        </VerticalStackLayout>
+        <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
+        <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
+        <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
+        <Button Text="Edit" TextColor="{DynamicResource Black}" MaximumHeightRequest="40"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+        <Image Source="info_circle.png" Margin="0,0,10,0"/>
+    </FlexLayout>
+    
+</ContentView>

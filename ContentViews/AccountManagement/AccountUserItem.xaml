@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentViews.AccountManagement.AccountUserItem">
+    
+    <FlexLayout Margin="0,0,0,20" JustifyContent="SpaceBetween" AlignItems="Center" HeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
+        <Ellipse Margin="10,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
+            <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="Gold"/>
+        </VerticalStackLayout>
+        <Button Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+        <Button Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+        <Button Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+        <Button Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" Margin="0,0,10,0"
+                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+    </FlexLayout>
+    
+</ContentView>
