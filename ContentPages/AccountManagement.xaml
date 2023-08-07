@@ -6,7 +6,8 @@
              x:Class="Innovex_Bank.ContentPages.AccountManagement"
              BackgroundColor="{DynamicResource SecondaryWhite}">
 
-    <StackLayout VerticalOptions="FillAndExpand">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
 
         <Controls:PageHeader/>
 
@@ -35,7 +36,7 @@
                
                 <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
                     <Controls:SearchBar/>
-                    <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+                    <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="{DynamicResource Black}" BorderWidth="0"/>
                 </FlexLayout>
                
             </VerticalStackLayout>
@@ -75,20 +76,19 @@
                 <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
-
-
             <StackLayout Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" FlexLayout.AlignSelf="Start">
-                <FlexLayout Margin="0,10,0,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" HeightRequest="30" >
+                <FlexLayout Wrap="Wrap" Margin="0,10,0,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" MinimumHeightRequest="30" >
                     <Label 
-                        Margin="10,0,0,0"
+                        Margin="10,5,5,5"
                         Text="Transaction Id"
-                        WidthRequest="100"
+                        WidthRequest="90"
                         VerticalOptions="Center" 
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
                     <Label 
                         Text="Amount"
+                        Margin="5"
                         WidthRequest="100"
                         VerticalOptions="Center" 
                         HorizontalOptions="Center" 
@@ -96,25 +96,27 @@
                         TextColor="{DynamicResource Black}"/>
                     <Label 
                         Text="Fee"
+                        Margin="5"
                         VerticalOptions="Center" 
-                        WidthRequest="120"
+                        WidthRequest="80"
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
                     <Label 
                         Text=""
+                        Margin="5"
                         VerticalOptions="Center" 
-                        WidthRequest="100"
+                        WidthRequest="80"
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                    <Image Source="info_circle.png" Margin="0,0,10,0"/>
+                    <Image Source="info_circle.png" Margin="5,5,10,5"/>
                 </FlexLayout>
                 
                 <AccManControls:TransactionItem/>
             </StackLayout>
         </Grid>
     </StackLayout>
-
+    </ScrollView>
 
 </ContentPage>
