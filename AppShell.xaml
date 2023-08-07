@@ -37,4 +37,10 @@
         <ShellContent ContentTemplate="{DataTemplate ContentPages:Login}"/>
     </FlyoutItem>
 
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="30">
+            <Image Source="final_logo.png" WidthRequest="60"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
 </Shell>

@@ -2,17 +2,17 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Innovex_Bank.ContentViews.AccountManagement.TransactionItem">
-    <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="60" BackgroundColor="White" >
+    <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" Margin="0,0,0,10" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="60" BackgroundColor="White" >
         <Label 
             Margin="10,0,0,0"
-            Text="#5566554"
+            Text="{Binding TransactionId}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             WidthRequest="90"
             FontSize="Caption"
             TextColor="{DynamicResource Black}"/>
         <Label 
-            Text="R120.40"
+            Text="{Binding TransactionAmount}"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="5"
@@ -20,7 +20,7 @@
             FontSize="Caption"
             TextColor="{DynamicResource Black}"/>
         <Label 
-            Text="R10.40"
+            Text="{Binding TransactionFee}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Margin="5"
@@ -28,7 +28,7 @@
             FontSize="Caption"
             TextColor="{DynamicResource Black}"/>
         <Label 
-            Text="Withdrawl"
+            Text="{Binding TransactionTransType}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Margin="5"

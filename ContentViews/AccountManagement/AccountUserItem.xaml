@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Innovex_Bank.ContentViews.AccountManagement.AccountUserItem">
     
-    <FlexLayout Wrap="Wrap" Margin="0,10,10,20" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
+    <FlexLayout Wrap="Wrap" Margin="0,0,0,15" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
         <Ellipse Margin="10,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
         <VerticalStackLayout VerticalOptions="Center">
-            <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100"/>
-            <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="Gold"/>
+            <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="{Binding UserNameItem}" MinimumWidthRequest="100"/>
+            <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding UserTypeItem}"/>
         </VerticalStackLayout>
         <Button Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" Margin="5"
                         BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
