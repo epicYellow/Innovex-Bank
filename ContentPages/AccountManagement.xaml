@@ -9,13 +9,13 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
 
-        <Controls:PageHeader/>
+        <Controls:PageHeader PageTitle="Account Management"/>
 
         <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem Title="Gold Cheque" Total="10"/>
+            <Controls:TopSectionViewItem Title="Diamond Cheque" Total="100"/>
+            <Controls:TopSectionViewItem Title="Tax Free Savings" Total="99"/>
+            <Controls:TopSectionViewItem Title="Easy Access Savings" Total="22"/>
         </FlexLayout>
 
         <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>

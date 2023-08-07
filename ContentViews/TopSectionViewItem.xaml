@@ -6,10 +6,10 @@
              >
     
     <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
-        <Label Text="Total whatever" TextColor="{DynamicResource Black}" 
+        <Label Text="{Binding Title}" TextColor="{DynamicResource Black}" 
                HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
         <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-        <Label Text="865" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+        <Label Text="{Binding Total}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
         <Button Text="Manage" TextColor="{DynamicResource Black}" MaximumHeightRequest="35" CornerRadius="0" BackgroundColor="Transparent" BorderColor="Black" BorderWidth="1"/>
     </VerticalStackLayout>
     
