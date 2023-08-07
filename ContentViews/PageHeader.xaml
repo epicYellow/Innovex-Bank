@@ -5,7 +5,7 @@
     
     <FlexLayout BackgroundColor="White" HeightRequest="65" Direction="Row" AlignContent="Center" AlignItems="Center" JustifyContent="SpaceBetween" Wrap="Wrap">
         <Label VerticalOptions="Center" Margin="15,0,0,0" Text="AccountManagement" FontAttributes="Bold" TextColor="{DynamicResource Black}" FontSize="Medium"  />
-        <HorizontalStackLayout VerticalOptions="Center" Spacing="20" Margin="0,0,15,0">
+        <HorizontalStackLayout VerticalOptions="Center" Spacing="10" Margin="0,0,15,0">
             <Ellipse VerticalOptions="Center" Fill="{DynamicResource Black}"
                  Aspect="Uniform"
                 WidthRequest="40"/>

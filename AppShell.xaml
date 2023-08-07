@@ -16,21 +16,21 @@
     </Shell.FlyoutHeader>
 
     <FlyoutItem Title="Home">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="Dashboard"/>
     </FlyoutItem>
     <FlyoutItem Title="DashBoard">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Accounts">
+    <FlyoutItem Title="Accounts Management">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Staff">
+    <FlyoutItem Title="Staff Management">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Client">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
+    <FlyoutItem Title="Client Management">
+        <ShellContent ContentTemplate="{DataTemplate ContentPages:ClientManagement}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Funds">
+    <FlyoutItem Title="Funds Management">
         <ShellContent ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
     </FlyoutItem>
     <FlyoutItem Title="Login">

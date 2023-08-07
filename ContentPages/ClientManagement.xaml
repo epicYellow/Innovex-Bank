@@ -4,7 +4,9 @@
              xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
              BackgroundColor="{DynamicResource SecondaryWhite}"
              x:Class="Innovex_Bank.ContentPages.ClientManagement">
-    <StackLayout VerticalOptions="FillAndExpand">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
 
         <Controls:PageHeader/>
 
@@ -16,7 +18,7 @@
 
         <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
-        <FlexLayout Margin="20,20,20,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" HeightRequest="30" >
+        <FlexLayout BackgroundColor="{DynamicResource Black}" Wrap="Wrap" Margin="20,20,20,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" HeightRequest="30" >
             <Label      Margin="20,0,0,0"
                         Text="Client Id"
                         WidthRequest="100"
@@ -46,13 +48,13 @@
             <Image Source="info_circle.png" Margin="0,0,20,0"/>
         </FlexLayout>
 
-        <ScrollView VerticalOptions="Fill">
-            <StackLayout VerticalOptions="Fill">
-                <Controls:UserItem/>
-                <Controls:UserItem/>
-                <Controls:UserItem/>
-            </StackLayout>
-        </ScrollView>
-
+       
+        <StackLayout VerticalOptions="Fill">
+            <Controls:UserItem/>
+            <Controls:UserItem/>
+            <Controls:UserItem/>
+        </StackLayout>
+        
     </StackLayout>
+   </ScrollView>
 </ContentView>
