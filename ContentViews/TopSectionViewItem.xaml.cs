@@ -1,20 +1,26 @@
 namespace Innovex_Bank.ContentViews;
-using Microsoft.Maui.Controls;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 public partial class TopSectionViewItem : ContentView
 {
-    public static readonly BindableProperty ChildTitleProperty = BindableProperty.Create(
-        nameof(Title), typeof(string), typeof(TopSectionViewItem), string.Empty);
+    public static BindableProperty TopSectionTitleProperty =
+        BindableProperty.Create(nameof(Title), typeof(string), typeof(PageHeader), default(string));
+
+    public static BindableProperty TopSectionTotalProperty =
+        BindableProperty.Create(nameof(Total), typeof(int), typeof(PageHeader), default(int));
 
     public string Title
     {
-        get => (string)GetValue(ChildTitleProperty);
-        set => SetValue(ChildTitleProperty, value);
+        get => (string)GetValue(TopSectionTitleProperty);
+        set => SetValue(TopSectionTitleProperty, value);
+    }
+
+    public int Total
+    {
+        get => (int)GetValue(TopSectionTotalProperty);
+        set => SetValue(TopSectionTotalProperty, value);
     }
     public TopSectionViewItem()
 	{
 		InitializeComponent();
-
+        BindingContext = this;
     }
 }

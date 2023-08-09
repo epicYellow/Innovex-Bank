@@ -1,11 +1,13 @@
-﻿namespace Innovex_Bank;
+﻿using Innovex_Bank.ContentPages;
+
+namespace Innovex_Bank;
 
 public partial class AppShell : Shell
 {
 	public AppShell()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     async protected override void OnAppearing()
     {

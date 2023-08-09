@@ -9,7 +9,7 @@
     <Color x:Key="Tertiary">#FB3640</Color>
     <Color x:Key="Active">#4B56D2</Color>
     <Color x:Key="White">White</Color>
-    <Color x:Key="SecondaryWhite">#f4f4f4</Color>
+    <Color x:Key="SecondaryWhite">#f5f5f5</Color>
     <Color x:Key="TersWhite">#f2f2f2</Color>
     <Color x:Key="Black">#1F1F22</Color>
     <Color x:Key="LightBlack">#2b2b2b</Color>
