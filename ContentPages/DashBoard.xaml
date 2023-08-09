@@ -8,56 +8,37 @@
     
     <StackLayout  >
         <Controls:PageHeader />
-        <FlexLayout HorizontalOptions="Fill" Padding="20" JustifyContent="SpaceBetween"  Margin="50">
-            <VerticalStackLayout HorizontalOptions="StartAndExpand" Padding="20" >
 
-                <Label Text="Total Clients" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
-                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/> 
-                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
-
-                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout HorizontalOptions="Center"  Padding="20" >
-                <Label Text="Total Admin Staff" TextColor="Black" FontAttributes="Bold" FontSize="Large"/>
-                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/>
-                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
-
-                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
-
-            </VerticalStackLayout>
-            <VerticalStackLayout HorizontalOptions="End"  Padding="20">
-                <Label Text="Total Cheque and Savings Accounts" TextColor="Black" FontAttributes="Bold" FontSize="Large" />
-                <Label Text="Total Client description here to come " TextColor="Black" Margin="0,25,0,0"/>
-                <Label Text="256" TextColor="#252B63" FontAttributes="Bold" FontSize="Large" Margin="0,25,0,0"/>
-
-                <Button Text="Manage" FontSize="Small" TextColor="Black" WidthRequest="300" HeightRequest="50" BackgroundColor="White" HorizontalOptions="Start" Margin="0,25,0,0" BorderWidth="2" BorderColor="#252B63" CornerRadius="0" />
-
-            </VerticalStackLayout>
-        </FlexLayout>
-
-
-        <FlexLayout HorizontalOptions="Center" Margin="0,0,0,50">
-            <Line Stroke="black"
-                X2="1400" 
-              />
+        <FlexLayout  Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem />
         </FlexLayout>
         
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <FlexLayout Grid.Row="0" >
+                <BoxView BackgroundColor="Black"  HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+            </FlexLayout>
 
-
-        <FlexLayout HorizontalOptions="Fill">
-            
-            <VerticalStackLayout >
+            <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
                 <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
 
                 <AddControls:UserCard></AddControls:UserCard>
                 <AddControls:UserCard></AddControls:UserCard>
 
             </VerticalStackLayout>
-            
-         
-            <VerticalStackLayout  >
+
+
+            <VerticalStackLayout Grid.Column="1"  Margin="0,50,0,0"  >
                 <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" />
                 <Label Text="Funds pool description" TextColor="Black" Margin="5, 20, 0, 0"></Label>
 
@@ -78,12 +59,11 @@
                         </VerticalStackLayout>
                     </FlexLayout>
                 </VerticalStackLayout>
-                
                 <VerticalStackLayout Margin="0,50,0,0">
                     <Label Text="Recent Transactions" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
 
                     <FlexLayout JustifyContent="SpaceBetween" Margin="25,20,25,0">
-                        
+
                         <Label Text="Account Id" TextColor="Black" FontSize="20"/>
                         <Label Text="Client Id" TextColor="Black" FontSize="20"/>
                         <Label Text="Amount" TextColor="Black" FontSize="20"/>
@@ -101,9 +81,12 @@
                 </VerticalStackLayout>
             </VerticalStackLayout>
 
-
-            
-        </FlexLayout>
+        </Grid>
+        
+        
+       
+        
+        
         
     </StackLayout>
 </ContentPage>
