@@ -16,7 +16,9 @@
             <Controls:TopSectionViewItem />
         </FlexLayout>
         
+        <BoxView BackgroundColor="Black"  HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="10"/>
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -25,11 +27,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <FlexLayout Grid.Row="0" >
-                <BoxView BackgroundColor="Black"  HeightRequest="1" HorizontalOptions="FillAndExpand"/>
-            </FlexLayout>
+            
+                
+            
 
             <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
+                
                 <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
 
                 <AddControls:UserCard></AddControls:UserCard>
