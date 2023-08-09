@@ -3,15 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Innovex_Bank.ContentViews.DashBoard.UserCard">
     
-    <FlexLayout Direction="Row"  HeightRequest="50" Margin="20, 20, 0, 0">
-        <BoxView Color="red" WidthRequest="50" Margin="10,0,10,0" CornerRadius="40" ></BoxView>
-        
-        <VerticalStackLayout>
-            <Label Text="Justino Kopstert" FontAttributes="Bold" FontSize="20" TextColor="Black" />
-            <Label Text="Admin" FontSize="15" TextColor="black"/>
-        </VerticalStackLayout>
+    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" HeightRequest="50" Margin="20, 20, 0, 0">
+        <HorizontalStackLayout>
+            <BoxView Color="Black" WidthRequest="50" Margin="10,0,10,0" CornerRadius="40" >
+                
+            </BoxView>
+            
 
-        <Button WidthRequest="150" HeightRequest="40" Margin="20, 5, 0, 0" Text="View" FontSize="20" CornerRadius="0" BorderColor="Black" HorizontalOptions="End" />
+            <VerticalStackLayout>
+                <Label Text="Justino Kopstert" FontAttributes="Bold" FontSize="20" TextColor="Black" />
+                <Label Text="Admin" FontSize="15" TextColor="black"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+
+        <Button  WidthRequest="150" HeightRequest="40" Margin="20, 5, 50,0" Text="View" FontSize="20" CornerRadius="5" BorderColor="Black" HorizontalOptions="End" >
+            <Button.Shadow>
+                 
+                <Shadow Brush="black"
+                Offset="3,3"
+                Radius="2"
+                Opacity="0.4" />
+
+            </Button.Shadow>
+        </Button>
     </FlexLayout>
     
 </ContentView>
