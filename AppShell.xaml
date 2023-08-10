@@ -25,11 +25,11 @@
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid ColumnDefinitions="0.2*,0.8*" RowSpacing="25">
+            <Grid Margin="10" ColumnDefinitions="0.2*,0.8*" RowSpacing="25">
                 <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
                        HeightRequest="25" />
                 <Label Grid.Column="1"
+                       FontSize="Medium"
                        Text="{Binding Title}"
                        FontAttributes="Italic"
                        VerticalTextAlignment="Center" />
@@ -55,30 +55,12 @@
 
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
-            <Grid Padding="24, 0, 24, 0">
-                <HorizontalStackLayout VerticalOptions="Center">
-                    <Image Source="logout_icon.png" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
-                    <Label Text="Logout" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+            <Grid Margin="10">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="logout_icon.png" HeightRequest="25" WidthRequest="25" Aspect="AspectFill"/>
+                    <Label Text="Logout" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
             </Grid>         
         </DataTemplate>
     </Shell.FlyoutFooterTemplate>
-
-       <!--<ShellContent Title="Cats"
-                 Icon="dotnet_bot.png"
-                 ContentTemplate="{DataTemplate ContentPages:AccountManagement}" />
-   <ShellContent Title="Dogs"
-                 Icon="dotnet_bot.png"
-                 ContentTemplate="{DataTemplate ContentPages:AccountManagement}" />-->
-
-    <!--<Shell.Items>
-            <FlyoutItem Title="Home">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="Dashboard"/>
-    </FlyoutItem>
-            <FlyoutItem Title="Home">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="Login"/>
-    </FlyoutItem>
-
-    </Shell.Items>-->
-
 </Shell>
