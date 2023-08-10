@@ -37,16 +37,16 @@
         </DataTemplate>
     </Shell.ItemTemplate>-->
 
-        <Shell.ItemTemplate>
+    <Shell.ItemTemplate>
         <DataTemplate>
-            <HorizontalStackLayout Margin="10">
+            <HorizontalStackLayout Margin="10" Spacing="10">
                 <Image Source="{Binding FlyoutIcon}"
-                       HeightRequest="25" />
+                        HeightRequest="25" />
                 <Label Grid.Column="1"
-                       FontSize="Medium"
-                       Text="{Binding Title}"
-                       FontAttributes="Italic"
-                       VerticalTextAlignment="Center" />
+                        FontSize="Medium"
+                    Text="{Binding Title}"
+                    FontAttributes="Italic"
+                    VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
         </DataTemplate>
     </Shell.ItemTemplate>
