@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="Innovex_Bank.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -9,13 +9,24 @@
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
     <Shell.FlyoutHeader>
+        <HorizontalStackLayout>
+            <Image Source="final_logo.png" WidthRequest="60"/>
+            <VerticalStackLayout>
+                <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Text="Innovex Bank" FontSize="Small" FontAttributes="None" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+    </Shell.FlyoutHeader>
+
+    <!--<Shell.FlyoutHeader>
         <StackLayout Padding="30">
             <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" Padding="10" HorizontalOptions="Center"/>
             <Line X1="0" Y1="0" X2="200" HorizontalOptions="Center" Y2="0" Stroke="{DynamicResource Gray300}" StrokeThickness="1"/>
         </StackLayout>
-    </Shell.FlyoutHeader>
+    </Shell.FlyoutHeader>-->
 
-    <FlyoutItem Title="Home">
+    <!--<FlyoutItem Title="Home">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="Dashboard"/>
     </FlyoutItem>
     <FlyoutItem Title="DashBoard">
@@ -41,6 +52,6 @@
         <StackLayout Padding="30">
             <Image Source="final_logo.png" WidthRequest="60"/>
         </StackLayout>
-    </Shell.FlyoutFooter>
+    </Shell.FlyoutFooter>-->
 
 </Shell>
