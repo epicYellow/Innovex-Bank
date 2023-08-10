@@ -23,7 +23,7 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    <Shell.ItemTemplate>
+    <!--<Shell.ItemTemplate>
         <DataTemplate>
             <Grid Margin="10" ColumnDefinitions="0.2*,0.8*" RowSpacing="25">
                 <Image Source="{Binding FlyoutIcon}"
@@ -34,6 +34,20 @@
                        FontAttributes="Italic"
                        VerticalTextAlignment="Center" />
             </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+
+        <Shell.ItemTemplate>
+        <DataTemplate>
+            <HorizontalStackLayout Margin="10">
+                <Image Source="{Binding FlyoutIcon}"
+                       HeightRequest="25" />
+                <Label Grid.Column="1"
+                       FontSize="Medium"
+                       Text="{Binding Title}"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
         </DataTemplate>
     </Shell.ItemTemplate>
 
@@ -55,8 +69,8 @@
 
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
-            <Grid Margin="10">
-                <HorizontalStackLayout Spacing="10">
+            <Grid>
+                <HorizontalStackLayout Spacing="10" Margin="24">
                     <Image Source="logout_icon.png" HeightRequest="25" WidthRequest="25" Aspect="AspectFill"/>
                     <Label Text="Logout" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
