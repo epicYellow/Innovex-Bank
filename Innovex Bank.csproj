@@ -30,6 +30,9 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -53,6 +56,12 @@
 	  <None Remove="Resources\Images\info_circle.svg" />
 	  <None Remove="Resources\Images\search.svg" />
     <None Remove="Resources\Images\loginback.png" />
+    <None Remove="Resources\Images\funds_icon.svg" />
+    <None Remove="Resources\Images\accounts_icon.svg" />
+    <None Remove="Resources\Images\staff_icon.svg" />
+    <None Remove="Resources\Images\clients_icon.svg" />
+    <None Remove="Resources\Images\dashboard_icon.svg" />
+    <None Remove="Resources\Images\logout_icon.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -110,4 +119,12 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\funds_icon.svg" />
+	  <BundleResource Include="Resources\Images\accounts_icon.svg" />
+	  <BundleResource Include="Resources\Images\staff_icon.svg" />
+	  <BundleResource Include="Resources\Images\clients_icon.svg" />
+	  <BundleResource Include="Resources\Images\dashboard_icon.svg" />
+	  <BundleResource Include="Resources\Images\logout_icon.svg" />
+	</ItemGroup>
 </Project>
