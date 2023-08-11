@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="Innovex_Bank.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -8,39 +8,73 @@
     Shell.FlyoutBehavior="Locked"
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
-    <Shell.FlyoutHeader>
-        <StackLayout Padding="30">
-            <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" Padding="10" HorizontalOptions="Center"/>
-            <Line X1="0" Y1="0" X2="200" HorizontalOptions="Center" Y2="0" Stroke="{DynamicResource Gray300}" StrokeThickness="1"/>
-        </StackLayout>
-    </Shell.FlyoutHeader>
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid Padding="24, 0">
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="final_logo.png" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                        <Label Text="viandupie@gmail.com" FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
 
-    <FlyoutItem Title="Home">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="Dashboard"/>
-    </FlyoutItem>
-    <FlyoutItem Title="DashBoard">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Accounts Management">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Staff Management">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Client Management">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:ClientManagement}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Funds Management">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Login">
-        <ShellContent ContentTemplate="{DataTemplate ContentPages:Login}"/>
-    </FlyoutItem>
+            </Grid>         
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
 
-    <Shell.FlyoutFooter>
-        <StackLayout Padding="30">
-            <Image Source="final_logo.png" WidthRequest="60"/>
-        </StackLayout>
-    </Shell.FlyoutFooter>
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Margin="10" ColumnDefinitions="0.2*,0.8*" RowSpacing="25">
+                <Image Source="{Binding FlyoutIcon}"
+                       HeightRequest="25" />
+                <Label Grid.Column="1"
+                       FontSize="Medium"
+                       Text="{Binding Title}"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
 
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <HorizontalStackLayout Margin="10" Spacing="10">
+                <Image Source="{Binding FlyoutIcon}"
+                        HeightRequest="25" />
+                <Label Grid.Column="1"
+                        FontSize="Medium"
+                    Text="{Binding Title}"
+                    FontAttributes="Italic"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <ShellContent Title="Dashboard"
+                  Icon="dashboard_icon.png"
+                  ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
+    <ShellContent Title="Clients"
+                  Icon="clients_icon.png"
+                  ContentTemplate="{DataTemplate ContentPages:ClientManagement}"/>
+    <ShellContent Title="Accounts"
+                  Icon="accounts_icon.png"
+                  ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
+    <ShellContent Title="Admins"
+                  Icon="staff_icon.png"
+                  ContentTemplate="{DataTemplate ContentPages:StaffManagement}"/>
+    <ShellContent Title="Funds"
+                  Icon="funds_icon.png"
+                  ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid>
+                <HorizontalStackLayout Spacing="10" Margin="24">
+                    <Image Source="logout_icon.png" HeightRequest="25" WidthRequest="25" Aspect="AspectFill"/>
+                    <Label Text="Logout" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Grid>         
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
 </Shell>
