@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
              x:Class="Innovex_Bank.ContentViews.PageHeader">
     
     <FlexLayout BackgroundColor="White" HeightRequest="65" Direction="Row" AlignContent="Center" AlignItems="Center" JustifyContent="SpaceBetween" Wrap="Wrap">
@@ -9,8 +10,8 @@
             <Ellipse VerticalOptions="Center" Fill="{DynamicResource Black}"
                  Aspect="Uniform"
                 WidthRequest="40"/>
-            <Label VerticalOptions="Center" Text="Reinhardt de Beer" TextColor="{DynamicResource Black}"/>
-            <Button Margin="30,0,0,0" Text="LogOut" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+            <Label VerticalOptions="Center" Text="Reinhardt de Beer" Margin="0,0,30,0" TextColor="{DynamicResource Black}"/>
+            <Controls:ButtonControl ButtonText="logOut" ButtonType="Primary"/>
         </HorizontalStackLayout>
     </FlexLayout>
     

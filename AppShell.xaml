@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:Innovex_Bank"
     xmlns:ContentPages="clr-namespace:Innovex_Bank.ContentPages"
     Shell.FlyoutBehavior="Locked"
+    Shell.NavBarIsVisible="False"
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
     <Shell.FlyoutHeaderTemplate>
@@ -15,10 +16,9 @@
                     <Image Source="final_logo.png" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
                     <VerticalStackLayout VerticalOptions="Center">
                         <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
-                        <Label Text="viandupie@gmail.com" FontSize="Small" FontAttributes="Bold" HorizontalOptions="Start"/>
+                        <Label Text="viandupie@gmail.com" FontSize="Small" HorizontalOptions="Start"/>
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
-
             </Grid>         
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -43,9 +43,8 @@
                 <Image Source="{Binding FlyoutIcon}"
                         HeightRequest="25" />
                 <Label Grid.Column="1"
-                        FontSize="Small"
+                        FontSize="18"
                     Text="{Binding Title}"
-                    
                     VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
         </DataTemplate>

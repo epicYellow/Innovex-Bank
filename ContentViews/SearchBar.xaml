@@ -4,6 +4,9 @@
              x:Class="Innovex_Bank.ContentViews.SearchBar">
 
     <Border Stroke="{DynamicResource Primary}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="3" />
+        </Border.StrokeShape>
         <HorizontalStackLayout MaximumHeightRequest="40" Spacing="20" Padding="10,0,15,0">
             <Entry HorizontalOptions="Center" MinimumHeightRequest="40" MinimumWidthRequest="160" Placeholder="Search Accounts..."/>
             <Image HorizontalOptions="Center" MaximumWidthRequest="25" MinimumHeightRequest="25" Source="search.png"/>

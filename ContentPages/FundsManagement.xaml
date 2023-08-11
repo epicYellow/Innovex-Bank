@@ -29,6 +29,6 @@
         
         <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
-        <Button Text="End Month" Margin="40" HorizontalOptions="EndAndExpand" VerticalOptions="End" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" MaximumWidthRequest="250" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+        <Controls:ButtonControl HorizontalOptions="EndAndExpand" Margin="40" ButtonText="End Month" ButtonType="Primary"/>
     </VerticalStackLayout>
 </ContentPage>

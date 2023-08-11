@@ -105,6 +105,9 @@
 	  <MauiXaml Update="ContentViews\AccountManagement\TransactionItem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentViews\Button.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\DashBoard\TransactionCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
