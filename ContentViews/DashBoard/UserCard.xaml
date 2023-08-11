@@ -17,15 +17,15 @@
         </HorizontalStackLayout>
 
 
-        <Button  WidthRequest="150" HeightRequest="40" Margin="20, 5, 50,0" Text="View" FontSize="20" CornerRadius="5" BorderColor="Black" HorizontalOptions="End" >
-            <Button.Shadow>
+        <Button  WidthRequest="150" HeightRequest="40" Margin="20, 5, 50,0" Text="View" FontSize="20" CornerRadius="0" BorderColor="Black" HorizontalOptions="End" >
+            <!--<Button.Shadow>
                  
                 <Shadow Brush="black"
                 Offset="3,3"
                 Radius="2"
                 Opacity="0.4" />
 
-            </Button.Shadow>
+            </Button.Shadow>-->
         </Button>
     </FlexLayout>
     

@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
 
-        <Controls:PageHeader PageTitle="Account Management"/>
+        <Controls:PageHeader PageTitle=""/>
 
         <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
             <Controls:TopSectionViewItem Title="Gold Cheque" Total="10"/>
