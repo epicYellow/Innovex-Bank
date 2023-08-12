@@ -30,8 +30,9 @@
                 
                 <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
 
-                <AddControls:UserCard></AddControls:UserCard>
-                <AddControls:UserCard></AddControls:UserCard>
+                <AddControls:UserCard Username="Justin Kopstert" Role="Admino"/>
+                <AddControls:UserCard Username="Reinels de Boar" Role="Adminoo"/>
+                <AddControls:UserCard Username="Vianna" Role="Adminooo"/>
 
             </VerticalStackLayout>
 

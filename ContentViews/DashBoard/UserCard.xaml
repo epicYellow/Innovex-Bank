@@ -11,8 +11,8 @@
             
 
             <VerticalStackLayout>
-                <Label Text="Justino Kopstert" FontAttributes="Bold" FontSize="20" TextColor="Black" />
-                <Label Text="Admin" FontSize="15" TextColor="black"/>
+                <Label TextColor="Black" Text="{Binding Username}" FontAttributes="Bold" FontSize="20"  />
+                <Label TextColor="Black" Text="{Binding Role}"  FontSize="15" />
             </VerticalStackLayout>
         </HorizontalStackLayout>
 
