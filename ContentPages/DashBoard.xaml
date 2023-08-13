@@ -61,19 +61,19 @@
                 <VerticalStackLayout Margin="0,50,0,0">
                     <Label Text="Recent Transactions" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
 
-                    <FlexLayout JustifyContent="SpaceBetween" Margin="25,20,25,0">
+                    <FlexLayout JustifyContent="SpaceBetween" Margin="25,20,25,0" >
 
                         <Label Text="Account Id" TextColor="Black" FontSize="20"/>
                         <Label Text="Client Id" TextColor="Black" FontSize="20"/>
                         <Label Text="Amount" TextColor="Black" FontSize="20"/>
-                        <Label Text="TimeStamp" TextColor="Black" FontSize="20"/>
+                        <Label Text="TimeStamp" TextColor="Black" FontSize="20" />
 
                     </FlexLayout>
                     <VerticalStackLayout>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
+                        <AddControls:TransactionCard AccountId="123" ClientId="123" Amount="R100.00" TimeStamp="11:19"/>
+                        <AddControls:TransactionCard AccountId="456" ClientId="465" Amount="R200.00" TimeStamp="12:19"/>
+                        <AddControls:TransactionCard AccountId="789" ClientId="789" Amount="R300.00" TimeStamp="13:19"/>
+                        <AddControls:TransactionCard AccountId="123" ClientId="123" Amount="R400.00" TimeStamp="14:19"/>
 
                         <AddControls:TransactionCard></AddControls:TransactionCard>
                     </VerticalStackLayout>
