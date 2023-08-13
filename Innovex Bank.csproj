@@ -108,6 +108,9 @@
 	  <MauiXaml Update="ContentViews\Button.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentViews\DashBoard\DashBoardFundsPool.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\DashBoard\TransactionCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
