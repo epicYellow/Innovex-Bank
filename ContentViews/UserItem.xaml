@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
              x:Class="Innovex_Bank.ContentViews.UserItem">
 
     <FlexLayout Wrap="Wrap" Margin="40,0,40,10" JustifyContent="SpaceBetween" AlignItems="Center" AlignContent="Center" MinimumHeightRequest="54" BackgroundColor="White" Padding="10,0,10,0">
@@ -11,8 +12,7 @@
         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100" Margin="5"/>
         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100" Margin="5"/>
         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="Name" MinimumWidthRequest="100" Margin="5"/>
-        <Button Text="Edit" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" Margin="5"
-                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+        <Controls:ButtonControl ButtonText="Edit" ButtonType="Secondary" Margin="5"/>
         <Image Source="info_circle.png" Margin="5,5,10,5"/>
     </FlexLayout>
     

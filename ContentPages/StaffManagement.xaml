@@ -8,12 +8,12 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
 
-            <Controls:PageHeader PageTitle="Staff Management"/>
+            <Controls:PageHeader PageTitle=""/>
 
             <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
                 <Label Text="Total Staff: 256" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
                 <Controls:SearchBar/>
-                <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="Black" BorderWidth="0"/>
+                <Controls:ButtonControl ButtonText="Add Staff" ButtonType="Primary"/>
             </FlexLayout>
 
             <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>

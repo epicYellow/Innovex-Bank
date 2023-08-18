@@ -9,7 +9,7 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
 
-        <Controls:PageHeader PageTitle="Account Management"/>
+        <Controls:PageHeader PageTitle=""/>
 
         <FlexLayout Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
             <Controls:TopSectionViewItem Title="Gold Cheque" Total="10"/>
@@ -36,8 +36,8 @@
                
                 <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
                     <Controls:SearchBar/>
-                    <Button Text="Add New Account" TextColor="{DynamicResource TersWhite}" MaximumHeightRequest="40" CornerRadius="0" BackgroundColor="{DynamicResource Black}" BorderWidth="0"/>
-                </FlexLayout>
+                        <Controls:ButtonControl ButtonText="Add Account" ButtonType="Primary"/>
+                    </FlexLayout>
                
             </VerticalStackLayout>
            
@@ -67,12 +67,11 @@
                     <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
                     <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="Accountholder Name" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
 
-                    <Button Grid.Column="0" HorizontalOptions="Start" Grid.Row="1" Text="Sort" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
-                        BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1" Margin="0,20,0,20"/>
-                    <Button Grid.Column="1" HorizontalOptions="End" Grid.Row="1" Text="Filter" TextColor="{DynamicResource Black}" MaximumHeightRequest="40" MinimumWidthRequest="130"
-                         BorderColor="{DynamicResource Black}" CornerRadius="0" BackgroundColor="Transparent" BorderWidth="1"/>
+                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="0" MinimumWidthRequest="130" HorizontalOptions="Start" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
 
-                </Grid>
+                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="1" MinimumWidthRequest="130" HorizontalOptions="End" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
+
+                    </Grid>
                 <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 

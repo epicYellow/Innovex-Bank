@@ -10,10 +10,9 @@
         <Controls:PageHeader />
 
         <FlexLayout  Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
-            <Controls:TopSectionViewItem />
+            <Controls:TopSectionViewItem Title="Total Clients" Total="10"/>
+            <Controls:TopSectionViewItem Title="Total Admin Staff" Total="100"/>
+            <Controls:TopSectionViewItem Title="Total Cheque and Savings Accounts" Total="99"/>
         </FlexLayout>
         
         <BoxView BackgroundColor="Black"  HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="10"/>
@@ -27,10 +26,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            
-                
-            
-
             <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
                 
                 <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
@@ -41,11 +36,11 @@
             </VerticalStackLayout>
 
 
-            <VerticalStackLayout Grid.Column="1"  Margin="0,50,0,0"  >
+            <VerticalStackLayout  Grid.Column="1"  Margin="0,50,0,0"  >
                 <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" />
                 <Label Text="Funds pool description" TextColor="Black" Margin="5, 20, 0, 0"></Label>
 
-                <VerticalStackLayout >
+                <VerticalStackLayout BackgroundColor="White">
                     <Label Text="R10 000 000" TextColor="#252B63" FontSize="40" Margin="0, 20, 0, 0" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                     <FlexLayout JustifyContent="SpaceBetween" HorizontalOptions="Center" Margin="0, 20, 0, 0" WidthRequest="500">
                         <VerticalStackLayout >
