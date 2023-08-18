@@ -68,6 +68,8 @@
     <None Remove="Resources\Images\clients_icon.svg" />
     <None Remove="Resources\Images\dashboard_icon.svg" />
     <None Remove="Resources\Images\logout_icon.svg" />
+    <None Remove="Services\" />
+    <None Remove="Models\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -135,5 +137,9 @@
 	  <BundleResource Include="Resources\Images\clients_icon.svg" />
 	  <BundleResource Include="Resources\Images\dashboard_icon.svg" />
 	  <BundleResource Include="Resources\Images\logout_icon.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Services\" />
+	  <Folder Include="Models\" />
 	</ItemGroup>
 </Project>
