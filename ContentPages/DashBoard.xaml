@@ -10,12 +10,22 @@
         <Controls:PageHeader />
 
         <FlexLayout  Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
-            <Controls:TopSectionViewItem Title="Total Clients" Total="10"/>
-            <Controls:TopSectionViewItem Title="Total Admin Staff" Total="100"/>
-            <Controls:TopSectionViewItem Title="Total Cheque and Savings Accounts" Total="99"/>
+            <Controls:TopSectionViewItem 
+                Title="Total Clients" 
+                Total="10"/>
+            <Controls:TopSectionViewItem 
+                Title="Total Admin Staff" 
+                Total="100"/>
+            <Controls:TopSectionViewItem 
+                Title="Total Cheque and Savings Accounts" 
+                Total="99"/>
         </FlexLayout>
         
-        <BoxView BackgroundColor="Black"  HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="10"/>
+        <BoxView 
+            BackgroundColor="Black"  
+            HeightRequest="2" 
+            HorizontalOptions="FillAndExpand" 
+            Margin="10"/>
         <Grid>
             
             <Grid.RowDefinitions>
@@ -28,51 +38,90 @@
 
             <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
                 
-                <Label Text="User OverView" TextColor="Black" FontSize="Large" FontAttributes="Bold" Margin="25, 0, 0, 0"/>
+                <Label 
+                    Text="User OverView" 
+                    TextColor="Black" 
+                    FontSize="Large" 
+                    FontAttributes="Bold" 
+                    Margin="25, 0, 0, 0"/>
 
-                <AddControls:UserCard></AddControls:UserCard>
-                <AddControls:UserCard></AddControls:UserCard>
+                <AddControls:UserCard 
+                    Username="Justin Kopstert" 
+                    Role="Admino"/>
+                <AddControls:UserCard 
+                    Username="Reinels de Boar" 
+                    Role="Adminoo"/>
+                <AddControls:UserCard 
+                    Username="Vianna" 
+                    Role="Adminooo"/>
 
             </VerticalStackLayout>
 
 
             <VerticalStackLayout  Grid.Column="1"  Margin="0,50,0,0"  >
-                <Label Text="Funds" TextColor="Black" FontSize="Large" FontAttributes="Bold" />
-                <Label Text="Funds pool description" TextColor="Black" Margin="5, 20, 0, 0"></Label>
+                <Label 
+                    Text="Funds" 
+                    TextColor="Black" 
+                    FontSize="Large" 
+                    FontAttributes="Bold" />
+                <Label 
+                    Text="Funds pool description" 
+                    TextColor="Black" 
+                    Margin="5, 20, 0, 0"/>
 
-                <VerticalStackLayout BackgroundColor="White">
-                    <Label Text="R10 000 000" TextColor="#252B63" FontSize="40" Margin="0, 20, 0, 0" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                    <FlexLayout JustifyContent="SpaceBetween" HorizontalOptions="Center" Margin="0, 20, 0, 0" WidthRequest="500">
-                        <VerticalStackLayout >
-                            <Label Text="Total Withdrawn:" TextColor="Black" HorizontalOptions="Center" />
-                            <Label Text="R10 000 000" TextColor="red" FontSize="25" FontAttributes="Bold"/>
-                        </VerticalStackLayout>
-                        <VerticalStackLayout>
-                            <Label Text="18%" TextColor="green" HorizontalOptions="Center"/>
-                        </VerticalStackLayout>
-                        <VerticalStackLayout>
-                            <Label Text="Total Deposited:" TextColor="Black" HorizontalOptions="Center"/>
-                            <Label Text="R10 000 000" TextColor="Green" FontSize="25" FontAttributes="Bold"/>
+                <AddControls:DashBoardFundsPool 
+                    TotalFunds="R10 000,00" 
+                    TotalWithdrawn="R10 000,00" 
+                    TotalDesposited="R10 000,00"/>
 
-                        </VerticalStackLayout>
-                    </FlexLayout>
-                </VerticalStackLayout>
                 <VerticalStackLayout Margin="0,50,0,0">
-                    <Label Text="Recent Transactions" TextColor="Black" FontSize="Large" FontAttributes="Bold"/>
+                    <Label 
+                        Text="Recent Transactions" 
+                        TextColor="Black" 
+                        FontSize="Large" 
+                        FontAttributes="Bold"/>
 
-                    <FlexLayout JustifyContent="SpaceBetween" Margin="25,20,25,0">
+                    <FlexLayout JustifyContent="SpaceBetween" Margin="25,20,25,0" >
 
-                        <Label Text="Account Id" TextColor="Black" FontSize="20"/>
-                        <Label Text="Client Id" TextColor="Black" FontSize="20"/>
-                        <Label Text="Amount" TextColor="Black" FontSize="20"/>
-                        <Label Text="TimeStamp" TextColor="Black" FontSize="20"/>
+                        <Label 
+                            Text="Account Id" 
+                            TextColor="Black" 
+                            FontSize="20"/>
+                        <Label 
+                            Text="Client Id" 
+                            TextColor="Black" 
+                            FontSize="20"/>
+                        <Label 
+                            Text="Amount" 
+                            TextColor="Black" 
+                            FontSize="20"/>
+                        <Label 
+                            Text="TimeStamp" 
+                            TextColor="Black" 
+                            FontSize="20" />
 
                     </FlexLayout>
                     <VerticalStackLayout>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
-                        <AddControls:TransactionCard></AddControls:TransactionCard>
+                        <AddControls:TransactionCard 
+                            AccountId="123" 
+                            ClientId="123" 
+                            Amount="R100.00" 
+                            TimeStamp="11:19"/>
+                        <AddControls:TransactionCard 
+                            AccountId="456" 
+                            ClientId="465" 
+                            Amount="R200.00" 
+                            TimeStamp="12:19"/>
+                        <AddControls:TransactionCard 
+                            AccountId="789" 
+                            ClientId="789" 
+                            Amount="R300.00" 
+                            TimeStamp="13:19"/>
+                        <AddControls:TransactionCard 
+                            AccountId="123" 
+                            ClientId="123" 
+                            Amount="R400.00" 
+                            TimeStamp="14:19"/>
 
                         <AddControls:TransactionCard></AddControls:TransactionCard>
                     </VerticalStackLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentViews.DashBoard.DashBoardFundsPool">
+    
+    <VerticalStackLayout>
+        <VerticalStackLayout BackgroundColor="White">
+            <Label Text="{Binding TotalFunds}" 
+                   TextColor="#252B63" 
+                   FontSize="40" 
+                   Margin="0, 20, 0, 0" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+            
+            <FlexLayout JustifyContent="SpaceBetween" 
+                        HorizontalOptions="Center" 
+                        Margin="0, 20, 0, 0" 
+                        WidthRequest="500">
+
+                <VerticalStackLayout >
+                    <Label 
+                        Text="Total Withdrawn:" 
+                        TextColor="Black" 
+                        HorizontalOptions="Center" />
+                    <Label 
+                        Text="{Binding TotalWithdrawn}" 
+                        TextColor="red" 
+                        FontSize="25" 
+                        FontAttributes="Bold"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout>
+                    <Label 
+                        Text="18%" 
+                        TextColor="green" 
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout>
+                    <Label 
+                        Text="Total Deposited:" 
+                        TextColor="Black" 
+                        HorizontalOptions="Center"/>
+                    <Label 
+                        Text="{Binding TotalDesposited}" 
+                        TextColor="Green" 
+                        FontSize="25" 
+                        FontAttributes="Bold"/>
+                </VerticalStackLayout>
+                
+            </FlexLayout>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentView>

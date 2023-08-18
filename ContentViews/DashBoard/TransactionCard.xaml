@@ -4,10 +4,22 @@
              x:Class="Innovex_Bank.ContentViews.DashBoard.TransactionCard">
 
     <FlexLayout JustifyContent="SpaceBetween" Margin="30,30,60,0">
-        <Label Text="0000000" TextColor="black"/>
-        <Label Text="0000000" TextColor="black"/>
-        <Label Text="R250.00" TextColor="black"/>
-        <Label Text="15:21" TextColor="black"/>
+        <Label Text="{Binding AccountId}" 
+               TextColor="black" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Label Text="{Binding ClientId}" 
+               TextColor="black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Label Text="{Binding Amount}" 
+               TextColor="black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+        <Label Text="{Binding TimeStamp}" 
+               TextColor="black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
     </FlexLayout>
     
