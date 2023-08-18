@@ -49,9 +49,9 @@
             </FlexLayout>
 
             <StackLayout VerticalOptions="Fill">
-                <Controls:UserItem/>
-                <Controls:UserItem/>
-                <Controls:UserItem/>
+                <Controls:UserItem AdminUsername="Justino" AdminType="silver" AdminNameSurname="Justino Kopstert" AdminIdNumber="12345678954" AdminIncome="R50,000"/>
+                <Controls:UserItem AdminUsername="Reinels" AdminType="Gold" AdminNameSurname="Reinels De Boar" AdminIdNumber="12345678954" AdminIncome="R52,000"/>
+                <Controls:UserItem AdminUsername="Vianna" AdminType="Platinum" AdminNameSurname="Vianna nana" AdminIdNumber="12345678954" AdminIncome="R54,000"/>
             </StackLayout>
 
         </StackLayout>

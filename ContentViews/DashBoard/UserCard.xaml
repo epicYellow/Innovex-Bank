@@ -34,7 +34,7 @@
             Text="View" 
             FontSize="20" 
             CornerRadius="0" 
-            orderColor="Black" 
+            BorderColor="Black" 
             HorizontalOptions="End" >
             <!--<Button.Shadow>
                  
