@@ -11,7 +11,6 @@ public partial class UserItem : ContentView
     public static BindableProperty AdminTypeProperty =
     BindableProperty.Create(nameof(AdminType), typeof(string), typeof(TransactionCard), default(string));
 
-
     public static BindableProperty AdminNameSurnameProperty =
     BindableProperty.Create(nameof(AdminNameSurname), typeof(string), typeof(TransactionCard), default(string));
 
