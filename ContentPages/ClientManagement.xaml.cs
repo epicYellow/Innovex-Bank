@@ -1,6 +1,6 @@
 namespace Innovex_Bank.ContentPages;
 
-public partial class ClientManagement : ContentView
+public partial class ClientManagement : ContentPage
 {
 	public ClientManagement()
 	{
