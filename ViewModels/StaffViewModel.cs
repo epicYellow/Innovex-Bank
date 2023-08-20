@@ -29,7 +29,6 @@ namespace Innovex_Bank.ViewModels
 				Debug.WriteLine(staffMember.Username);
 			}
 		}
-		
 	}
 }
 

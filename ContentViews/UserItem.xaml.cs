@@ -20,7 +20,6 @@ public partial class UserItem : ContentView
     public static BindableProperty AdminIncomeProperty =
     BindableProperty.Create(nameof(AdminIncome), typeof(string), typeof(TransactionCard), default(string));
 
-
     public string AdminUsername
     {
         get => (string)GetValue(AdminUsernameProperty);

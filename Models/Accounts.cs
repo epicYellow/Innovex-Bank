@@ -9,6 +9,7 @@ namespace Innovex_Bank.Models
      public class Accounts
     {
         public int Id { get; set; }
+
         public string Account_number { get; set; } = string.Empty;
 
         public int Type_id { get; set;} = int.MaxValue;
