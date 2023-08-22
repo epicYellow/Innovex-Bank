@@ -9,6 +9,20 @@
     Shell.NavBarIsVisible="False"
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
+    <ShellContent 
+        ContentTemplate="{DataTemplate ContentPages:Loading}" 
+        Route="LoadingPage" 
+        Title="Loading"
+        Shell.FlyoutBehavior="Disabled"
+        />
+
+    <ShellContent 
+        ContentTemplate="{DataTemplate ContentPages:Login}" 
+        Route="LoginPage" 
+        Title="Login"
+        Shell.FlyoutBehavior="Disabled"
+        />
+
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid Padding="24, 30">

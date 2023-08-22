@@ -86,6 +86,9 @@
 	  <MauiXaml Update="ContentPages\DashBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\Loading.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -142,7 +145,6 @@
 	  <BundleResource Include="Resources\Images\logout_icon.svg" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Services\" />
 	  <Folder Include="Models\" />
 	</ItemGroup>
 </Project>

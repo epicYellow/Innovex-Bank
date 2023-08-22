@@ -22,11 +22,19 @@
 
         <VerticalStackLayout Grid.Column="1"  VerticalOptions="Center">
             <Label Text="Sign in" FontSize="50" TextColor="Black" Margin="100, 0, 0, 100" FontAttributes="Bold"/>
-            <Entry Placeholder="Email username" 
+            <Entry Placeholder="Enter Email" 
                    Text="{Binding Text}"
                    Margin="150, 0, 150,0" 
-                   TextColor="Black" />
-            <Entry Text="Password" Margin="150, 25, 150, 100" TextColor="Black" IsPassword="True"  />
+                   TextColor="Black" 
+                   BackgroundColor="LightGray"
+                   />
+            <Entry Text="{Binding Text}" 
+                   Margin="150, 25, 150, 100" 
+                   TextColor="Black" 
+                   IsPassword="True" 
+                   Placeholder="Enter Password"
+                   BackgroundColor="LightGray"
+                   />
             <Button Text="Sign in" WidthRequest="400" CornerRadius="2" BackgroundColor="Black" TextColor="white" FontAttributes="Bold" FontSize="Large"/>
         </VerticalStackLayout>
 
