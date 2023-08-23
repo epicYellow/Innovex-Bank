@@ -25,6 +25,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<AuthService>();
         builder.Services.AddTransient<Loading>();
+        builder.Services.AddTransient<Login>();
+        builder.Services.AddTransient<DashBoard>();
+
 
         return builder.Build();
 	}

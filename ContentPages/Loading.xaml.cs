@@ -18,7 +18,7 @@ public partial class Loading : ContentPage
 
         if (await _authService.IsAuthenticatedAsync())
         {
-            await Shell.Current.GoToAsync($"//{nameof(Login)}");
+            await Shell.Current.GoToAsync($"//{nameof(DashBoard)}");
         }
         else
         {

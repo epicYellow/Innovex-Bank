@@ -12,7 +12,9 @@ public partial class AppShell : Shell
         InitializeComponent();
 
         // All routes that can be navigated to outside our flyout nav
+        Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
         Routing.RegisterRoute(nameof(Login), typeof(Login));
+        Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
     }
 
     async protected override void OnAppearing()

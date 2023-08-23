@@ -10,17 +10,18 @@
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
     <ShellContent 
-        ContentTemplate="{DataTemplate ContentPages:Loading}" 
-        Route="Loading" 
-        Title="Loading"
+        ContentTemplate="{DataTemplate ContentPages:Login}" 
+        Route="Login" 
+        Title="Login"
+        FlyoutItemIsVisible="False"
         Shell.FlyoutBehavior="Disabled"
         />
 
     <ShellContent 
-        ContentTemplate="{DataTemplate ContentPages:Login}" 
-        Route="Login" 
-        Title="Login"
-        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate ContentPages:DashBoard}" 
+        Route="DashBoard" 
+        Title="DashBoard"
+        Icon="dashboard_icon.png"
         />
 
     <Shell.FlyoutHeaderTemplate>
@@ -64,12 +65,9 @@
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    <ShellContent Title="Dashboard"
-                  Icon="dashboard_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
     <ShellContent Title="Clients"
-                  Icon="clients_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:ClientManagement}"/>
+                  ContentTemplate="{DataTemplate ContentPages:ClientManagement}"
+                  Icon="clients_icon.png"/>
     <ShellContent Title="Accounts"
                   Icon="accounts_icon.png"
                   ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
@@ -79,9 +77,7 @@
     <ShellContent Title="Funds"
                   Icon="funds_icon.png"
                   ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
-    <ShellContent Title="Login(temp)"
-                  Icon="funds_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:Login}"/>
+   
 
     <!--<Shell.FlyoutFooterTemplate>
         <DataTemplate>
