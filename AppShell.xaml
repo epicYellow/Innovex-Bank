@@ -11,14 +11,14 @@
 
     <ShellContent 
         ContentTemplate="{DataTemplate ContentPages:Loading}" 
-        Route="LoadingPage" 
+        Route="Loading" 
         Title="Loading"
         Shell.FlyoutBehavior="Disabled"
         />
 
     <ShellContent 
         ContentTemplate="{DataTemplate ContentPages:Login}" 
-        Route="LoginPage" 
+        Route="Login" 
         Title="Login"
         Shell.FlyoutBehavior="Disabled"
         />

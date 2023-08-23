@@ -4,8 +4,7 @@ namespace Innovex_Bank.ContentPages;
 
 public partial class Loading : ContentPage
 {
-
-	private AuthService _authService;
+	private readonly AuthService _authService;
 	public Loading(AuthService authService)
 	{
 		InitializeComponent();
@@ -13,18 +12,17 @@ public partial class Loading : ContentPage
 		_authService = authService;
 	}
 
-
-
-	// Run the check auth function
-    protected async override void OnNavigatedTo(NavigatedToEventArgs args)
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
 
-		if(_authService.IsAuthenticated())
-		{
-            await Shell.Current.GoToAsync($"//{nameof(DashBoard)}");
-		}
-
-		await Shell.Current.GoToAsync($"//{nameof(Login)}");
+        if (await _authService.IsAuthenticatedAsync())
+        {
+            await Shell.Current.GoToAsync($"//{nameof(Login)}");
+        }
+        else
+        {
+            await Shell.Current.GoToAsync($"//{nameof(Login)}");
+        }
     }
 }

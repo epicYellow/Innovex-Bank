@@ -28,7 +28,7 @@ namespace Innovex_Bank.ViewModels
             AllTransactions = new ObservableCollection<Transactions>();
         }
 
-        public async Task getAllAccounts()
+        public void GetAllAccounts()
         {
             //uncomment and implement
             //var Items = await _rest.RefreshDataAsync();

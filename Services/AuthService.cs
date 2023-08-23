@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Storage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -18,8 +19,10 @@ namespace Innovex_Bank.Services
         }
 
         // Check Authentication
-        public bool IsAuthenticated()
+        public async Task<bool> IsAuthenticatedAsync()
         {
+
+
             // Getting local storage state of the auth
             var authState = Preferences.Default.Get<bool>(AuthStateKey, false);
 

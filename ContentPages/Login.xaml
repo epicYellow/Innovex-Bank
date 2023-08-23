@@ -5,21 +5,16 @@
              BackgroundColor="white"
              xmlns:viewmodel="clr-namespace:Innovex_Bank.ViewModels"
              x:DataType="viewmodel:LoginVModel"
-             
+             Title="Login"
              >
-
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        
-
         <Image Source="loginback.png" Aspect="Fill"/>
         
-
         <VerticalStackLayout Grid.Column="1"  VerticalOptions="Center">
             <Label Text="Sign in" FontSize="50" TextColor="Black" Margin="100, 0, 0, 100" FontAttributes="Bold"/>
             <Entry Placeholder="Enter Email" 

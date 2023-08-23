@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Innovex_Bank.ContentPages;
+using Innovex_Bank.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Innovex_Bank;
 
@@ -21,6 +23,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+		builder.Services.AddTransient<AuthService>();
+        builder.Services.AddTransient<Loading>();
+
+        return builder.Build();
 	}
 }
