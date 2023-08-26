@@ -142,7 +142,6 @@
 	  <BundleResource Include="Resources\Images\logout_icon.svg" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Services\" />
 	  <Folder Include="Models\" />
 	</ItemGroup>
 </Project>
