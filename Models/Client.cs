@@ -19,6 +19,5 @@ namespace Innovex_Bank.Models
         public string Phone_number { get; set; }
         public bool Employment_status { get; set;}
         public float Monthly_income { get; set;}
-    
     }
 }

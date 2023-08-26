@@ -54,9 +54,51 @@
                     <DataTemplate>
                         <ViewCell>
                             <ContentView>
-                                <Controls:UserItem AdminUsername="First Name" AdminType=""
-                                AdminNameSurname="Surname" AdminIdNumber="IdNumber"
-                                AdminIncome="Income"/>
+
+                                <!--ek weet nie hoekom hierdie nie werk nie-->
+                                <!--<Controls:ClientUser First_name="{Binding First_name}"
+                                    Type="Client"
+                                    Last_name="{Binding Last_name}"
+                                    Id_number="{Binding Id_number}"
+                                    Monthly_income="{Binding Monthly_income}"/>-->
+
+                                <FlexLayout Wrap="Wrap" Margin="40,0,40,10" JustifyContent="SpaceBetween" AlignItems="Center" AlignContent="Center" MinimumHeightRequest="54" BackgroundColor="White" Padding="10,0,10,0">
+                                    <VerticalStackLayout VerticalOptions="Center" Margin="10,0,5,0">
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding First_name}" 
+                                        MinimumWidthRequest="100"/>
+                                    <Label 
+                                        FontSize="Caption" 
+                                        TextColor="{DynamicResource AppGray}" 
+                                        Text="Client"/>
+                                    </VerticalStackLayout>
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding Last_name}" 
+                                        MinimumWidthRequest="100" Margin="5"/>
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding Id_number}" 
+                                        MinimumWidthRequest="100" 
+                                        Margin="5"/>
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding Monthly_income}" 
+                                        MinimumWidthRequest="100" 
+                                        Margin="5"/>
+                                    <Controls:ButtonControl 
+                                        ButtonText="Edit" 
+                                        ButtonType="Secondary" 
+                                        Margin="5"/>
+                                    <Image 
+                                        Source="info_circle.png" 
+                                        Margin="5,5,10,5"/>
+                                </FlexLayout>
                             </ContentView>
                         </ViewCell>
                     </DataTemplate>
