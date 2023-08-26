@@ -4,17 +4,19 @@ using System.Text.Json;
 using Innovex_Bank.Models;
 namespace Innovex_Bank.Services
 {
-	public class RestService: IRestService
+	public class RestService : IRestService
 	{
-        // Define httpClient
-        readonly HttpClient _client;
-        readonly JsonSerializerOptions _serializerOptions;
+		// Define httpClient
+		readonly HttpClient _client;
+		readonly JsonSerializerOptions _serializerOptions;
 
 		// Base API URL
 		internal string baseUrl = "https://localhost:7230/api/StaffModels";
+		internal string clientsUrl = "https://localhost:7230/api/Clients";
 
-		// List of Staff
-		public List<StaffModel> Items { get; private set; }
+        // List of Staff
+        public List<StaffModel> Items { get; private set; }
+		public List<Client> Clients { get; private set; }
 
 		// Creating httpClient
 		public RestService()
@@ -49,6 +51,29 @@ namespace Innovex_Bank.Services
 
 			return Items;
 		}
-	}
+
+        public async Task<List<Client>> RefreshClientAsync()
+        {
+            Clients = new List<Client>();
+
+            Uri uri = new(string.Format(clientsUrl, string.Empty));
+
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Clients = JsonSerializer.Deserialize<List<Client>>(content, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Clients;
+        }
+    }
 }
 

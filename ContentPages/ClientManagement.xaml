@@ -48,11 +48,20 @@
                 <Image Source="info_circle.png" Margin="5,5,10,5"/>
             </FlexLayout>
 
-            <StackLayout VerticalOptions="Fill">
-                <Controls:UserItem AdminUsername="Justino" AdminType="silver" AdminNameSurname="Justino Kopstert" AdminIdNumber="12345678954" AdminIncome="R50,000"/>
-                <Controls:UserItem AdminUsername="Reinels" AdminType="Gold" AdminNameSurname="Reinels De Boar" AdminIdNumber="12345678954" AdminIncome="R52,000"/>
-                <Controls:UserItem AdminUsername="Vianna" AdminType="Platinum" AdminNameSurname="Vianna nana" AdminIdNumber="12345678954" AdminIncome="R54,000"/>
-            </StackLayout>
+            <!--<StackLayout VerticalOptions="Fill">-->
+            <ListView ItemsSource="{Binding AllClients}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <Controls:UserItem AdminUsername="First Name" AdminType=""
+                                AdminNameSurname="Surname" AdminIdNumber="IdNumber"
+                                AdminIncome="Income"/>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </StackLayout>
     </ScrollView>

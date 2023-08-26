@@ -1,4 +1,5 @@
 ﻿using Innovex_Bank.Models;
+using Innovex_Bank.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,23 +13,24 @@ namespace Innovex_Bank.ViewModels
     class ClientManagementViewModel : BaseViewModel
     {
         //add rests
+        public RestService _rest;
         public ObservableCollection<Client> AllClients { get; set; }
 
         //remove void and add rest return type
-        public void AccountsViewModel()
+        public ClientManagementViewModel(RestService restService)
         {
+            _rest = restService;
             AllClients = new ObservableCollection<Client>();
         }
 
-        public async Task getAllTransactions()
+        public async Task getAllClients()
         {
-            //uncomment and implement
-            //var Items = await _rest.RefreshDataAsync();
+            var Items = await _rest.RefreshClientAsync();
             AllClients.Clear();
-            foreach (var transactions in AllClients)
+            foreach (var clients in Items)
             {
-                AllClients.Add(transactions);
-                Debug.WriteLine(transactions);
+                AllClients.Add(clients);
+                Debug.WriteLine(clients);
             }
         }
     }
