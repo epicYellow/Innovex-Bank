@@ -147,7 +147,4 @@
 	  <BundleResource Include="Resources\Images\dashboard_icon.svg" />
 	  <BundleResource Include="Resources\Images\logout_icon.svg" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Services\" />
-	</ItemGroup>
 </Project>

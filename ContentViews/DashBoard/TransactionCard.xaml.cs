@@ -16,12 +16,11 @@ public partial class TransactionCard : ContentView
         // BindingContext = this;
     }
 
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await _TransactionviewModel.FetchAllTransactions();
-    }
-
+    //protected override async void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    await _TransactionviewModel.FetchAllTransactions();
+    //}
 
     public static BindableProperty AccountIdProperty =
       BindableProperty.Create(nameof(AccountId), typeof(string), typeof(TransactionCard), default(string));

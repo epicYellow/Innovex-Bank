@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Innovex_Bank.Models;
+using Innovex_Bank.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,17 +11,18 @@ using System.Threading.Tasks;
 
 namespace Innovex_Bank.ViewModels
 {
-    
-
+  
     class AccountManageViewModel : BaseViewModel
     {
         //add rests
+        public RestService _rest;
         public ObservableCollection<Accounts> AllAccounts { get; set; }
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
         //remove void and add rest return type
-        public void AccountsViewModel()
+        public AccountManageViewModel(RestService restService)
         {
+            _rest = restService;
             AllAccounts = new ObservableCollection<Accounts>();
         }
         public void TransactionsViewModel()
@@ -31,9 +33,9 @@ namespace Innovex_Bank.ViewModels
         public async Task getAllAccounts()
         {
             //uncomment and implement
-            //var Items = await _rest.RefreshDataAsync();
+            var Items = await _rest.RefreshAccountsync();
             AllAccounts.Clear();
-            foreach (var account in AllAccounts)
+            foreach (var account in Items)
             {
                 AllAccounts.Add(account);
                 Debug.WriteLine(account);
@@ -51,6 +53,5 @@ namespace Innovex_Bank.ViewModels
                 Debug.WriteLine(transactions);
             }
         }
-
     }
 }

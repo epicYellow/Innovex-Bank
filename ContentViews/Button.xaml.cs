@@ -2,6 +2,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Input;
 
 namespace Innovex_Bank.ContentViews;
 
@@ -69,11 +70,6 @@ public partial class ButtonControl : ContentView
         }
     }
 
-    private void Test(object sender, EventArgs e)
-    {
-        Debug.WriteLine(ButtonType);
-    }
-
     private void checkButtonType()
     {
         Debug.WriteLine(ButtonType);
@@ -91,5 +87,4 @@ public partial class ButtonControl : ContentView
             ButtonTextColor = Color.FromRgb(37, 43, 99);
         }
     }
-
 }

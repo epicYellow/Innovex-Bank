@@ -7,6 +7,8 @@ public partial class AppShell : Shell
 	public AppShell()
     {
         InitializeComponent();
+
+        Routing.RegisterRoute("AddClient", typeof(AddClient));
     }
 
     async protected override void OnAppearing()
