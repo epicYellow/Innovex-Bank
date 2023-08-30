@@ -11,7 +11,7 @@ public partial class ClientManagement : ContentPage
 	{
 		InitializeComponent();
 
-		_viewModel = new ClientManagementViewModel(new Services.RestService());
+		_viewModel = new ClientManagementViewModel(new Services.ClientRestService());
 
         BindingContext = _viewModel;
     }

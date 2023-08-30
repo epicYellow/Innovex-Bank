@@ -30,10 +30,8 @@ namespace Innovex_Bank.ViewModels
             {
                 TransactionList.Add(item);
                 Debug.WriteLine(item.Amount);
+                Debug.WriteLine(item.Account_Id);
             }
         }
-
-        
-
     }
 }

@@ -9,8 +9,6 @@ namespace Innovex_Bank.Services
         // Get all Staff Members
        Task<List<StaffModel>> RefreshDataAsync();
 
-        Task<List<Client>> RefreshClientAsync();
-
         Task<List<Accounts>> RefreshAccountsync();
 
     }

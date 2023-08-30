@@ -20,6 +20,12 @@ public partial class ClientUser : ContentView
     public static BindableProperty Monthly_incomeProperty =
     BindableProperty.Create(nameof(Monthly_income), typeof(string), typeof(ClientUser), default(string));
 
+    public static BindableProperty Account_numberProperty =
+BindableProperty.Create(nameof(Account_number), typeof(string), typeof(ClientUser), default(string));
+
+    public static BindableProperty Type_idProperty =
+BindableProperty.Create(nameof(Type_id), typeof(string), typeof(ClientUser), default(string));
+
     public string First_name
     {
         get => (string)GetValue(First_nameProperty);
@@ -27,6 +33,18 @@ public partial class ClientUser : ContentView
     }
 
     public string Type
+    {
+        get => (string)GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
+    }
+
+    public string Account_number
+    {
+        get => (string)GetValue(First_nameProperty);
+        set => SetValue(First_nameProperty, value);
+    }
+
+    public string Type_id
     {
         get => (string)GetValue(TypeProperty);
         set => SetValue(TypeProperty, value);

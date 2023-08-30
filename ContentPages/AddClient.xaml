@@ -2,11 +2,66 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Innovex_Bank.ContentPages.AddClient"
-             Title="AddClient">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="AddClient"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+    
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                <Label FontSize="Medium" TextColor="Black" Text="Add Client"/>
+            </FlexLayout>
+
+            <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+            <Grid RowSpacing="20"
+                  Padding="20"
+          ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="First Name" Text="{Binding First_name}" />
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Id Number" Text="{Binding Id_number}"/>
+
+                <Label TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="Body" Text="Date of birth"/>
+                <DatePicker TextColor="Black" Grid.Column="0" Grid.Row="2" Date="{Binding Date_of_birth}"/>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="3" Placeholder="Address" Grid.ColumnSpan="2" Text="{Binding Address}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="4" Placeholder="Phone Number" Grid.ColumnSpan="2" Text="{Binding Phone_number}"/>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="Last Name" Text="{Binding Last_name}"/>
+
+                <CheckBox Color="{DynamicResource Active}" Grid.Column="2" Grid.Row="1"  IsChecked="{Binding Employment_status}" />
+                <Label TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Grid.Column="3" Grid.Row="1" FontSize="Body" Text="Employed"/>
+
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Title="Gender" SelectedItem="{Binding Gender}">
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Placeholder="Email" Text="{Binding Email}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Placeholder="Income" Text="{Binding Monthly_income}"/>
+
+                <Label Grid.Column="2" Grid.Row="5" Text="{Binding ErrorMessage}" TextColor="Red" Margin="10" />
+                <Button Grid.Column="3" Grid.Row="5" Text="Add Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddNewClientCommand}"/>
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -54,29 +54,6 @@ namespace Innovex_Bank.Services
 			return Items;
 		}
 
-        public async Task<List<Client>> RefreshClientAsync()
-        {
-            Clients = new List<Client>();
-
-            Uri uri = new(string.Format(clientsUrl, string.Empty));
-
-            try
-            {
-                HttpResponseMessage response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    Clients = JsonSerializer.Deserialize<List<Client>>(content, _serializerOptions);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(@"\tERROR {0}", ex.Message);
-            }
-
-            return Clients;
-        }
-
         public async Task<List<Accounts>> RefreshAccountsync()
         {
             Accounts = new List<Accounts>();
