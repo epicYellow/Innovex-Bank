@@ -36,7 +36,9 @@
                
                 <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
                     <Controls:SearchBar/>
-                        <Controls:ButtonControl ButtonText="Add Account" ButtonType="Primary"/>
+                        <Button Grid.Column="1" Text="New Account" BorderColor="{DynamicResource Active}" x:Name="addButton" Grid.Row="1" TextColor="{DynamicResource White}"
+                            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1"
+                            Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
                     </FlexLayout>
                
             </VerticalStackLayout>

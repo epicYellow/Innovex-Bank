@@ -16,7 +16,6 @@ namespace Innovex_Bank.Services
 
         // Base API URL
         internal string baseUrl = "https://localhost:7230/api/";
-        internal string clientsUrl = "https://localhost:7230/api/";
 
         public List<Client> Clients { get; private set; }
 

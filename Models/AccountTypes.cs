@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Innovex_Bank.Models
 {
-    class AccountTypes
+    public class AccountTypes
     {
         public int Id { get; set; }
 
