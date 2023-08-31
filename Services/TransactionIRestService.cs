@@ -10,5 +10,9 @@ namespace Innovex_Bank.Services
     public interface TransactionIRestService
     {
         Task<List<Transactions>> RefreshDataAsync();
+
+        Task<List<Accounts>> RefreshAccountsync();
+
+        Task<List<Transactions>> RetrieveTransactionsById(int id);
     }
 }

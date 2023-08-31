@@ -15,10 +15,11 @@ namespace Innovex_Bank.Services
         JsonSerializerOptions _serializerOptions;
 
         //base api url
-        internal string baseUrl = "https://localhost:7230/api/TransactionsModels";
+        internal string baseUrl = "https://localhost:7230/api/";
       
         // List of Staff
-        public List<Transactions> Items { get; private set; }
+        public List<Transactions> Transactions { get; private set; }
+        public List<Accounts> Accounts { get; private set; }
 
         // Creating httpClient
         public TransactionRestService()
@@ -35,7 +36,7 @@ namespace Innovex_Bank.Services
 
         public async Task<List<Transactions>> RefreshDataAsync()
         {
-            Items = new List<Transactions>();
+            Transactions = new List<Transactions>();
 
             Uri uri = new(string.Format(baseUrl, string.Empty));
 
@@ -45,7 +46,7 @@ namespace Innovex_Bank.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Items = JsonSerializer.Deserialize<List<Transactions>>(content, _serializerOptions);
+                    Transactions = JsonSerializer.Deserialize<List<Transactions>>(content, _serializerOptions);
                 }
             }
             catch (Exception ex)
@@ -53,7 +54,54 @@ namespace Innovex_Bank.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
-            return Items;
+            return Transactions;
+        }
+
+        public async Task<List<Transactions>> RetrieveTransactionsById(int id)
+        {
+            Debug.WriteLine(id);
+            Transactions = new List<Transactions>();
+
+            Uri uri = new(string.Format($"{baseUrl}Transactions/byId/{id}", string.Empty));
+
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Transactions = JsonSerializer.Deserialize<List<Transactions>>(content, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Transactions;
+        }
+
+        public async Task<List<Accounts>> RefreshAccountsync()
+        {
+            Accounts = new List<Accounts>();
+
+            Uri uri = new(string.Format($"{baseUrl}Accounts", string.Empty));
+
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Accounts = JsonSerializer.Deserialize<List<Accounts>>(content, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Accounts;
         }
     }
 }

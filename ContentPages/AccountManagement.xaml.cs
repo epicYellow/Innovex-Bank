@@ -10,8 +10,7 @@ public partial class AccountManagement : ContentPage
 	public AccountManagement()
 	{
 		InitializeComponent();
-        _viewModel = new AccountManageViewModel(new Services.RestService());
-
+        _viewModel = new AccountManageViewModel(new Services.TransactionRestService());
         BindingContext = _viewModel;
     }
     protected override async void OnAppearing()
@@ -19,5 +18,6 @@ public partial class AccountManagement : ContentPage
         base.OnAppearing();
         //fetch all clients when appear
         await _viewModel.getAllAccounts();
+        //await _viewModel.GetTransactionsById();
     }
 }
