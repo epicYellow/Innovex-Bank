@@ -14,7 +14,7 @@
                 <Label Text="Total Clients: 256" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
                 <Controls:SearchBar/>
                 <!--<Controls:ButtonControl ButtonText="Add Client" ButtonType="Primary" ClickAction="{Binding TestTwo}"/>-->
-                <Button Text="Add Client" BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
+                <Button Text="Add Client" VerticalOptions="End" BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Clicked="NavigateToAdd"/>
             </FlexLayout>
 

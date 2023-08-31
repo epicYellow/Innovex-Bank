@@ -18,6 +18,5 @@ public partial class AccountManagement : ContentPage
         base.OnAppearing();
         //fetch all clients when appear
         await _viewModel.getAllAccounts();
-        //await _viewModel.GetTransactionsById();
     }
 }

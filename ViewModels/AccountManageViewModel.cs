@@ -17,13 +17,14 @@ namespace Innovex_Bank.ViewModels
 
         public string Account_number { get; set; }
         public string Type_id { get; set; }
+        public int Account_Id { get; set; }
+        public string IdError { get; set; }
 
         //Account Management Page
         public ObservableCollection<Transactions> SelectedTransactions { get; set; }
         //Side Column bindings
-        public string AccountHolderName { get; set; } = string.Empty;
+        public string AccountHolderName { get; set; } = "AccountHolder Name";
         public ICommand GetAccountTransactions { get; private set; }
-
 
         //remove void and add rest return type
         public AccountManageViewModel(TransactionRestService restService)
@@ -37,16 +38,28 @@ namespace Innovex_Bank.ViewModels
 
         public async Task GetTransactionsById()
         {
-            Debug.WriteLine("Running");
-            var Items = await _transactionRest.RetrieveTransactionsById(1);
-            SelectedTransactions.Clear();
-            foreach (var transaction in Items)
+            if(Account_Id == 0)
             {
-                SelectedTransactions.Add(transaction);
-                Debug.WriteLine(transaction);
+                IdError = "Please enter an id";
+            } else
+            {
+                IdError = string.Empty;
+                SelectedTransactions.Clear();
+                var Items = await _transactionRest.RetrieveTransactionsById(Account_Id);
+                if(Items == null || Items.Count == 0)
+                {
+                    IdError = "No such id or no transactions found";
+                } else
+                {
+                    foreach (var transaction in Items)
+                    {
+                        SelectedTransactions.Add(transaction);
+                    }
+                }
             }
 
             OnPropertyChanged(nameof(SelectedTransactions));
+            OnPropertyChanged(nameof(IdError));
         }
 
         public async Task getAllAccounts()

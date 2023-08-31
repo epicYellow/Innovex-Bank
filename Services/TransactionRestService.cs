@@ -59,7 +59,6 @@ namespace Innovex_Bank.Services
 
         public async Task<List<Transactions>> RetrieveTransactionsById(int id)
         {
-            Debug.WriteLine(id);
             Transactions = new List<Transactions>();
 
             Uri uri = new(string.Format($"{baseUrl}Transactions/byId/{id}", string.Empty));
@@ -71,6 +70,9 @@ namespace Innovex_Bank.Services
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Transactions = JsonSerializer.Deserialize<List<Transactions>>(content, _serializerOptions);
+                } else if(response == null)
+                {
+                    Debug.WriteLine($"Recipe {id} not found.");
                 }
             }
             catch (Exception ex)

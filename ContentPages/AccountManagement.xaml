@@ -41,9 +41,7 @@
                
             </VerticalStackLayout>
 
-                <Button Text="View" BorderColor="Transparent" x:Name="mainButton" TextColor="{DynamicResource Primary}"
-                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="White" BorderWidth="1"
-                    Command="{Binding GetAccountTransactions}" />
+                
                 <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
                     <ScrollView VerticalOptions="FillAndExpand">
                         <!--<AccManControls:AccountUserItem UserNameItem="Reinhardt de Beer" UserTypeItem="Gold"/>
@@ -63,7 +61,6 @@
                                                 <Controls:ButtonControl MinimumWidthRequest="70" Margin="5" ButtonText="With" ButtonType="Secondary"/>
                                                 <Controls:ButtonControl MinimumWidthRequest="70" Margin="5" ButtonText="Trans" ButtonType="Secondary"/>
                                                 <Controls:ButtonControl MinimumWidthRequest="70" Margin="5,0,10,0" ButtonText="Edit" ButtonType="Secondary"/>
-                                                
                                             </FlexLayout>
                                         </ContentView>
                                     </ViewCell>
@@ -74,7 +71,7 @@
             </VerticalStackLayout>
 
             <StackLayout Grid.Column="1" Grid.Row="0" FlexLayout.AlignSelf="Start">
-                <Grid>
+                <Grid RowSpacing="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*"/>
@@ -84,14 +81,20 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
                     <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
-                    <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="Accountholder Name" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
+                        <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="{Binding AccountHolderName}" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
 
-                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="0" MinimumWidthRequest="130" HorizontalOptions="Start" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
+                        <Button Grid.Column="1" Text="Search transactions" BorderColor="{DynamicResource Active}" x:Name="mainButton" Grid.Row="1" TextColor="{DynamicResource White}"
+                            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1"
+                            Command="{Binding GetAccountTransactions}" VerticalOptions="End" HorizontalOptions="End"/>
+                    
+                        <Label HorizontalOptions="Start" VerticalOptions="Center" MaximumWidthRequest="120" Grid.Column="0" Grid.Row="1" Text="Account id:" TextColor="Black"/>
+                        <Entry HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="Black" Placeholder="Type in account id" Text="{Binding Account_Id}"/>
 
-                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="1" MinimumWidthRequest="130" HorizontalOptions="End" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
+                        <Label Grid.Row="2" Text="{Binding IdError}" TextColor="{DynamicResource Tertiary}"/>
 
                     </Grid>
                 <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
