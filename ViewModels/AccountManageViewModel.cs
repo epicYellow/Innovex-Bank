@@ -17,10 +17,10 @@ namespace Innovex_Bank.ViewModels
         public AccountRestService _accountRestService;
         public ObservableCollection<Accounts> AllAccounts { get; set; }
         public ObservableCollection<Transactions> AllTransactions { get; set; }
-        public ObservableCollection<string> AllAccountTypes { get; set; }
+        public ObservableCollection<AccountTypes> AllAccountTypes { get; set; }
 
         //All clients for add account dropdown
-        public ObservableCollection<string> AllClients { get; set; }
+        public ObservableCollection<Client> AllClients { get; set; }
 
         public string Account_number { get; set; }
         public string Type_id { get; set; }
@@ -28,10 +28,10 @@ namespace Innovex_Bank.ViewModels
         public string IdError { get; set; }
 
         //Add account errors
-        public int ClientError { get; set; }
+        public string ClientError { get; set; }
         public string AccountTypeError { get; set; }
-        public string ClientSelection { get; set; }
-        public string TypeSelection { get; set; }
+        public Client ClientSelection { get; set; }
+        public AccountTypes TypeSelection { get; set; }
         public ICommand AddAccount { get; private set; }
 
         //Account Management Page
@@ -51,9 +51,9 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions = new ObservableCollection<Transactions>();
 
-            AllAccountTypes = new ObservableCollection<string>();
+            AllAccountTypes = new ObservableCollection<AccountTypes>();
 
-            AllClients = new ObservableCollection<string>(); // Initialize here
+            AllClients = new ObservableCollection<Client>(); // Initialize here
 
             SelectedTransactions = new ObservableCollection<Transactions>();
 
@@ -63,29 +63,36 @@ namespace Innovex_Bank.ViewModels
 
         private async Task AddNewAccount()
         {
-            //if ()
-            //{
-            //    ErrorMessage = "Please fill in all the fields";
-            //}
-            //else
-            //{
-            //    var newClient = new Client
-            //    {
-            //        First_name = First_name,
-            //        Last_name = Last_name,
-            //        Id_number = Id_number,
-            //        Date_of_birth = Date_of_birth,
-            //        Gender = Gender,
-            //        Address = Address,
-            //        Email = Email,
-            //        Phone_number = Phone_number,
-            //        Employment_status = Employment_status,
-            //        Monthly_income = Monthly_income,
-            //    };
+            Debug.WriteLine("addaccount");
+            
+            Debug.WriteLine(TypeSelection);
+            if(ClientSelection == null)
+            {
+                ClientError = "Please select a Client";
+            }
+            if(TypeSelection == null)
+            {
+                AccountTypeError = "Please select an Account Type";
+            }
 
-            //    await _rest.SaveClientAsync(newClient, true);
-            //    await Shell.Current.GoToAsync("..");
-            //}
+            OnPropertyChanged(nameof(ClientError));
+            OnPropertyChanged(nameof(AccountTypeError));
+
+            if (ClientSelection != null && TypeSelection != null)
+            {
+                var newAccount = new Accounts
+                {
+                    Account_number = "0",
+                    Type_id = TypeSelection.Id,
+                    Transaction_fee = TypeSelection.Transaction_fee,
+                    Balance = 0,
+                    Client_id = ClientSelection.Id,
+
+                };
+
+                    await _accountRestService.SaveAccountAsync(newAccount, true);
+                    await Shell.Current.GoToAsync("..");
+            }
         }
 
         public async Task GetTransactionsById()
@@ -133,7 +140,7 @@ namespace Innovex_Bank.ViewModels
             AllAccounts.Clear();
             foreach (var account in Items)
             {
-                AllAccountTypes.Add(account.Type_name);
+                AllAccountTypes.Add(account);
                 Debug.WriteLine(account);
             }
         }
@@ -155,7 +162,7 @@ namespace Innovex_Bank.ViewModels
             AllClients.Clear();
             foreach (var client in Items)
             {
-                AllClients.Add(client.First_name);
+                AllClients.Add(client);
             }
         }
     }

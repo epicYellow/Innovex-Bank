@@ -52,5 +52,29 @@ namespace Innovex_Bank.Services
 
             return AccountsTypes;
         }
+
+        public async Task SaveAccountAsync(Accounts item, bool isNewItem = false)
+        {
+            Uri uri = new(string.Format($"{baseUrl}Accounts/", string.Empty));
+
+            try
+            {
+                string json = JsonSerializer.Serialize<Accounts>(item, _serializerOptions);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                    response = await _client.PostAsync(uri, content);
+                else
+                    response = await _client.PutAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                    Debug.WriteLine(@"\tTodoItem successfully saved.");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+        }
     }
 }
