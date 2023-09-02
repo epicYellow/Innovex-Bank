@@ -27,12 +27,15 @@ namespace Innovex_Bank.ViewModels
         public int Account_Id { get; set; }
         public string IdError { get; set; }
 
-        //Add account errors
+        //Add account vars
         public string ClientError { get; set; }
         public string AccountTypeError { get; set; }
         public Client ClientSelection { get; set; }
         public AccountTypes TypeSelection { get; set; }
+        public int TotalTaxFreeAccount { get; set; }
         public ICommand AddAccount { get; private set; }
+        int randomAccountNumber;
+        private readonly Random _random = new Random();
 
         //Account Management Page
         public ObservableCollection<Transactions> SelectedTransactions { get; set; }
@@ -64,7 +67,8 @@ namespace Innovex_Bank.ViewModels
         private async Task AddNewAccount()
         {
             Debug.WriteLine("addaccount");
-            
+            randomAccountNumber = _random.Next(10000000, 100000000);
+
             Debug.WriteLine(TypeSelection);
             if(ClientSelection == null)
             {
@@ -82,12 +86,12 @@ namespace Innovex_Bank.ViewModels
             {
                 var newAccount = new Accounts
                 {
-                    Account_number = "0",
+                    Account_number = randomAccountNumber.ToString(),
                     Type_id = TypeSelection.Id,
                     Transaction_fee = TypeSelection.Transaction_fee,
                     Balance = 0,
                     Client_id = ClientSelection.Id,
-
+                    Client_name = ClientSelection.First_name + " " + ClientSelection.Last_name,
                 };
 
                     await _accountRestService.SaveAccountAsync(newAccount, true);

@@ -54,7 +54,7 @@
                                     <ViewCell>
                                         <ContentView>
                                             <FlexLayout Wrap="Wrap" Margin="0,0,0,15" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
-                                                <Ellipse Margin="10,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
+                                                <Ellipse Margin="5,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
                                                 <VerticalStackLayout MinimumWidthRequest="130" VerticalOptions="Center">
                                                     <HorizontalStackLayout>
                                                         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="AccNumber:" MinimumWidthRequest="100"/>
@@ -62,15 +62,24 @@
                                                     </HorizontalStackLayout>
                                                     
                                                     <HorizontalStackLayout>
-                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="ClientId: "/>
-                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding Client_id    }"/>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding Client_name}"/>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text=": "/>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding Id}"/>
                                                     </HorizontalStackLayout>
 
                                                 </VerticalStackLayout>
-                                                <Controls:ButtonControl MinimumWidthRequest="70" Margin="5" ButtonText="Dep" ButtonType="Secondary"/>
-                                                <Controls:ButtonControl MinimumWidthRequest="70" Margin="5" ButtonText="With" ButtonType="Secondary"/>
-                                                <Controls:ButtonControl MinimumWidthRequest="70" Margin="5" ButtonText="Trans" ButtonType="Secondary"/>
-                                                <Controls:ButtonControl MinimumWidthRequest="70" Margin="5,0,10,0" ButtonText="Edit" ButtonType="Secondary"/>
+                                                <Button Margin="5" Text="Dep" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="With" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="Trans" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="Edit" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
                                             </FlexLayout>
                                         </ContentView>
                                     </ViewCell>

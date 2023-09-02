@@ -19,5 +19,6 @@ namespace Innovex_Bank.Models
         public float Balance { get; set; }
 
         public int Client_id { get; set;}
+        public string Client_name { get; set; }
     }
 }
