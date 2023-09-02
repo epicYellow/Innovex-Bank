@@ -4,20 +4,22 @@ using System.Text.Json;
 using Innovex_Bank.Models;
 namespace Innovex_Bank.Services
 {
-	public class RestService: IRestService
+	public class RestService : IRestService
 	{
-        // Define httpClient
-        readonly HttpClient _client;
-        readonly JsonSerializerOptions _serializerOptions;
+		// Define httpClient
+		readonly HttpClient _client;
+		readonly JsonSerializerOptions _serializerOptions;
 
 		// Base API URL
 		internal string baseUrl = "https://localhost:7230/api/StaffModels";
+		internal string clientsUrl = "https://localhost:7230/api/Clients";
 
-		// List of Staff
-		public List<StaffModel> Items { get; private set; }
+        // List of Staff
+        public List<StaffModel> Items { get; private set; }
+		public List<Client> Clients { get; private set; }
 
-		// Creating httpClient
-		public RestService()
+        // Creating httpClient
+        public RestService()
 		{
 			_client = new HttpClient();
 
@@ -49,6 +51,7 @@ namespace Innovex_Bank.Services
 
 			return Items;
 		}
-	}
+
+    }
 }
 

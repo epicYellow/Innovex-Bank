@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentViews.AccountManagement.AddAccount"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                <Label FontSize="Medium" TextColor="Black" Text="Add Account"/>
+            </FlexLayout>
+
+            <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+            <Grid RowSpacing="20"
+              Padding="20"
+                ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="White"
+                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                        TitleColor="{DynamicResource AppGray}"
+                        ItemDisplayBinding="{Binding First_name}"
+                        Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Title="Client" 
+                        ItemsSource="{Binding AllClients}" SelectedItem="{Binding ClientSelection} "/>
+
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="White"
+                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                        TitleColor="{DynamicResource AppGray}"
+                        ItemDisplayBinding="{Binding Type_name}"
+                        Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Title="Account type" 
+                        ItemsSource="{Binding AllAccountTypes}" SelectedItem="{Binding TypeSelection} "/>
+
+                <Label Text="{Binding ClientError}" Grid.Column="0" Grid.Row="2" TextColor="{DynamicResource Tertiary}"/>
+                <Label Text="{Binding AccountTypeError}" Grid.Column="2" Grid.Row="2" TextColor="{DynamicResource Tertiary}"/>
+
+                <Label Grid.Column="2" Grid.Row="3" Text="{Binding ErrorMessage}" TextColor="Red" Margin="10" />
+                <Button Grid.Column="3" Grid.Row="3" Text="Add Account" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddAccount}"/>
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

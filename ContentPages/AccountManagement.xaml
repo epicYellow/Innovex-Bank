@@ -36,23 +36,61 @@
                
                 <FlexLayout AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" >
                     <Controls:SearchBar/>
-                        <Controls:ButtonControl ButtonText="Add Account" ButtonType="Primary"/>
+                        <Button Grid.Column="1" Text="New Account" BorderColor="{DynamicResource Active}" x:Name="addButton" Grid.Row="1" TextColor="{DynamicResource White}"
+                            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1"
+                            Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
                     </FlexLayout>
                
             </VerticalStackLayout>
-           
 
-            <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
-                <ScrollView VerticalOptions="FillAndExpand">
-                    <StackLayout >
-                        <AccManControls:AccountUserItem UserNameItem="Reinhardt de Beer" UserTypeItem="Gold"/>
-                        <AccManControls:AccountUserItem UserNameItem="Leander de Beer" UserTypeItem="Diamond"/>
-                    </StackLayout>
-                </ScrollView>
+                
+                <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
+                    <ScrollView VerticalOptions="FillAndExpand">
+                        <!--<AccManControls:AccountUserItem UserNameItem="Reinhardt de Beer" UserTypeItem="Gold"/>
+                        <AccManControls:AccountUserItem UserNameItem="Leander de Beer" UserTypeItem="Diamond"/>-->
+                        <ListView ItemsSource="{Binding AllAccounts}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ContentView>
+                                            <FlexLayout Wrap="Wrap" Margin="0,0,0,15" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
+                                                <Ellipse Margin="5,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
+                                                <VerticalStackLayout MinimumWidthRequest="130" VerticalOptions="Center">
+                                                    <HorizontalStackLayout>
+                                                        <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="AccNumber:" MinimumWidthRequest="100"/>
+                                                        <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="{Binding Account_number}" MinimumWidthRequest="100"/>
+                                                    </HorizontalStackLayout>
+                                                    
+                                                    <HorizontalStackLayout>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding Client_name}"/>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text=": "/>
+                                                        <Label FontSize="Caption" TextColor="{DynamicResource AppGray}" Text="{Binding Id}"/>
+                                                    </HorizontalStackLayout>
+
+                                                </VerticalStackLayout>
+                                                <Button Margin="5" Text="Dep" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="With" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="Trans" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                <Button Margin="5" Text="Edit" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
+                                                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
+                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                            </FlexLayout>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
             </VerticalStackLayout>
 
             <StackLayout Grid.Column="1" Grid.Row="0" FlexLayout.AlignSelf="Start">
-                <Grid>
+                <Grid RowSpacing="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*"/>
@@ -62,14 +100,20 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
                     <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
-                    <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="Accountholder Name" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
+                        <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="{Binding AccountHolderName}" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
 
-                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="0" MinimumWidthRequest="130" HorizontalOptions="Start" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
+                        <Button Grid.Column="1" Text="Search transactions" BorderColor="{DynamicResource Active}" x:Name="mainButton" Grid.Row="1" TextColor="{DynamicResource White}"
+                            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1"
+                            Command="{Binding GetAccountTransactions}" VerticalOptions="End" HorizontalOptions="End"/>
+                    
+                        <Label HorizontalOptions="Start" VerticalOptions="Center" MaximumWidthRequest="120" Grid.Column="0" Grid.Row="1" Text="Account id:" TextColor="Black"/>
+                        <Entry HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="Black" Placeholder="Type in account id" Text="{Binding Account_Id}"/>
 
-                        <Controls:ButtonControl Margin="0,20,0,20" Grid.Column="1" MinimumWidthRequest="130" HorizontalOptions="End" Grid.Row="1" ButtonText="Sort" ButtonType="Secondary"/>
+                        <Label Grid.Row="2" Text="{Binding IdError}" TextColor="{DynamicResource Tertiary}"/>
 
                     </Grid>
                 <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
@@ -112,10 +156,18 @@
                     <Image Source="info_circle.png" Margin="5,5,10,5"/>
                 </FlexLayout>
 
-                    <AccManControls:TransactionItem TransactionId="#33445566"
-                                    TransactionAmount="R120.80" TransactionFee="R12.45" TransactionTransType="Withdrawl"/>
-                    <AccManControls:TransactionItem TransactionId="#33445566"
-                                    TransactionAmount="R120.80" TransactionFee="R12.45" TransactionTransType="Deposit"/>
+                    <ListView ItemsSource="{Binding SelectedTransactions}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ContentView>
+                                        <AccManControls:TransactionItem TransactionId="#33445566"
+                                             TransactionAmount="R120.80" TransactionFee="R12.45" TransactionTransType="Withdrawl"/>
+                                    </ContentView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
         </Grid>
     </StackLayout>

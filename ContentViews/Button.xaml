@@ -4,6 +4,6 @@
              x:Class="Innovex_Bank.ContentViews.ButtonControl">
 
     <Button Text="{Binding ButtonText}" BorderColor="{Binding ButtonBorderColor}" x:Name="mainButton" TextColor="{Binding ButtonTextColor}"
-            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{Binding ButtonBackgroundColor}" BorderWidth="1" Clicked="Test"/>
+            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{Binding ButtonBackgroundColor}" BorderWidth="1"/>
     
 </ContentView>

@@ -1,9 +1,26 @@
+using Innovex_Bank.ViewModels;
 using System.Data;
 
 namespace Innovex_Bank.ContentViews.DashBoard;
 
 public partial class TransactionCard : ContentView
 {
+
+    private TransactionsViewModel _TransactionviewModel;
+
+    public TransactionCard()
+    {
+        InitializeComponent();
+        _TransactionviewModel = new TransactionsViewModel(new Services.TransactionRestService()); //initializing service
+        BindingContext = _TransactionviewModel;
+        // BindingContext = this;
+    }
+
+    //protected override async void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    await _TransactionviewModel.FetchAllTransactions();
+    //}
 
     public static BindableProperty AccountIdProperty =
       BindableProperty.Create(nameof(AccountId), typeof(string), typeof(TransactionCard), default(string));
@@ -40,9 +57,8 @@ public partial class TransactionCard : ContentView
         get => (string)GetValue(TimeStampProperty);
         set => SetValue(TimeStampProperty, value);
     }
-    public TransactionCard()
-	{
-		InitializeComponent();
-        BindingContext = this;
-    }
+
+
+    
+
 }

@@ -53,7 +53,7 @@ public partial class UserItem : ContentView
 
     public UserItem()
 	{
-		InitializeComponent();
+		//InitializeComponent();
         BindingContext = this;
     }
 }

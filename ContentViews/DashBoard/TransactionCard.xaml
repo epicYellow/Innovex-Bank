@@ -20,7 +20,6 @@
                TextColor="black"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-
     </FlexLayout>
     
 </ContentView>

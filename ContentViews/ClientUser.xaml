@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentViews.ClientUser">
+    
+    <FlexLayout Wrap="Wrap" Margin="40,0,40,10" JustifyContent="SpaceBetween" AlignItems="Center" AlignContent="Center" MinimumHeightRequest="54" BackgroundColor="White" Padding="10,0,10,0">
+        <VerticalStackLayout VerticalOptions="Center" Margin="10,0,5,0">
+            <Label 
+                FontSize="Body" 
+                TextColor="{DynamicResource Black}" 
+                Text="{Binding First_name}" 
+                MinimumWidthRequest="100"/>
+            <Label 
+                FontSize="Caption" 
+                TextColor="{DynamicResource AppGray}" 
+                Text="{Binding Type}"/>
+        </VerticalStackLayout>
+        <Label 
+            FontSize="Body" 
+            TextColor="{DynamicResource Black}" 
+            Text="{Binding Last_name}" 
+            MinimumWidthRequest="100" Margin="5"/>
+        <Label 
+            FontSize="Body" 
+            TextColor="{DynamicResource Black}" 
+            Text="{Binding Id_number}" 
+            MinimumWidthRequest="100" 
+            Margin="5"/>
+        <Label 
+            FontSize="Body" 
+            TextColor="{DynamicResource Black}" 
+            Text="{Binding Monthly_income}" 
+            MinimumWidthRequest="100" 
+            Margin="5"/>
+        <Controls:ButtonControl 
+            ButtonText="Edit" 
+            ButtonType="Secondary" 
+            Margin="5"/>
+        <Image 
+            Source="info_circle.png" 
+            Margin="5,5,10,5"/>
+    </FlexLayout>
+</ContentView>

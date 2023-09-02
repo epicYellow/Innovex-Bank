@@ -7,7 +7,7 @@ namespace Innovex_Bank.Services
         // Define all of our REST Methods
 
         // Get all Staff Members
-        Task<List<StaffModel>> RefreshDataAsync();
+       Task<List<StaffModel>> RefreshDataAsync();
 
     }
 }

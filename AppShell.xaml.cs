@@ -1,4 +1,5 @@
 ﻿using Innovex_Bank.ContentPages;
+using Innovex_Bank.ContentViews.AccountManagement;
 
 namespace Innovex_Bank;
 
@@ -7,6 +8,9 @@ public partial class AppShell : Shell
 	public AppShell()
     {
         InitializeComponent();
+
+        Routing.RegisterRoute("AddClient", typeof(AddClient));
+        Routing.RegisterRoute("AddAccount", typeof(AddAccount));
     }
 
     async protected override void OnAppearing()
