@@ -8,52 +8,115 @@
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
 
-            <Controls:PageHeader PageTitle=""/>
+            <Controls:PageHeader/>
 
             <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
-                <Label Text="Total Staff: 256" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
-                <Controls:SearchBar/>
-                <Controls:ButtonControl ButtonText="Add Staff" ButtonType="Primary"/>
+                <Label Text="Total Staff" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
+
+                <Border Stroke="{DynamicResource Primary}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="3" />
+                    </Border.StrokeShape>
+                    <HorizontalStackLayout MaximumHeightRequest="40" Spacing="20" Padding="10,0,15,0">
+                        <Entry x:Name="searchBar" HorizontalOptions="Center" MinimumHeightRequest="40" MinimumWidthRequest="160" Placeholder="Search Accounts..." TextChanged="OnSearchTextChanged" TextColor="{DynamicResource Black}" BackgroundColor="Transparent" />
+                        <Image HorizontalOptions="Center" MaximumWidthRequest="25" MinimumHeightRequest="25" Source="search.png" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                <Button Text="Add Staff Member" VerticalOptions="End" BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
+                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" />
             </FlexLayout>
 
             <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
             <FlexLayout Wrap="Wrap" Margin="40,20,40,20" JustifyContent="SpaceBetween" AlignContent="Start" AlignItems="Center" MinimumHeightRequest="44" >
                 <Label  Margin="10,0,5,0"
-                        Text="Client Id"
+                        Text="Staff Id"
                         WidthRequest="100"
                         VerticalOptions="Center" 
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                <Label      Text="Name and Surname"
-                        WidthRequest="100"
+                <Label  Text="Name and Surname"
+                        WidthRequest="200" 
                         VerticalOptions="Center" 
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                <Label      Text="Id Number"
+                <Label  Text="Id Number"
                         VerticalOptions="Center" 
                         WidthRequest="120"
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                <Label      Text="Income"
+                <Label  Text="Income"
                         VerticalOptions="Center" 
                         WidthRequest="100"
                         HorizontalOptions="Center" 
                         FontSize="Caption"
                         TextColor="{DynamicResource Black}"/>
-                <VerticalStackLayout WidthRequest="80"></VerticalStackLayout>
-                <Image Source="info_circle.png" Margin="5,5,10,5"/>
+                <Label  WidthRequest="80"/>
             </FlexLayout>
 
-            <StackLayout VerticalOptions="Fill">
-                <Controls:UserItem AdminUsername="Justino" AdminType="silver" AdminNameSurname="Justino Kopstert" AdminIdNumber="12345678954" AdminIncome="R50,000"/>
-                <Controls:UserItem AdminUsername="Reinels" AdminType="Gold" AdminNameSurname="Reinels De Boar" AdminIdNumber="12345678954" AdminIncome="R52,000"/>
-                <Controls:UserItem AdminUsername="Vianna" AdminType="Platinum" AdminNameSurname="Vianna nana" AdminIdNumber="12345678954" AdminIncome="R54,000"/>
-            </StackLayout>
+            <ListView ItemsSource="{Binding StaffList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView>
+                                <FlexLayout Wrap="Wrap" Margin="40,0,40,10" JustifyContent="SpaceBetween" AlignItems="Center" AlignContent="Center" MinimumHeightRequest="54" BackgroundColor="White" >
+                                    <VerticalStackLayout VerticalOptions="Center" Margin="10,0,5,0" WidthRequest="100">
+                                        <Label 
+                                            FontSize="Body" 
+                                            TextColor="{DynamicResource Black}" 
+                                            Text="{Binding Id}" 
+                                            MinimumWidthRequest="100"/>
+                                        <Label 
+                                            FontSize="Caption" 
+                                            TextColor="{DynamicResource AppGray}" 
+                                            Text="{Binding RoleTitle}"/>
+                                    </VerticalStackLayout>
+                                    <HorizontalStackLayout Spacing="5" WidthRequest="200">
+                                        <Label 
+                                            FontSize="Body" 
+                                            TextColor="{DynamicResource Black}" 
+                                            Text="{Binding Name}" 
+                                        />
 
+                                        <Label 
+                                            FontSize="Body" 
+                                            TextColor="{DynamicResource Black}" 
+                                            Text="{Binding Surname}" 
+                                        />
+                                    </HorizontalStackLayout>
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding IdNumber}" 
+                                        MinimumWidthRequest="120"
+                                    />
+                                    <Label 
+                                        FontSize="Body" 
+                                        TextColor="{DynamicResource Black}" 
+                                        Text="{Binding Income}" 
+                                        MinimumWidthRequest="100"
+                                    />
+
+                                    <Button 
+                                        Text="Edit" 
+                                        VerticalOptions="End" 
+                                        BorderColor="{DynamicResource Black}" 
+                                        x:Name="mainButton" 
+                                        TextColor="{DynamicResource Black}"
+                                        MaximumHeightRequest="40" 
+                                        CornerRadius="3"  
+                                        BorderWidth="1" 
+                                    />
+                                </FlexLayout>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

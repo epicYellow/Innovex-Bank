@@ -17,6 +17,12 @@ public partial class StaffManagement : ContentPage
 		BindingContext = _staffViewModel;
 	}
 
+	private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+	{
+		string searchText = e.NewTextValue.Trim();
+		_staffViewModel.FilterStaffAsync(searchText);
+	}
+
 	// This will run OnAppear
     protected override async void OnAppearing()
     {

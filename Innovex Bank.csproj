@@ -86,6 +86,9 @@
 	  <MauiXaml Update="ContentPages\AddClient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\AddStaff.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\DashBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
