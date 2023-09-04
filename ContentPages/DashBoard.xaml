@@ -5,7 +5,7 @@
              xmlns:AddControls="clr-namespace:Innovex_Bank.ContentViews.DashBoard"
              x:Class="Innovex_Bank.ContentPages.DashBoard"
              BackgroundColor="{DynamicResource SecondaryWhite}">
-    
+
     <StackLayout  >
         <Controls:PageHeader />
 
@@ -20,14 +20,14 @@
                 Title="Total Cheque and Savings Accounts" 
                 Total="99"/>
         </FlexLayout>
-        
+
         <BoxView 
             BackgroundColor="Black"  
             HeightRequest="2" 
             HorizontalOptions="FillAndExpand" 
             Margin="10"/>
         <Grid>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -37,7 +37,7 @@
             </Grid.ColumnDefinitions>
 
             <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
-                
+
                 <Label 
                     Text="User OverView" 
                     TextColor="Black" 
@@ -45,15 +45,55 @@
                     FontAttributes="Bold" 
                     Margin="25, 0, 0, 0"/>
 
-                <AddControls:UserCard 
-                    Username="Justin Kopstert" 
-                    Role="Admino"/>
-                <AddControls:UserCard 
-                    Username="Reinels de Boar" 
-                    Role="Adminoo"/>
-                <AddControls:UserCard 
-                    Username="Vianna" 
-                    Role="Adminooo"/>
+                <!-- view for user overview section --> 
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView>
+                                    
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- for overview section --> 
+                <FlexLayout Direction="Row" JustifyContent="SpaceBetween" HeightRequest="50" Margin="20, 20, 0, 0">
+                    <HorizontalStackLayout>
+                        <BoxView 
+                            Color="Black" 
+                            WidthRequest="50" 
+                            Margin="10,0,10,0" 
+                            CornerRadius="40" >
+                        </BoxView>
+
+                        <VerticalStackLayout>
+                            <Label 
+                                TextColor="Black" 
+                                Text="Username" 
+                                FontAttributes="Bold" 
+                                FontSize="20"  />
+                            <Label 
+                                TextColor="Black" 
+                                Text="role"  
+                                FontSize="15" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+
+                    <Button 
+                        Text="View"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        x:Name="viewButton"
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="0,0,40,0"/>
+                </FlexLayout>
 
             </VerticalStackLayout>
 
@@ -73,6 +113,63 @@
                     TotalFunds="R10 000,00" 
                     TotalWithdrawn="R10 000,00" 
                     TotalDesposited="R10 000,00"/>
+                
+                <!-- section for DashboardFunds pool -->
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView>
+                                    <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
+                                        <Label Text="{Binding TotalFunds}" 
+                                           TextColor="#252B63" 
+                                           FontSize="40" 
+                                           Margin="0, 20, 0, 0" 
+                                           FontAttributes="Bold" 
+                                           HorizontalOptions="Center"/>
+
+                                        <FlexLayout JustifyContent="SpaceBetween" 
+                                            HorizontalOptions="Center" 
+                                            Margin="0, 20, 0, 0" 
+                                            WidthRequest="500">
+
+                                            <VerticalStackLayout >
+                                                <Label 
+                                                    Text="Total Withdrawn:" 
+                                                    TextColor="Black" 
+                                                    HorizontalOptions="Center" />
+                                                <Label 
+                                                    Text="{Binding TotalWithdrawn}" 
+                                                    TextColor="red" 
+                                                    FontSize="25" 
+                                                    FontAttributes="Bold"/>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout>
+                                                <Label 
+                                                    Text="18%" 
+                                                    TextColor="green" 
+                                                    HorizontalOptions="Center"/>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout>
+                                                <Label 
+                                                    Text="Total Deposited:" 
+                                                    TextColor="Black" 
+                                                    HorizontalOptions="Center"/>
+                                                <Label 
+                                                    Text="{Binding TotalDesposited}" 
+                                                    TextColor="Green" 
+                                                    FontSize="25" 
+                                                    FontAttributes="Bold"/>
+                                            </VerticalStackLayout>
+                                        </FlexLayout>
+                                    </VerticalStackLayout>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <VerticalStackLayout Margin="0,50,0,0">
                     <Label 
@@ -102,6 +199,38 @@
 
                     </FlexLayout>
                     <VerticalStackLayout>
+                        
+                        
+                        <!-- List view for all transactions -->
+                        <ListView ItemsSource="{Binding AllTransactions}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ContentView>
+                                            <FlexLayout JustifyContent="SpaceBetween" Margin="30,30,60,0">
+                                                <Label Text="{Binding Account_Id}" 
+                                                   TextColor="black" 
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+                                                <Label Text="{Binding Transaction_type}" 
+                                                   TextColor="black"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+                                                <Label Text="{Binding Amount}" 
+                                                   TextColor="black"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+                                                <Label Text="{Binding Transaction_fee}" 
+                                                   TextColor="black"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+                                            </FlexLayout>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
                         <AddControls:TransactionCard 
                             AccountId="123" 
                             ClientId="123" 
@@ -129,11 +258,11 @@
             </VerticalStackLayout>
 
         </Grid>
-        
-        
-       
-        
-        
-        
+
+
+
+
+
+
     </StackLayout>
 </ContentPage>

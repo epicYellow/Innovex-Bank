@@ -10,45 +10,69 @@ using System.Threading.Tasks;
 
 namespace Innovex_Bank.ViewModels
 {
-    public class DashboardViewModel : BaseViewModel
+    class DashboardViewModel : BaseViewModel
     {
-        //add rests
-        public ObservableCollection<Accounts> AllAccounts { get; set; }
+        public TransactionRestService _transactionRestService;
+
+        public RestService _StaffRestService;
+
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
-        //remove void and add rest return type
-        public void AccountsViewModel()
+        public ObservableCollection<StaffModel> AllStaff { get; set; }
+
+        // Transaction data
+        public int Id { get; set; }
+        public string Transaction_type { get; set; } = string.Empty;    
+        public float Amount { get; set; }
+        public string Date_and_time { get; set; } = string.Empty;
+        public float Transaction_fee { get; set; }
+        public int Account_Id { get; set; }
+
+        //Staff data
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Fullname { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string RoleTitle { get; set; } = "User";
+        public bool IsActive { get; set; } = true;
+
+        public DashboardViewModel(TransactionRestService restService, RestService StaffRestService)
         {
-            AllAccounts = new ObservableCollection<Accounts>();
-        }
-        public void TransactionsViewModel()
-        {
+            _transactionRestService = restService;
+            _StaffRestService = StaffRestService;
+
             AllTransactions = new ObservableCollection<Transactions>();
+
+            AllStaff = new ObservableCollection<StaffModel>();
         }
 
-        public async Task getAllAccounts()
-        {
-            //uncomment and implement
-            //var Items = await _rest.RefreshDataAsync();
-            AllAccounts.Clear();
-            foreach (var account in AllAccounts)
-            {
-                AllAccounts.Add(account);
-                Debug.WriteLine(account);
-            }
-        }
+        //add rests
 
         public async Task getAllTransactions()
         {
             //uncomment and implement
-            //var Items = await _rest.RefreshDataAsync();
+            var Items = await _transactionRestService.RefreshDataAsync();
             AllTransactions.Clear();
-            foreach (var transactions in AllTransactions)
+            foreach (var transaction in Items)
             {
-                AllTransactions.Add(transactions);
-                Debug.WriteLine(transactions);
+                AllTransactions.Add(transaction);
+                Debug.WriteLine(transaction);
             }
         }
+
+        public async Task getAllStaff()
+        {
+            //uncomment and implement
+            var Items = await _StaffRestService.RefreshDataAsync();
+            AllStaff.Clear();
+            foreach (var staff in Items)
+            {
+                AllStaff.Add(staff);
+                Debug.WriteLine(staff.Username);
+            }
+        }
+
+
 
     }
 

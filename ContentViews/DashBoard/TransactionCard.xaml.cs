@@ -8,13 +8,7 @@ public partial class TransactionCard : ContentView
 
     private TransactionsViewModel _TransactionviewModel;
 
-    public TransactionCard()
-    {
-        InitializeComponent();
-        _TransactionviewModel = new TransactionsViewModel(new Services.TransactionRestService()); //initializing service
-        BindingContext = _TransactionviewModel;
-        // BindingContext = this;
-    }
+    
 
     //protected override async void OnAppearing()
     //{
@@ -59,6 +53,14 @@ public partial class TransactionCard : ContentView
     }
 
 
-    
+    public TransactionCard()
+    {
+        InitializeComponent();
+        _TransactionviewModel = new TransactionsViewModel(new Services.TransactionRestService()); //initializing service
+        BindingContext = _TransactionviewModel;
+        // BindingContext = this;
+    }
+
+
 
 }
