@@ -34,7 +34,6 @@ namespace Innovex_Bank.ViewModels
         {
             _rest = restService;
             AllClients = new ObservableCollection<Client>();
-
             AddNewClientCommand = new Command(async () => await AddClient());
         }
 

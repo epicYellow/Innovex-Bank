@@ -13,7 +13,6 @@
             <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
                 <Label Text="Total Clients: 256" FontSize="Medium" TextColor="{DynamicResource Black}" FontAttributes="Bold"/>
                 <Controls:SearchBar/>
-                <!--<Controls:ButtonControl ButtonText="Add Client" ButtonType="Primary" ClickAction="{Binding TestTwo}"/>-->
                 <Button Text="Add Client" VerticalOptions="End" BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Clicked="NavigateToAdd"/>
             </FlexLayout>
@@ -85,10 +84,17 @@
                                         Text="{Binding Monthly_income}" 
                                         MinimumWidthRequest="100" 
                                         />
-                                    <Controls:ButtonControl 
-                                        ButtonText="Edit" 
-                                        ButtonType="Secondary" 
-                                        />
+                                    <Button
+                                        VerticalOptions="End"
+                                        Text="Edit"
+                                        BorderColor="{DynamicResource Primary}"
+                                        x:Name="mainButton"
+                                        TextColor="{DynamicResource Primary}"
+                                        MaximumHeightRequest="40"
+                                        CornerRadius="3"
+                                        Clicked="EditButton_Clicked"
+                                        BackgroundColor="Transparent"
+                                        BorderWidth="1" />
                                     <Image 
                                         Source="info_circle.png" 
                                         Margin="5,5,10,5"/>

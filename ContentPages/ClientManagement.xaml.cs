@@ -1,4 +1,6 @@
+using Innovex_Bank.Models;
 using Innovex_Bank.ViewModels;
+using Microsoft.Maui.Platform;
 using System.Diagnostics;
 using System.Windows.Input;
 
@@ -28,5 +30,20 @@ public partial class ClientManagement : ContentPage
         Debug.WriteLine("Navigate");
 
         await Shell.Current.GoToAsync("AddClient");
+    }
+
+    private void EditButton_Clicked(object sender, EventArgs e)
+    {
+        // Retrieve the button that was clicked
+        Button button = (Button)sender;
+
+        // Retrieve the associated client's ID from the button's BindingContext
+        if (button.BindingContext is Client client)
+        {
+            int clientId = client.Id;
+
+            // Now, you have the ID, and you can navigate or perform any action as needed.
+            Debug.WriteLine($"Edit button clicked for client ID: {clientId}");
+        }
     }
 }
