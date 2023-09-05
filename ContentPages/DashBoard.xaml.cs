@@ -1,3 +1,4 @@
+using Innovex_Bank.Models;
 using Innovex_Bank.ViewModels;
 using System.Diagnostics;
 
@@ -31,8 +32,16 @@ public partial class DashBoard : ContentPage
         float totalWithdrawn = _viewModel.TotalWithdrawn;
         float totalDeposited = _viewModel.TotalDeposited;
 
-        //totalWithdrawn.Label = totalWithdrawn
+        //float totalAmount = _viewModel.TotalAmount;
 
         Debug.WriteLine(_viewModel.AllStaff.Count);
     }
+
+  
+
+    private async void OnViewButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("UserDetails");
+    }
+
 }

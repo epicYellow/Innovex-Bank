@@ -23,12 +23,7 @@ namespace Innovex_Bank.ViewModels
         public ObservableCollection<StaffModel> AllStaff { get; set; }
 
        
-
-        // Transaction data
-       
-
-
-        //withdrawl and desposit 
+        //total withdrawn 
         private float _totalWithdrawn;
         public float TotalWithdrawn
         {
@@ -40,6 +35,7 @@ namespace Innovex_Bank.ViewModels
             }
         }
 
+        //total deposit
         private float _totalDeposited;
         public float TotalDeposited
         {
@@ -64,6 +60,7 @@ namespace Innovex_Bank.ViewModels
         }
 
  
+        //get all transactions and withdrawl and deposits
         public async Task GetAllTransactions()
         {
             var Items = await _transactionRestService.RefreshDataAsync();
@@ -90,7 +87,7 @@ namespace Innovex_Bank.ViewModels
                 }
             }
 
-            // Now, you have the totalWithdrawn and totalDeposited values available
+            //totalWithdrawn and totalDeposited values available
             Debug.WriteLine("Total Withdrawn: " + TotalWithdrawn);
             Debug.WriteLine("Total Deposited: " + TotalDeposited);
         }
@@ -98,7 +95,7 @@ namespace Innovex_Bank.ViewModels
 
 
 
-
+        // get total amount for all transactions
         public float CalculateTotalAmount()
         {
             float totalAmount = 0;
@@ -111,10 +108,10 @@ namespace Innovex_Bank.ViewModels
             return totalAmount;
         }
 
-     
+        //sets total amount for all transactions
         public float TotalAmount
         {
-            get => CalculateTotalAmount(); // Assuming CalculateTotalAmount is a method in your ViewModel
+            get => CalculateTotalAmount(); 
         }
 
 
