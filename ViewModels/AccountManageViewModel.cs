@@ -32,7 +32,10 @@ namespace Innovex_Bank.ViewModels
         public string AccountTypeError { get; set; }
         public Client ClientSelection { get; set; }
         public AccountTypes TypeSelection { get; set; }
-        public int TotalTaxFreeAccount { get; set; }
+        public int TotalTaxFreeAccounts { get; set; }
+        public int TotalDiamondAccounts { get; set; }
+        public int TotalEasyAccessSavings { get; set; }
+        public int TotalGoldCheque { get; set; }
         public ICommand AddAccount { get; private set; }
         int randomAccountNumber;
         private readonly Random _random = new Random();
@@ -97,6 +100,8 @@ namespace Innovex_Bank.ViewModels
                     await _accountRestService.SaveAccountAsync(newAccount, true);
                     await Shell.Current.GoToAsync("..");
             }
+
+            await updateCounts();
         }
 
         public async Task GetTransactionsById()
@@ -125,11 +130,30 @@ namespace Innovex_Bank.ViewModels
             OnPropertyChanged(nameof(IdError));
         }
 
+        public async Task updateCounts()
+        {
+
+            var Items = await _transactionRest.RefreshAccountsync();
+
+            TotalTaxFreeAccounts = Items.Where(c => c.Type_id == 3).ToList().Count();
+            TotalDiamondAccounts = Items.Where(c => c.Type_id == 2).ToList().Count();
+            TotalEasyAccessSavings = Items.Where(c => c.Type_id == 4).ToList().Count();
+            TotalGoldCheque = Items.Where(c => c.Type_id == 1).ToList().Count();
+
+            OnPropertyChanged(nameof(TotalTaxFreeAccounts));
+            OnPropertyChanged(nameof(TotalDiamondAccounts));
+            OnPropertyChanged(nameof(TotalEasyAccessSavings));
+            OnPropertyChanged(nameof(TotalGoldCheque));
+        }
+
         public async Task getAllAccounts()
         {
             //uncomment and implement
             var Items = await _transactionRest.RefreshAccountsync();
             AllAccounts.Clear();
+
+            await updateCounts();
+
             foreach (var account in Items)
             {
                 AllAccounts.Add(account);
