@@ -5,8 +5,10 @@ namespace Innovex_Bank.ContentPages;
 
 public partial class DashBoard : ContentPage
 {
-	private DashboardViewModel _viewModel;
-	public DashBoard()
+
+    private DashboardViewModel _viewModel;
+
+    public DashBoard()
 	{
 		InitializeComponent();
 
@@ -15,13 +17,22 @@ public partial class DashBoard : ContentPage
 		BindingContext = _viewModel;
 	}
 
+
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();
         //fetch all Transactions when appear
-        await _viewModel.getAllTransactions();
-		await _viewModel.getAllStaff();
+        await _viewModel.GetAllTransactions();
+		await _viewModel.GetAllStaff();
 
-		Debug.WriteLine(_viewModel.AllStaff.Count);
+        totalAmountLabel.Text = _viewModel.TotalAmount.ToString();
+
+        float totalWithdrawn = _viewModel.TotalWithdrawn;
+        float totalDeposited = _viewModel.TotalDeposited;
+
+        //totalWithdrawn.Label = totalWithdrawn
+
+        Debug.WriteLine(_viewModel.AllStaff.Count);
     }
 }

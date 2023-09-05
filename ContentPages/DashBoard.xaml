@@ -109,11 +109,55 @@
                     TextColor="Black" 
                     Margin="5, 20, 0, 0"/>
 
-                <AddControls:DashBoardFundsPool 
-                    TotalFunds="R10 000,00" 
-                    TotalWithdrawn="R10 000,00" 
-                    TotalDesposited="R10 000,00"/>
+               
                 
+                <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
+                    <Label x:Name="totalAmountLabel" 
+                   TextColor="#252B63" 
+                   FontSize="40" 
+                   Margin="0, 20, 0, 0" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center"/>
+
+                    <FlexLayout JustifyContent="SpaceBetween" 
+                        HorizontalOptions="Center" 
+                        Margin="0, 20, 0, 0" 
+                        WidthRequest="500">
+
+                        <VerticalStackLayout >
+                            <Label 
+                        Text="Total Withdrawn:" 
+                        TextColor="Black" 
+                        HorizontalOptions="Center" />
+                            <Label 
+                        Text="{Binding TotalWithdrawn}" 
+                        TextColor="red" 
+                        FontSize="25" 
+                        FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label 
+                        Text="18%" 
+                        TextColor="green" 
+                        HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label 
+                        Text="Total Deposited:" 
+                        TextColor="Black" 
+                        HorizontalOptions="Center"/>
+                            <Label 
+                        Text="{Binding TotalDeposited}" 
+                        TextColor="Green" 
+                        FontSize="25" 
+                        FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+
+                    </FlexLayout>
+                </VerticalStackLayout>
+
                 <!-- section for DashboardFunds pool -->
                 <ListView>
                     <ListView.ItemTemplate>
@@ -139,7 +183,7 @@
                                                     TextColor="Black" 
                                                     HorizontalOptions="Center" />
                                                 <Label 
-                                                    Text="{Binding TotalWithdrawn}" 
+                                                    Text="{Binding TotalAmount}" 
                                                     TextColor="red" 
                                                     FontSize="25" 
                                                     FontAttributes="Bold"/>
@@ -157,7 +201,10 @@
                                                     Text="Total Deposited:" 
                                                     TextColor="Black" 
                                                     HorizontalOptions="Center"/>
+                                                
+                                                
                                                 <Label 
+                                                    x:Name="totalWitdrawn"
                                                     Text="{Binding TotalDesposited}" 
                                                     TextColor="Green" 
                                                     FontSize="25" 

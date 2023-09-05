@@ -56,7 +56,7 @@ public partial class TransactionCard : ContentView
     public TransactionCard()
     {
         InitializeComponent();
-        _TransactionviewModel = new TransactionsViewModel(new Services.TransactionRestService()); //initializing service
+        //_TransactionviewModel = new TransactionsViewModel(new Services.TransactionRestService()); //initializing service
         BindingContext = _TransactionviewModel;
         // BindingContext = this;
     }
