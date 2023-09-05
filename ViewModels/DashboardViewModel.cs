@@ -18,9 +18,13 @@ namespace Innovex_Bank.ViewModels
 
         public RestService _StaffRestService;
 
+        public ClientRestService _ClientRestService;
+
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
         public ObservableCollection<StaffModel> AllStaff { get; set; }
+
+        public ObservableCollection<Client> AllClients { get; set; }
 
        
         //total withdrawn 
@@ -47,16 +51,34 @@ namespace Innovex_Bank.ViewModels
             }
         }
 
+        //total Clients
+        private int _totalClients;
+        public int TotalClients
+        {
+            get { return _totalClients; }
+            set
+            {
+                if (_totalClients != value)
+                {
+                    _totalClients = value;
+                    OnPropertyChanged(nameof(TotalClients)); // Implement INotifyPropertyChanged if needed
+                }
+            }
+        }
 
 
-        public DashboardViewModel(TransactionRestService restService, RestService StaffRestService)
+
+        public DashboardViewModel(TransactionRestService restService, RestService StaffRestService, ClientRestService ClientRestService)
         {
             _transactionRestService = restService;
             _StaffRestService = StaffRestService;
+            _ClientRestService = ClientRestService;
 
             AllTransactions = new ObservableCollection<Transactions>();
 
             AllStaff = new ObservableCollection<StaffModel>();
+
+            AllClients = new ObservableCollection<Client>();
         }
 
  
@@ -136,7 +158,7 @@ namespace Innovex_Bank.ViewModels
                 else
                 {
                     // Handle the case where the result from RefreshDataAsync is null.
-                    Debug.WriteLine("No data received from the service.");
+                    Debug.WriteLine("No data received from the Staff service.");
                 }
             }
             catch (Exception ex)
@@ -145,6 +167,40 @@ namespace Innovex_Bank.ViewModels
                 Debug.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+
+        public async Task GetAllClients()
+        {
+            try
+            {
+                var Items = await _ClientRestService.RefreshClientAsync();
+                AllClients.Clear();
+                if (Items != null)
+                {
+                    TotalClients = Items.Count;
+
+                    // Clear the collection if needed
+                    AllClients.Clear();
+
+                    foreach (var client in Items)
+                    {
+                        AllClients.Add(client);
+                        Debug.WriteLine(client.First_name);
+                    }
+                }
+                else
+                {
+                    // Handle the case where the result from RefreshClientAsync is null.
+                    Debug.WriteLine("No data received from the Client Service.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions that may occur during the operation.
+                Debug.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+
+
 
 
 

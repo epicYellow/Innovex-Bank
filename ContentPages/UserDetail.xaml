@@ -89,7 +89,7 @@
                         BackgroundColor="{DynamicResource Active}"
                         BorderWidth="1"
                         Margin="0,50,40,0"
-                        Clicked="OnViewButtonClicked"/>
+                       />
 
             </VerticalStackLayout>
 

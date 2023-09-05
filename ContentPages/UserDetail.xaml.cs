@@ -13,7 +13,7 @@ public partial class UserDetail : ContentPage
 
         Debug.WriteLine("on userdetail page");
 
-        _viewModel = new DashboardViewModel(new Services.TransactionRestService(), new Services.RestService());
+        _viewModel = new DashboardViewModel(new Services.TransactionRestService(), new Services.RestService(), new Services.ClientRestService());
 
         BindingContext = _viewModel;
     }

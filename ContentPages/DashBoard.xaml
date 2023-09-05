@@ -10,15 +10,63 @@
         <Controls:PageHeader />
 
         <FlexLayout  Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween" Margin="40,25,40,40">
-            <Controls:TopSectionViewItem 
-                Title="Total Clients" 
-                Total="10"/>
-            <Controls:TopSectionViewItem 
-                Title="Total Admin Staff" 
-                Total="100"/>
-            <Controls:TopSectionViewItem 
-                Title="Total Cheque and Savings Accounts" 
-                Total="99"/>
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Client" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="{Binding TotalClients}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Button 
+                        Text="Manage"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="150"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="0,0,40,0"
+                        />
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Admin Staff" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Admins" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="10" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Button 
+                        Text="Manage"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="150"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="0,0,40,0"
+                        />
+            </VerticalStackLayout>
+            <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
+                <Label Text="Total Accounts" TextColor="{DynamicResource Black}" 
+               HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
+                <Label Text="Total Accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
+                <Label Text="10" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Button 
+                        Text="Manage"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="150"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="0,0,40,0"
+                        />
+            </VerticalStackLayout>
         </FlexLayout>
 
         <BoxView 
@@ -105,15 +153,20 @@
                     TextColor="Black" 
                     FontSize="Large" 
                     FontAttributes="Bold" />
-                <Label 
+                
+                <!--
+<Label 
                     Text="Funds pool description" 
                     TextColor="Black" 
-                    Margin="5, 20, 0, 0"/>
+                    Margin="5, 20, 0, 0"/>                
+                -->
+
 
                
                 
                 <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
                     <Label 
+
                    x:Name="totalAmountLabel" 
                    TextColor="#252B63" 
                    FontSize="40" 
