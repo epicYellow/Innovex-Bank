@@ -24,7 +24,7 @@
                 </Border>
 
                 <Button Text="Add Staff Member" VerticalOptions="End" BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
-                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" />
+                    MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Clicked="NavigateToAddStaff"/>
             </FlexLayout>
 
             <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>

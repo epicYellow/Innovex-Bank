@@ -1,40 +1,51 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Innovex_Bank.ContentPages;
+using Innovex_Bank.Models;
+using Innovex_Bank.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Innovex_Bank.ViewModels;
 
-public partial class LoginVModel : ObservableObject
+public class LoginVModel : BaseViewModel
 {
-    public LoginVModel()
+    public AuthService _authService;
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public ICommand LoginCommand { get; set; }
+    public ICommand LogoutCommand { get; set; }
+
+    public LoginVModel(AuthService authService)
     {
-        //items are users
-        Items = new ObservableCollection<string>();
+        _authService = authService;
+        LoginCommand = new Command(async () => await UserLogin());
+  
     }
 
-
-    //Items can be login details
-    [ObservableProperty]
-    ObservableCollection<string> items;
-
-    //text is input feild
-    [ObservableProperty]
-    string text;
+ 
 
 
-    //adds text to items, can match with backend to verify user.
-    [RelayCommand]
-    void Add()
+
+    private async Task UserLogin()
     {
-        if (string.IsNullOrWhiteSpace(Text))
-            return;
-        Items.Add(Text);
-        Text = string.Empty;
+        var user = new Staff
+        {
+            Email = Email,
+            Password = Password
+        };
+
+        var authState = await _authService.LoginUser(user);
+
+        if (authState)
+        {
+            await Shell.Current.GoToAsync($"//{nameof(DashBoard)}");
+        }
     }
 }
-

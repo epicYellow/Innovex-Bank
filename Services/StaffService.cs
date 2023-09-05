@@ -32,7 +32,7 @@ namespace Innovex_Bank.Services
 
         public async Task SaveStaffAsync(Staff item, bool isNewItem = false)
         {
-            Uri uri = new(string.Format($"{baseUrl}Staff/", string.Empty));
+            Uri uri = new(string.Format($"{baseUrl}StaffModels/", string.Empty));
 
             try
             {
@@ -58,7 +58,7 @@ namespace Innovex_Bank.Services
         {
             StaffList = new List<Staff>();
 
-            Uri uri = new(string.Format($"{baseUrl}Staff/", string.Empty));
+            Uri uri = new(string.Format($"{baseUrl}StaffModels/", string.Empty));
 
             try
             {

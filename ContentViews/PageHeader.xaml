@@ -6,12 +6,13 @@
     
     <FlexLayout BackgroundColor="White" HeightRequest="65" Direction="Row" AlignContent="Center" AlignItems="Center" JustifyContent="SpaceBetween" Wrap="Wrap">
         <Label VerticalOptions="Center" Margin="15,0,0,0" Text="{Binding PageTitle}" FontAttributes="Bold" TextColor="{DynamicResource Black}" FontSize="Medium"  />
-        <HorizontalStackLayout VerticalOptions="Center" Spacing="10" Margin="0,0,15,0">
+        <HorizontalStackLayout VerticalOptions="Center" Spacing="20" Margin="0,0,15,0">
             <Ellipse VerticalOptions="Center" Fill="{DynamicResource Black}"
                  Aspect="Uniform"
                 WidthRequest="40"/>
-            <Label VerticalOptions="Center" Text="Reinhardt de Beer" Margin="0,0,30,0" TextColor="{DynamicResource Black}"/>
-            <Controls:ButtonControl ButtonText="logOut" ButtonType="Primary"/>
+            <Label VerticalOptions="Center" Text="Reinhardt de Beer" Margin="0,0,0,0" TextColor="{DynamicResource Black}"/>
+            <Button Text="Logout"  BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
+                    CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Margin="10" Clicked="Logout_Clicked" />
         </HorizontalStackLayout>
     </FlexLayout>
     

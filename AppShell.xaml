@@ -9,6 +9,21 @@
     Shell.NavBarIsVisible="False"
     FlyoutBackgroundColor="{DynamicResource Primary}">
 
+    <ShellContent
+        ContentTemplate="{DataTemplate ContentPages:Login}"
+        Route="Login"
+        Title="Login"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate ContentPages:DashBoard}"
+        Route="DashBoard"
+        Title="DashBoard"
+        Icon="dashboard_icon.png"
+        />
+
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid Padding="24, 30">
@@ -19,7 +34,7 @@
                         <Label Text="viandupie@gmail.com" FontSize="Small" HorizontalOptions="Start"/>
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
-            </Grid>         
+            </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
@@ -50,12 +65,9 @@
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    <ShellContent Title="Dashboard"
-                  Icon="dashboard_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:DashBoard}"/>
     <ShellContent Title="Clients"
-                  Icon="clients_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:ClientManagement}"/>
+                  ContentTemplate="{DataTemplate ContentPages:ClientManagement}"
+                  Icon="clients_icon.png"/>
     <ShellContent Title="Accounts"
                   Icon="accounts_icon.png"
                   ContentTemplate="{DataTemplate ContentPages:AccountManagement}"/>
@@ -65,9 +77,7 @@
     <ShellContent Title="Funds"
                   Icon="funds_icon.png"
                   ContentTemplate="{DataTemplate ContentPages:FundsManagement}"/>
-    <ShellContent Title="Login(temp)"
-                  Icon="funds_icon.png"
-                  ContentTemplate="{DataTemplate ContentPages:Login}"/>
+
 
     <!--<Shell.FlyoutFooterTemplate>
         <DataTemplate>
@@ -76,7 +86,7 @@
                     <Image Source="logout_icon.png" HeightRequest="25" WidthRequest="25" Aspect="AspectFill"/>
                     <Label Text="Logout" FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
-            </Grid>         
+            </Grid>        
         </DataTemplate>
     </Shell.FlyoutFooterTemplate>-->
 </Shell>

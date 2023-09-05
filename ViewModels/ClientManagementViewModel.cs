@@ -45,6 +45,7 @@ namespace Innovex_Bank.ViewModels
             if (First_name == string.Empty || Last_name == string.Empty || Id_number == string.Empty || Phone_number == string.Empty || Address == string.Empty ||
                 Gender == string.Empty || Email == string.Empty || Date_of_birth == string.Empty )
             {
+                Debug.WriteLine("heyy");
                 ErrorMessage = "Please fill in all the fields";
             } else
             {

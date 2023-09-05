@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.EditStaff"
+             Title="EditStaff">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                <Label FontSize="Medium" TextColor="Black" Text="Edit Client"/>
+            </FlexLayout>
+
+            <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+            <Grid RowSpacing="20"
+                  Padding="20"
+                  ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="Name" Text="{Binding Name}" />
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="Surname" Text="{Binding Surname}"/>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="ID Number" Text="{Binding IdNumber}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Income" Text="{Binding Income}"/>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="2" Placeholder="Password" Grid.ColumnSpan="2" Text="{Binding Password}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="2" Placeholder="Email" Grid.ColumnSpan="2" Text="{Binding Email}"/>
+
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Title="Role Title" SelectedItem="{Binding RoleTitle, Mode=TwoWay, TargetNullValue=Staff}">
+                    <Picker.Items>
+                        <x:String>Staff</x:String>
+                        <x:String>Admin</x:String>
+                    </Picker.Items>
+                </Picker>
+
+
+                <Label Grid.Column="0" Grid.Row="4" Text="{Binding ErrorMessage}" TextColor="Red" Margin="10" />
+                <Button Grid.Column="2" Grid.Row="4" Text="Add Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddNewClientCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

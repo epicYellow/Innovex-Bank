@@ -13,11 +13,16 @@ public partial class StaffManagement : ContentPage
 		InitializeComponent();
 
 		// Initialise our service
-		_staffViewModel = new StaffViewModel(new Services.RestService());
+		_staffViewModel = new StaffViewModel(new Services.StaffService());
 		BindingContext = _staffViewModel;
 	}
 
-	private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+    private async void NavigateToAddStaff(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("AddStaff");
+    }
+
+    private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
 	{
 		string searchText = e.NewTextValue.Trim();
 		_staffViewModel.FilterStaffAsync(searchText);

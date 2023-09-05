@@ -14,7 +14,7 @@
 
             <Grid RowSpacing="20"
                   Padding="20"
-          ColumnSpacing="20">
+                  ColumnSpacing="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -29,37 +29,62 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
+                <VerticalStackLayout Grid.Column="0" Grid.Row="0">
+                    <Label Text="Name" TextColor="Black" />
+                    <Label Text="{Binding NameErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
 
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="First Name" Text="{Binding First_name}" />
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Id Number" Text="{Binding Id_number}"/>
+                <VerticalStackLayout Grid.Column="0" Grid.Row="1">
+                    <Label Text="Surname" TextColor="Black" />
+                    <Label Text="{Binding SurnameErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
 
-                <Label TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="Body" Text="Date of birth"/>
-                <DatePicker TextColor="Black" Grid.Column="0" Grid.Row="2" Date="{Binding Date_of_birth}"/>
 
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="3" Placeholder="Address" Grid.ColumnSpan="2" Text="{Binding Address}"/>
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="4" Placeholder="Phone Number" Grid.ColumnSpan="2" Text="{Binding Phone_number}"/>
+                <VerticalStackLayout Grid.Column="0" Grid.Row="2">
+                    <Label  Text="ID Number" TextColor="Black" />
+                    <Label Text="{Binding IdNumberErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
 
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Placeholder="Last Name" Text="{Binding Last_name}"/>
+                <VerticalStackLayout Grid.Column="0" Grid.Row="3">
+                    <Label  Text="Income" TextColor="Black" />
+                    <Label  Text="{Binding IncomeErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
 
-                <CheckBox Color="{DynamicResource Active}" Grid.Column="2" Grid.Row="1"  IsChecked="{Binding Employment_status}" />
-                <Label TextColor="Black" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Grid.Column="3" Grid.Row="1" FontSize="Body" Text="Employed"/>
+                <VerticalStackLayout Grid.Column="0" Grid.Row="4">
+                    <Label Text="Password" TextColor="Black" />
+                    <Label Text="{Binding PasswordErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
 
-                <Picker BackgroundColor="{DynamicResource Active}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Title="Gender" SelectedItem="{Binding Gender}">
+                <VerticalStackLayout Grid.Column="0" Grid.Row="5">
+                    <Label Text="Email" TextColor="Black" />
+                    <Label Text="{Binding EmailErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="0" Grid.Row="6">
+                    <Label Text="Role Title" TextColor="Black" />
+                    <Label Text="{Binding RoleTitleErrorMessage}" TextColor="Red" />
+                </VerticalStackLayout>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Placeholder="Name" Text="{Binding Name}" />
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Placeholder="Surname" Text="{Binding Surname}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Placeholder="ID Number" Text="{Binding IdNumber}"/>
+                    <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Placeholder="Income" Text="{Binding Income}"/>
+                    <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Placeholder="Password" Text="{Binding Password}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Placeholder="Email" Text="{Binding Email}"/>
+             
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Title="Role Title" SelectedItem="{Binding RoleTitle, Mode=TwoWay, TargetNullValue=Staff}">
                     <Picker.Items>
-                        <x:String>Male</x:String>
-                        <x:String>Female</x:String>
+                        <x:String>Staff</x:String>
+                        <x:String>Admin</x:String>
                     </Picker.Items>
                 </Picker>
 
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Placeholder="Email" Text="{Binding Email}"/>
-                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Placeholder="Income" Text="{Binding Monthly_income}"/>
-
-                <Label Grid.Column="2" Grid.Row="5" Text="{Binding ErrorMessage}" TextColor="Red" Margin="10" />
-                <Button Grid.Column="3" Grid.Row="5" Text="Add Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
-                        MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddNewClientCommand}"/>
-
+                <Button Grid.Column="3" Grid.Row="8" Text="Add Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                        CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddNewMemberCommand}"/>
             </Grid>
         </StackLayout>
     </ScrollView>
