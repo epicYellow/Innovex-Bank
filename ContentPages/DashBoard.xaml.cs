@@ -27,6 +27,7 @@ public partial class DashBoard : ContentPage
         await _viewModel.GetAllTransactions();
 		await _viewModel.GetAllStaff();
         await _viewModel.GetAllClients();
+        await _viewModel.GetAllAccounts();
 
         totalAmountLabel.Text = _viewModel.TotalAmount.ToString();
         //totalClientsLabel.Text = _viewModel.totalClients.ToString();
@@ -34,6 +35,7 @@ public partial class DashBoard : ContentPage
         float totalWithdrawn = _viewModel.TotalWithdrawn;
         float totalDeposited = _viewModel.TotalDeposited;
         int totalClients = _viewModel.TotalClients;
+        int totalAccounts = _viewModel.TotalAccounts;
 
         //float totalAmount = _viewModel.TotalAmount;
 

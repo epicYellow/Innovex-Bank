@@ -20,13 +20,18 @@ namespace Innovex_Bank.ViewModels
 
         public ClientRestService _ClientRestService;
 
+        public AccountRestService _accountRestService;
+        
+
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
         public ObservableCollection<StaffModel> AllStaff { get; set; }
 
         public ObservableCollection<Client> AllClients { get; set; }
 
-       
+        public ObservableCollection<Accounts> AllAccounts { get; set; }
+
+
         //total withdrawn 
         private float _totalWithdrawn;
         public float TotalWithdrawn
@@ -61,7 +66,22 @@ namespace Innovex_Bank.ViewModels
                 if (_totalClients != value)
                 {
                     _totalClients = value;
-                    OnPropertyChanged(nameof(TotalClients)); // Implement INotifyPropertyChanged if needed
+                    OnPropertyChanged(nameof(TotalClients)); 
+                }
+            }
+        }
+
+        //total Clients
+        private int _totalAccounts;
+        public int TotalAccounts
+        {
+            get { return _totalAccounts; }
+            set
+            {
+                if (_totalAccounts != value)
+                {
+                    _totalAccounts = value;
+                    OnPropertyChanged(nameof(TotalAccounts)); 
                 }
             }
         }
@@ -79,6 +99,8 @@ namespace Innovex_Bank.ViewModels
             AllStaff = new ObservableCollection<StaffModel>();
 
             AllClients = new ObservableCollection<Client>();
+
+            AllAccounts = new ObservableCollection<Accounts>();  
         }
 
  
@@ -184,7 +206,7 @@ namespace Innovex_Bank.ViewModels
                     foreach (var client in Items)
                     {
                         AllClients.Add(client);
-                        Debug.WriteLine(client.First_name);
+                        Debug.WriteLine(client);
                     }
                 }
                 else
@@ -200,11 +222,47 @@ namespace Innovex_Bank.ViewModels
             }
         }
 
+        public async Task GetAllAccounts()
+        {
+
+            try
+            {
+                var Items = await _transactionRestService.RefreshAccountsync();
+                AllAccounts.Clear();
+                if (Items != null)
+                {
+                    TotalAccounts = Items.Count;
+
+                    // Clear the collection if needed
+                    AllAccounts.Clear();
+
+                    foreach (var account in Items)
+                    {
+                        AllAccounts.Add(account);
+                        Debug.WriteLine(account.Client_name);
+                    }
+                }
+                else
+                {
+                    // Handle the case where the result from RefreshAccountsAsync is null.
+                    Debug.WriteLine("No data received from the Account Service.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions that may occur during the operation.
+                Debug.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+           
+        }
+
+
 
 
 
 
     }
 
-   
+
 }

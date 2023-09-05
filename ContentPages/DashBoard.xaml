@@ -52,7 +52,7 @@
                 <Label Text="Total Accounts" TextColor="{DynamicResource Black}" 
                HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                 <Label Text="Total Accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="10" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Label Text="{Binding TotalAccounts}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
                 <Button 
                         Text="Manage"
                         VerticalOptions="End"
