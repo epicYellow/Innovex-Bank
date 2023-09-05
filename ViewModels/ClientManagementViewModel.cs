@@ -31,6 +31,7 @@ namespace Innovex_Bank.ViewModels
         public string ErrorMessage { get; set; } = string.Empty;
         public ICommand AddNewClientCommand { get; }
         public ICommand EditClientCommand { get; }
+        public ICommand DeleteClientCommand { get; }
 
         //remove void and add rest return type
         public ClientManagementViewModel(ClientRestService restService)
@@ -39,6 +40,14 @@ namespace Innovex_Bank.ViewModels
             AllClients = new ObservableCollection<Client>();
             AddNewClientCommand = new Command(async () => await AddClient());
             EditClientCommand = new Command(async () => await updateClient());
+            DeleteClientCommand = new Command(async () => await deleteClient());
+        }
+
+        private async Task deleteClient()
+        {
+            int id = Ind_ClientDetails.Id;
+            await _rest.DeleteClientAsync(id);
+            await Shell.Current.GoToAsync("..");
         }
 
         private async Task AddClient()

@@ -93,6 +93,7 @@ namespace Innovex_Bank.ViewModels
                     Type_id = TypeSelection.Id,
                     Transaction_fee = TypeSelection.Transaction_fee,
                     Balance = 0,
+                    Free_transactions_left = TypeSelection.Free_limit,
                     Client_id = ClientSelection.Id,
                     Client_name = ClientSelection.First_name + " " + ClientSelection.Last_name,
                 };
