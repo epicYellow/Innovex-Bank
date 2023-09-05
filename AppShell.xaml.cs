@@ -11,6 +11,8 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute("AddClient", typeof(AddClient));
         Routing.RegisterRoute("AddAccount", typeof(AddAccount));
+        Routing.RegisterRoute("EditClient", typeof(EditClient));
+
     }
 
     async protected override void OnAppearing()

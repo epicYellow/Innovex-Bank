@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.EditClient"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                <Label FontSize="Medium" TextColor="Black" Text="Edit Client"/>
+                <Label FontSize="Medium" TextColor="Black" Text="{Binding First_name}"/>
+            </FlexLayout>
+
+            <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+            <Grid RowSpacing="20"
+                  Padding="20"
+                  ColumnSpacing="20">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Placeholder="Address" Text="{Binding Address}" />
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="0" Placeholder="Email" Text="{Binding Email}"/>
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Placeholder="Phone Number" Text="{Binding Phone_number}" />
+                <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1" Placeholder="MonthlyIncome" Text="{Binding Monthly_income}"/>
+
+                <Label Grid.Column="2" Grid.Row="2" Text="{Binding ErrorMessage}" TextColor="Red" Margin="10" />
+                
+                <Button Grid.Column="3" Grid.Row="5" Text="Edit Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" VerticalOptions="End" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding EditClientCommand}"/>
+                <Button Grid.Column="2" Grid.Row="5" Text="Delete" BorderColor="{DynamicResource Tertiary}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" VerticalOptions="End" CornerRadius="3" BackgroundColor="{DynamicResource Tertiary}" BorderWidth="1" Command="{Binding AddNewClientCommand}"/>
+
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

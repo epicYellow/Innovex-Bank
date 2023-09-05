@@ -32,7 +32,7 @@ public partial class ClientManagement : ContentPage
         await Shell.Current.GoToAsync("AddClient");
     }
 
-    private void EditButton_Clicked(object sender, EventArgs e)
+    private async void EditButton_Clicked(object sender, EventArgs e)
     {
         // Retrieve the button that was clicked
         Button button = (Button)sender;
@@ -40,10 +40,9 @@ public partial class ClientManagement : ContentPage
         // Retrieve the associated client's ID from the button's BindingContext
         if (button.BindingContext is Client client)
         {
-            int clientId = client.Id;
 
-            // Now, you have the ID, and you can navigate or perform any action as needed.
-            Debug.WriteLine($"Edit button clicked for client ID: {clientId}");
+            // Navigate to the destination page (EditClientPage) and pass the client's ID
+            await Navigation.PushAsync(new EditClient(client));
         }
     }
 }
