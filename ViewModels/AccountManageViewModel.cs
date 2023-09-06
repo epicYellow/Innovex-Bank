@@ -3,6 +3,7 @@ using Innovex_Bank.Models;
 using Innovex_Bank.Services;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Net;
 using System.Windows.Input;
 
 namespace Innovex_Bank.ViewModels
@@ -21,6 +22,7 @@ namespace Innovex_Bank.ViewModels
 
         //All clients for add account dropdown
         public ObservableCollection<Client> AllClients { get; set; }
+        public Accounts Ind_Account { get; set; }
 
         public string Account_number { get; set; }
         public string Type_id { get; set; }
@@ -37,13 +39,23 @@ namespace Innovex_Bank.ViewModels
         public int TotalEasyAccessSavings { get; set; }
         public int TotalGoldCheque { get; set; }
         public ICommand AddAccount { get; private set; }
+
         int randomAccountNumber;
+
         private readonly Random _random = new Random();
 
         //Account Management Page
         public ObservableCollection<Transactions> SelectedTransactions { get; set; }
         //Side Column bindings
         public string AccountHolderName { get; set; } = "AccountHolder Name";
+
+        //Edit account page
+        public int AccountType { get; set; }
+        public string AccountName { get; set; }
+        public string AccountNumber { get; set; }
+        public AccountTypes NewAccountType { get; set; }
+
+        public ICommand EditAccount { get; private set; }
 
         //remove void and add rest return type
         public AccountManageViewModel(TransactionRestService restService, ClientRestService clientRest, AccountRestService accountRestService)
@@ -63,6 +75,7 @@ namespace Innovex_Bank.ViewModels
             SelectedTransactions = new ObservableCollection<Transactions>();
 
             AddAccount = new Command(async () => await AddNewAccount());
+            EditAccount = new Command(async () => await updateAccount());
         }
 
         private async Task AddNewAccount()
@@ -130,7 +143,6 @@ namespace Innovex_Bank.ViewModels
 
         public async Task updateCounts()
         {
-
             var Items = await _transactionRest.RefreshAccountsync();
 
             TotalTaxFreeAccounts = Items.Where(c => c.Type_id == 3).ToList().Count();
@@ -142,6 +154,20 @@ namespace Innovex_Bank.ViewModels
             OnPropertyChanged(nameof(TotalDiamondAccounts));
             OnPropertyChanged(nameof(TotalEasyAccessSavings));
             OnPropertyChanged(nameof(TotalGoldCheque));
+        }
+
+        public async Task updateEditValues(Accounts accountData)
+        {
+            Ind_Account = accountData;
+
+            AccountType = accountData.Type_id;
+            AccountName = accountData.Client_name;
+            AccountNumber = accountData.Account_number;
+
+            OnPropertyChanged(nameof(AccountType));
+            OnPropertyChanged(nameof(AccountName));
+            OnPropertyChanged(nameof(AccountNumber));
+            OnPropertyChanged(nameof(Ind_Account));
         }
 
         public async Task getAllAccounts()
@@ -173,8 +199,6 @@ namespace Innovex_Bank.ViewModels
 
         public async Task getAllTransactions()
         {
-            //uncomment and implement
-            //var Items = await _rest.RefreshDataAsync();
             AllTransactions.Clear();
             foreach (var transactions in AllTransactions)
             {
@@ -190,6 +214,25 @@ namespace Innovex_Bank.ViewModels
             {
                 AllClients.Add(client);
             }
+        }
+
+        public async Task updateAccount()
+        {
+            var updatedAccount = new Accounts
+            {
+                Id = Ind_Account.Id,
+                Account_number = Ind_Account.Account_number,
+                Type_id = NewAccountType.Id,
+                Transaction_fee = NewAccountType.Transaction_fee,
+                Balance = Ind_Account.Balance,
+                Client_id = Ind_Account.Client_id,
+                Free_transactions_left = NewAccountType.Free_limit,
+                Client_name = Ind_Account.Client_name,
+            };
+
+            await _accountRestService.UpdateAccountAsync(updatedAccount, false);
+            await Shell.Current.GoToAsync("..");
+            await getAllAccounts();
         }
     }
 }

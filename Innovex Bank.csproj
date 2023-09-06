@@ -89,6 +89,9 @@
 	  <MauiXaml Update="ContentPages\DashBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\EditAccount.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\EditClient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

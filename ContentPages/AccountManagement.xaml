@@ -97,7 +97,7 @@
                                                     Clicked="GetClientTransaction" VerticalOptions="End" HorizontalOptions="End"/>
                                                 <Button Margin="5" Text="Edit" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
                                                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
-                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                    Clicked="EditButton_Clicked" VerticalOptions="End" HorizontalOptions="End"/>
                                             </FlexLayout>
                                         </ContentView>
                                     </ViewCell>
