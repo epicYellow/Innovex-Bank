@@ -16,7 +16,9 @@ namespace Innovex_Bank.ViewModels
         //add rests
         public ClientRestService _rest;
         public ObservableCollection<Client> AllClients { get; set; }
+        public Client Ind_ClientDetails { get; set; }
         public string First_name { get; set; } = string.Empty;
+        public string Disp_name { get; set; } = string.Empty;
         public string Last_name { get; set; } = string.Empty;
         public string Id_number { get; set; } = string.Empty;
         public string Phone_number { get; set; } = string.Empty;
@@ -25,9 +27,11 @@ namespace Innovex_Bank.ViewModels
         public string Email { get; set; } = string.Empty;
         public string Date_of_birth { get; set; } = string.Empty;
         public bool Employment_status { get; set; }
-        public int Monthly_income { get; set; }
+        public float Monthly_income { get; set; }
         public string ErrorMessage { get; set; } = string.Empty;
         public ICommand AddNewClientCommand { get; }
+        public ICommand EditClientCommand { get; }
+        public ICommand DeleteClientCommand { get; }
 
         //remove void and add rest return type
         public ClientManagementViewModel(ClientRestService restService)
@@ -35,16 +39,22 @@ namespace Innovex_Bank.ViewModels
             _rest = restService;
             AllClients = new ObservableCollection<Client>();
             AddNewClientCommand = new Command(async () => await AddClient());
+            EditClientCommand = new Command(async () => await updateClient());
+            DeleteClientCommand = new Command(async () => await deleteClient());
+        }
+
+        private async Task deleteClient()
+        {
+            int id = Ind_ClientDetails.Id;
+            await _rest.DeleteClientAsync(id);
+            await Shell.Current.GoToAsync("..");
         }
 
         private async Task AddClient()
         {
-            Debug.WriteLine("lol");
-
             if (First_name == string.Empty || Last_name == string.Empty || Id_number == string.Empty || Phone_number == string.Empty || Address == string.Empty ||
                 Gender == string.Empty || Email == string.Empty || Date_of_birth == string.Empty )
             {
-                Debug.WriteLine("heyy");
                 ErrorMessage = "Please fill in all the fields";
             } else
             {
@@ -65,6 +75,7 @@ namespace Innovex_Bank.ViewModels
                 await _rest.SaveClientAsync(newClient, true);
                 await Shell.Current.GoToAsync("..");
             }
+            OnPropertyChanged(nameof(ErrorMessage));
         }
 
         public async Task getAllClients()
@@ -78,6 +89,45 @@ namespace Innovex_Bank.ViewModels
             }
         }
 
-        
+        public async Task updateFormValues(Client clientDetails)
+        {
+            Disp_name = clientDetails.First_name + " " + clientDetails.Last_name;
+
+            //save client details for update
+            Ind_ClientDetails = clientDetails;
+
+            Address = clientDetails.Address;
+            Email = clientDetails.Email;
+            Phone_number = clientDetails.Phone_number;
+            Monthly_income = clientDetails.Monthly_income;
+
+            OnPropertyChanged(nameof(Address));
+            OnPropertyChanged(nameof(Email));
+            OnPropertyChanged(nameof(Phone_number));
+            OnPropertyChanged(nameof(Monthly_income));
+            OnPropertyChanged(nameof(First_name));
+            OnPropertyChanged(nameof(Ind_ClientDetails));
+        }
+
+        public async Task updateClient()
+        {
+            var newClient = new Client
+            {
+                Id = Ind_ClientDetails.Id,
+                First_name = Ind_ClientDetails.First_name,
+                Last_name = Ind_ClientDetails.Last_name,
+                Id_number = Ind_ClientDetails.Id_number,
+                Date_of_birth = Ind_ClientDetails.Date_of_birth,
+                Gender = Ind_ClientDetails.Gender,
+                Address = Address,
+                Email = Email,
+                Phone_number = Phone_number,
+                Employment_status = Ind_ClientDetails.Employment_status,
+                Monthly_income = Monthly_income,
+            };
+
+            await _rest.UpdateClientAsync(newClient, false);
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

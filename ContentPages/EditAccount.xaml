@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.EditAccount"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                <Label FontSize="Medium" TextColor="Black" Text="Change account type"/>
+                <Label FontSize="Medium" TextColor="Black" Text="{Binding First_name}"/>
+            </FlexLayout>
+
+            <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+            <Grid RowSpacing="20"
+                Padding="20"
+                ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label FontSize="Medium" TextColor="Black" Text="Current Account Type: " Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="0"/>
+                <Label FontSize="Medium" TextColor="Black" Text="{Binding AccountType}" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="0"/>
+                <Label FontSize="Medium" TextColor="Black" Text="{Binding AccountNumber} " Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="1"/>
+                <Label FontSize="Medium" TextColor="Black" Text="{Binding AccountName}" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1"/>
+
+                <Picker BackgroundColor="{DynamicResource Active}" TextColor="White"
+                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                        TitleColor="{DynamicResource AppGray}"
+                        ItemDisplayBinding="{Binding Type_name}"
+                        Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="0" Title="Change Account type" 
+                        ItemsSource="{Binding AllAccountTypes}" SelectedItem="{Binding NewAccountType} "/>
+
+                <Button Grid.Column="3" Grid.Row="5" Text="Edit Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" VerticalOptions="End" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding EditAccount}"/>
+                <Button Grid.Column="2" Grid.Row="5" Text="Delete" BorderColor="{DynamicResource Tertiary}" TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40" VerticalOptions="End" CornerRadius="3" BackgroundColor="{DynamicResource Tertiary}" BorderWidth="1" Command="{Binding DeleteClientCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

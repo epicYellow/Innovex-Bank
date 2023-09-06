@@ -17,6 +17,9 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute("AddClient", typeof(AddClient));
         Routing.RegisterRoute("AddAccount", typeof(AddAccount));
+        Routing.RegisterRoute("EditClient", typeof(EditClient));
+        Routing.RegisterRoute("EditAccount", typeof(EditAccount));
+        Routing.RegisterRoute("MakeTransaction", typeof(MakeTransaction));
         Routing.RegisterRoute("AddStaff", typeof(AddStaff));
         Routing.RegisterRoute("EditStaff", typeof(EditStaff));
         _staffService = new StaffService();
@@ -24,6 +27,7 @@ public partial class AppShell : Shell
         BindingContext = this;
         Routing.RegisterRoute("UserDetails", typeof(UserDetail));
         Routing.RegisterRoute("Admins", typeof(StaffManagement));
+        
     }
     public string Email { get; set; }
     async protected override void OnAppearing()

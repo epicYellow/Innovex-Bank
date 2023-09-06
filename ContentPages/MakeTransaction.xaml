@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.MakeTransaction"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+            <ScrollView>
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <FlexLayout Margin="40" AlignItems="Center" AlignContent="Center" Wrap="Wrap" Direction="Row" JustifyContent="SpaceBetween">
+                        <Label FontSize="Medium" TextColor="Black" Text="Make transaction"/>
+                        <Label FontSize="Medium" TextColor="Black" Text="{Binding AccountName}"/>
+                    </FlexLayout>
+
+                    <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+
+                    <Grid RowSpacing="20"
+                        Padding="20"
+                        ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label FontSize="Body" TextColor="Black" Text="Account: " Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="0"/>
+                        <Label FontSize="Medium" TextColor="Black" Text="{Binding AccountNumber}" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="0"/>
+
+                        <Label FontSize="Medium" VerticalOptions="Center" TextColor="Black" Text="{Binding ToFrom}" Grid.ColumnSpan="1" Grid.Column="2" Grid.Row="0"/>
+
+                        <Picker BackgroundColor="{DynamicResource Active}" TextColor="White"
+                                                HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                                TitleColor="{DynamicResource AppGray}"
+                                                SelectedIndexChanged="Change"
+                                                Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" Title="Transaction Type" 
+                                                ItemsSource="{Binding TransType}" SelectedItem="{Binding SelectedItem} "/>
+                        
+                        <Label FontSize="Medium" TextColor="Black" Text="AccountNumber:" Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="0"/>
+
+                        <Label FontSize="Medium" TextColor="Black" Text="Balance" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="2"/>
+                        <Label FontSize="Medium" TextColor="Black" Text="{Binding Balance}" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="2"/>
+
+
+                        <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1"
+                               Placeholder="Account number" Text="{Binding AccountNumberEntry}" />
+
+                        <Entry BackgroundColor="{DynamicResource White}" TextColor="Black" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1"
+                               Placeholder="Amount" Text="{Binding AmountEntry}" />
+
+                        <Label Grid.Column="4" Grid.Row="3" Text="{Binding AccountTypeError}" TextColor="Red" Margin="10" />
+                        <Button Grid.Column="4" Grid.Row="4" Text="Transact" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                                        MaximumHeightRequest="40" VerticalOptions="End" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding TransactionCommand}"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+</ContentPage>

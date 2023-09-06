@@ -107,6 +107,25 @@ namespace Innovex_Bank.Services
         }
 
 
+        public async Task SaveTransactionAsync(Transactions item, bool isNewItem = false)
+        {
+            Uri uri = new(string.Format($"{baseUrl}Transactions/", string.Empty));
+
+            try
+            {
+                string json = JsonSerializer.Serialize<Transactions>(item, _serializerOptions);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                    response = await _client.PostAsync(uri, content);
+                else
+                    response = await _client.PutAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                    Debug.WriteLine(@"\tTodoItem successfully saved.");
+
+
         public async Task<List<Accounts>> RetrieveAccountById(int id)
         {
             Accounts = new List<Accounts>();
@@ -125,13 +144,17 @@ namespace Innovex_Bank.Services
                 {
                     Debug.WriteLine($"Account {id} not found.");
                 }
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
+        }
+
             return Accounts;
         }
+
     }
 }
