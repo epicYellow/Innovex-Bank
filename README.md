@@ -285,15 +285,18 @@ function App() {
 <!-- Contributing -->
 ## :wave: Contributing
 <p>
+<border style="border-radius:50%">
 <a href="https://github.com/epicYellow">
-  <img src="https://avatars.githubusercontent.com/u/105212574?v=4" width="100" height="auto" style="border-radius:50%"/>
+  <img src="https://avatars.githubusercontent.com/u/105212574?v=4" width="100" height="auto" />
 </a>
+</border>
+
 
 <a href="https://github.com/vian-duppie">
   <img src="https://avatars.githubusercontent.com/u/125647194?v=4"  width="100" height="auto" style="border-radius:50%" />
 </a>
 
-<a href="https://github.com/Justin-OwiStudent" style="border-radius:50%">
+<a href="https://github.com/Justin-OwiStudent" >
   <img src="https://avatars.githubusercontent.com/u/90196387?v=4"  width="100" height="auto"  />
 </a>
 </p>
