@@ -11,11 +11,11 @@ namespace Innovex_Bank.Services
 		readonly JsonSerializerOptions _serializerOptions;
 
 		// Base API URL
-		internal string baseUrl = "https://localhost:7230/api/StaffModels";
-		internal string clientsUrl = "https://localhost:7230/api/Clients";
+		internal string baseUrl = "https://localhost:7230/api/";
+		internal string clientsUrl = "https://localhost:7230/api/";
 
         // List of Staff
-        public List<StaffModel> Items { get; private set; }
+        public List<Staff> Items { get; private set; }
 		public List<Client> Clients { get; private set; }
 
         // Creating httpClient
@@ -30,27 +30,28 @@ namespace Innovex_Bank.Services
 			};
 		}
 
-		public async Task<List<StaffModel>> RefreshDataAsync()
-		{
-			Items = new List<StaffModel>();
+        public async Task<List<Staff>> RefreshStaffAsync()
+        {
+            Items = new List<Staff>();
 
-			Uri uri = new(string.Format(baseUrl, string.Empty));
+            Uri uri = new(string.Format($"{baseUrl}Staff/", string.Empty));
 
-			try
-			{
-				HttpResponseMessage response = await _client.GetAsync(uri);
-				if (response.IsSuccessStatusCode)
-				{
-					string content = await response.Content.ReadAsStringAsync();
-					Items = JsonSerializer.Deserialize<List<StaffModel>>(content, _serializerOptions);
-				}
-			} catch (Exception ex)
-			{
-				Debug.WriteLine(@"\tERROR {0}", ex.Message);
-			}
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Items = JsonSerializer.Deserialize<List<Staff>>(content, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
 
-			return Items;
-		}
+            return Items;
+        }
 
     }
 }

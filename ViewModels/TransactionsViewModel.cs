@@ -12,26 +12,26 @@ namespace Innovex_Bank.ViewModels
     internal class TransactionsViewModel : BaseViewModel
     {
 
-        public TransactionRestService _restService;
+       // public TransactionRestService _restService;
 
-        public List<Transactions> TransactionList;
+        //public List<Transactions> TransactionList;
 
-        public TransactionsViewModel(TransactionRestService restService)
-        {
-            _restService = restService;
-            TransactionList = new List<Transactions>();
-        }
+       // public TransactionsViewModel(TransactionRestService restService)
+       // {
+        //    _restService = restService;
+         //   TransactionList = new List<Transactions>();
+       // }
 
-        public async Task FetchAllTransactions()
-        {
-            var items = await _restService.RefreshDataAsync();
-            TransactionList.Clear();
-            foreach (var item in items)
-            {
-                TransactionList.Add(item);
-                Debug.WriteLine(item.Amount);
-                Debug.WriteLine(item.Account_Id);
-            }
-        }
+       // public async Task FetchAllTransactions()
+        //{
+        //    var items = await _restService.RefreshDataAsync();
+        //    TransactionList.Clear();
+        //    foreach (var item in items)
+        //    {
+        //        TransactionList.Add(item);
+        //        Debug.WriteLine(item.Amount);
+          //      Debug.WriteLine(item.Account_Id);
+         //   }
+     //   }
     }
 }
