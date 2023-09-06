@@ -73,7 +73,7 @@ namespace Innovex_Bank.ViewModels
             }
         }
 
-        //total Clients
+        //total Accounts
         private int _totalAccounts;
         public int TotalAccounts
         {
@@ -114,7 +114,7 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions.Clear();
 
-            // Initialize variables to keep track of total withdrawn and total deposited
+         
             TotalWithdrawn = 0;
             TotalDeposited = 0;
 
@@ -123,7 +123,7 @@ namespace Innovex_Bank.ViewModels
                 AllTransactions.Add(transaction);
                 Debug.WriteLine(transaction.Amount);
 
-                // Check the transaction type and update the appropriate total
+             
                 if (transaction.Transaction_type == "Withdrawl")
                 {
                     TotalWithdrawn += transaction.Amount;
@@ -133,10 +133,6 @@ namespace Innovex_Bank.ViewModels
                     TotalDeposited += transaction.Amount;
                 }
             }
-
-            //totalWithdrawn and totalDeposited values available
-            Debug.WriteLine("Total Withdrawn: " + TotalWithdrawn);
-            Debug.WriteLine("Total Deposited: " + TotalDeposited);
         }
         
 
@@ -162,8 +158,6 @@ namespace Innovex_Bank.ViewModels
         }
 
         public float TotalStaff { get; set; }
-
-
         //get staff with error handling
         public async Task GetAllStaff()
         {
@@ -187,13 +181,13 @@ namespace Innovex_Bank.ViewModels
                 }
                 else
                 {
-                    // Handle the case where the result from RefreshDataAsync is null.
+                  
                     Debug.WriteLine("No data received from the Staff service.");
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions that may occur during the operation.
+               
                 Debug.WriteLine($"An error occurred: {ex.Message}");
             }
         }
@@ -208,7 +202,7 @@ namespace Innovex_Bank.ViewModels
                 {
                     TotalClients = Items.Count;
 
-                    // Clear the collection if needed
+             
                     AllClients.Clear();
 
                     foreach (var client in Items)
@@ -219,13 +213,13 @@ namespace Innovex_Bank.ViewModels
                 }
                 else
                 {
-                    // Handle the case where the result from RefreshClientAsync is null.
+             
                     Debug.WriteLine("No data received from the Client Service.");
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions that may occur during the operation.
+            
                 Debug.WriteLine($"An error occurred: {ex.Message}");
             }
         }
@@ -240,7 +234,6 @@ namespace Innovex_Bank.ViewModels
                 {
                     TotalAccounts = Items.Count;
 
-                    // Clear the collection if needed
                     AllAccounts.Clear();
 
                     foreach (var account in Items)
@@ -251,13 +244,13 @@ namespace Innovex_Bank.ViewModels
                 }
                 else
                 {
-                    // Handle the case where the result from RefreshAccountsAsync is null.
+                  
                     Debug.WriteLine("No data received from the Account Service.");
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions that may occur during the operation.
+              
                 Debug.WriteLine($"An error occurred: {ex.Message}");
             }
         }

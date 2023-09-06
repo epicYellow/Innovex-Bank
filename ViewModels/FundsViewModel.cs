@@ -60,22 +60,19 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions.Clear();
 
-            // Create a list to store Account_Ids from all transactions
+           
             List<int> accountIds = new List<int>();
 
             foreach (var transaction in Items)
             {
                 AllTransactions.Add(transaction);
-                //Debug.WriteLine(transaction.Account_Id);
+                
 
-                // Collect Account_Ids
+               
                 accountIds.Add(transaction.Account_Id);
 
-                // Check the transaction type and update the appropriate total
+               
             }
-
-            // Now, you have all Account_Ids in the accountIds list
-            // You can use this list as needed for further processing
         }
 
 
@@ -84,7 +81,7 @@ namespace Innovex_Bank.ViewModels
             var Items = await _transactionRestService.RefreshAccountsync();
             AllAccounts.Clear();
 
-            // Initialize the overall total transaction fee to 0
+           
             OverallTotalTransactionFee = 0;
 
             foreach (var account in Items)
@@ -92,20 +89,19 @@ namespace Innovex_Bank.ViewModels
                 AllAccounts.Add(account);
                 Debug.WriteLine(account);
 
-                // Calculate the total transaction fee for the current account
+
+                //float totalTransactionFee = account.Transaction_fee;
+                
                 float TotalTransactionFee = CalculateTotalTransactionFeeForAccount(account.Id);
-                //Debug.WriteLine(TotalTransactionFee);
+               
 
-                // Assign the calculated total transaction fee to a property in the account object
-                account.Transaction_fee = TotalTransactionFee;
+                //account.Transaction_fee = TotalTransactionFee;
 
-                // Add the current account's transaction fee to the overall total
                 OverallTotalTransactionFee += TotalTransactionFee;
                 Debug.WriteLine(OverallTotalTransactionFee);
             }
 
-            // Now, you have the overall total transaction fee in the OverallTotalTransactionFee variable
-            // You can use this variable as needed
+           
             Debug.WriteLine($"Overall Total Transaction Fee: {OverallTotalTransactionFee}");
         }
 
@@ -114,50 +110,31 @@ namespace Innovex_Bank.ViewModels
         {
             float totalFee = 0;
 
-            foreach (var transaction in AllTransactions)
+            foreach (var account in AllAccounts)
             {
-                if (transaction.Account_Id == accountId)
+                if (account.Id == accountId)
                 {
-                    // Assuming you have a CalculateTransactionFee method to calculate fees
-                    float fee = CalculateTransactionFee(transaction.Amount);
-                    totalFee += fee;
+                    // Use the account's Transaction_fee directly
+                    totalFee += account.Transaction_fee;
                 }
             }
 
             return totalFee;
         }
 
-        private float CalculateTransactionFee(float transactionAmount)
-        {
-            // Implement your logic to calculate the transaction fee here
-            // This could be a fixed fee or a percentage of the transaction amount
-            float feePercentage = 0.02f; // Example: 2% fee
-            float fee = transactionAmount * feePercentage;
-
-            // You can also add a minimum fee if needed
-            float minimumFee = 5.00f; // Example: Minimum fee of $5.00
-            if (fee < minimumFee)
-            {
-                fee = minimumFee;
-            }
-
-            return fee;
-        }
 
 
+        //calculate oercentage of transaction amounts
+        //private float CalculateTransactionFee(float transactionAmount)
+        //{
+            
+          //  float feePercentage = 0.02f; 
+           // float fee = transactionAmount * feePercentage;
 
+         
 
-
-
-        // eers transactions kry en dan account id vat
-        //dan function vir account match met account id van transaction
-        // dan die fee maal met hoeveelheid trasactions
-
-
-
-
-        //function om transaction by id te kry, afhangend van ander function 
-        //dan n function wat daai ID vat en check vir hoe
+            //return fee;
+        //}
 
 
 

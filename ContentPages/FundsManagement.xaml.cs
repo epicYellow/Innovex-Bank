@@ -22,8 +22,8 @@ public partial class FundsManagement : ContentPage
     {
         base.OnAppearing();
         //fetch all Transactions when appear
-        //await _viewModel.GetAllTransactions();
-        //await _viewModel.getAllAccounts();
+        await _viewModel.GetAllTransactions();
+        await _viewModel.getAllAccounts();
 
         //float totalTransactionFees = _viewModel.TotalTransactionFees;
         //float overallTotalTransactionFee = _viewModel.OverallTotalTransactionFee;
