@@ -101,6 +101,9 @@
 	  <MauiXaml Update="ContentPages\AddAccount.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\UserDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\AccountManagement\UserItem.xaml">
 	  	<Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

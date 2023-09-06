@@ -22,6 +22,7 @@ public partial class AppShell : Shell
         _staffService = new StaffService();
         _authService = new AuthService();
         BindingContext = this;
+        Routing.RegisterRoute("UserDetails", typeof(UserDetail));
     }
     public string Email { get; set; }
     async protected override void OnAppearing()
@@ -55,10 +56,6 @@ public partial class AppShell : Shell
             new AuthService().Logout();
             _ = Shell.Current.GoToAsync($"//{nameof(Login)}");
             Debug.WriteLine("Failed to retrieve user details.");
-        }
-
-        
+        } 
     }
-
-  
 }

@@ -26,25 +26,20 @@
             </VerticalStackLayout>
         </HorizontalStackLayout>
 
+        <Button 
+            Text="View"
+            VerticalOptions="End"
+            HorizontalOptions="End"
+            x:Name="viewButton"
+            BorderColor="{DynamicResource Active}"
+            TextColor="{DynamicResource White}"
+            MaximumHeightRequest="40"
+            CornerRadius="3"
+            BackgroundColor="{DynamicResource Active}"
+            BorderWidth="1"
+            Margin="0,0,40,0"
+            />
 
-        <Button  
-            WidthRequest="150" 
-            HeightRequest="40" 
-            Margin="20, 5, 50,0" 
-            Text="View" 
-            FontSize="20" 
-            CornerRadius="0" 
-            BorderColor="Black" 
-            HorizontalOptions="End" >
-            <!--<Button.Shadow>
-                 
-                <Shadow Brush="black"
-                Offset="3,3"
-                Radius="2"
-                Opacity="0.4" />
-
-            </Button.Shadow>-->
-        </Button>
     </FlexLayout>
     
 </ContentView>
