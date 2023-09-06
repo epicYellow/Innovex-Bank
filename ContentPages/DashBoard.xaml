@@ -38,10 +38,8 @@
                         Text="Manage"
                         VerticalOptions="End"
                         HorizontalOptions="End"
-                        
                         BorderColor="{DynamicResource Active}"
                         TextColor="{DynamicResource White}"
-                        MaximumHeightRequest="150"
                         CornerRadius="3"
                         BackgroundColor="{DynamicResource Active}"
                         BorderWidth="1"
@@ -88,7 +86,7 @@
             <VerticalStackLayout Grid.Column="0" Margin="0,50,0,0">
 
                 <Label 
-                    Text="User OverView" 
+                    Text="Admin Overview" 
                     TextColor="Black" 
                     FontSize="Large" 
                     FontAttributes="Bold" 
@@ -103,38 +101,28 @@
                                     <FlexLayout Direction="Row" JustifyContent="SpaceBetween" HeightRequest="50" Margin="20, 20, 0, 0">
                                         <HorizontalStackLayout>
                                             <BoxView 
-                            Color="Black" 
-                            WidthRequest="50" 
-                            Margin="10,0,10,0" 
-                            CornerRadius="40" >
+                                                Color="{DynamicResource Active}" 
+                                                WidthRequest="20" 
+                                                HeightRequest="20"
+                                                Margin="10,0,25,0" 
+                                                CornerRadius="25"
+                                                VerticalOptions="Center">
                                             </BoxView>
 
                                             <VerticalStackLayout>
                                                 <Label 
-                                TextColor="Black" 
-                                Text="{Binding Name}" 
-                                FontAttributes="Bold" 
-                                FontSize="20"  />
+                                                    TextColor="Black" 
+                                                    Text="{Binding Name}" 
+                                                    FontAttributes="Bold" 
+                                                    FontSize="20"  />
                                                 <Label 
-                                TextColor="Black" 
-                                Text="{Binding RoleTitle}"  
-                                FontSize="15" />
+                                                    TextColor="Black" 
+                                                    Text="{Binding RoleTitle}"  
+                                                    FontSize="15" />
                                             </VerticalStackLayout>
                                         </HorizontalStackLayout>
 
-                                        <Button 
-                        Text="View"
-                        VerticalOptions="End"
-                        HorizontalOptions="End"
-                        x:Name="viewButton"
-                        BorderColor="{DynamicResource Active}"
-                        TextColor="{DynamicResource White}"
-                        MaximumHeightRequest="40"
-                        CornerRadius="3"
-                        BackgroundColor="{DynamicResource Active}"
-                        BorderWidth="1"
-                        Margin="0,0,40,0"
-                        Clicked="OnViewButtonClicked"/>
+                                      
                                     </FlexLayout>
                                 </ContentView>
                             </ViewCell>
@@ -167,44 +155,58 @@
                 
                 <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
                     <Label 
+                                Text="Total Amount:" 
+                                TextColor="Black" 
+                                HorizontalOptions="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label 
+                            Text="R "
+                            TextColor="#252B63" 
+                            FontSize="40"
+                            FontAttributes="Bold"
+                            />
 
-                   x:Name="totalAmountLabel"
+                        <Label 
+                       x:Name="totalAmountLabel"
+                       TextColor="#252B63" 
+                       FontSize="40" 
+                       Margin="0, 0, 0, 0" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center"/>
+
+                    </HorizontalStackLayout>
                     
-                   TextColor="#252B63" 
-                   FontSize="40" 
-                   Margin="0, 20, 0, 0" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center"/>
 
-                    <FlexLayout JustifyContent="SpaceBetween" 
+                    <FlexLayout 
+                        JustifyContent="SpaceBetween" 
                         HorizontalOptions="Center" 
                         Margin="0, 20, 0, 0" 
                         WidthRequest="500">
 
                         <VerticalStackLayout >
                             <Label 
-                        Text="Total Withdrawn:" 
-                        TextColor="Black" 
-                        HorizontalOptions="Center" />
+                                Text="Total Withdrawn:" 
+                                TextColor="Black" 
+                                HorizontalOptions="Center" />
                             <Label 
-                        Text="{Binding TotalWithdrawn, StringFormat='R  {0}'}" 
-                        TextColor="red" 
-                        FontSize="25" 
-                        FontAttributes="Bold"/>
+                                Text="{Binding TotalWithdrawn, StringFormat='R  {0}'}" 
+                                TextColor="red" 
+                                FontSize="25" 
+                                FontAttributes="Bold"/>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout>
                             <Label 
-                        Text="18%" 
-                        TextColor="green" 
-                        HorizontalOptions="Center"/>
+                                Text="18%" 
+                                TextColor="green" 
+                                HorizontalOptions="Center"/>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout>
                             <Label 
-                        Text="Total Deposited:" 
-                        TextColor="Black" 
-                        HorizontalOptions="Center"/>
+                                Text="Total Deposited:" 
+                                TextColor="Black" 
+                                HorizontalOptions="Center"/>
                             <Label 
                                 Text="{Binding TotalDeposited, StringFormat='R {0}'}" 
                                 TextColor="Green" 
@@ -222,14 +224,16 @@
                             <ViewCell>
                                 <ContentView>
                                     <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
-                                        <Label Text="{Binding TotalFunds}" 
+                                        <Label 
+                                           Text="{Binding TotalFunds}" 
                                            TextColor="#252B63" 
                                            FontSize="40" 
                                            Margin="0, 20, 0, 0" 
                                            FontAttributes="Bold" 
                                            HorizontalOptions="Center"/>
 
-                                        <FlexLayout JustifyContent="SpaceBetween" 
+                                        <FlexLayout 
+                                            JustifyContent="SpaceBetween" 
                                             HorizontalOptions="Center" 
                                             Margin="0, 20, 0, 0" 
                                             WidthRequest="500">
@@ -258,7 +262,6 @@
                                                     Text="Total Deposited:" 
                                                     TextColor="Black" 
                                                     HorizontalOptions="Center"/>
-                                                
                                                 
                                                 <Label 
                                                     x:Name="totalWitdrawn"

@@ -29,6 +29,18 @@
         
         <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
-        <Controls:ButtonControl HorizontalOptions="EndAndExpand" Margin="40" ButtonText="End Month" ButtonType="Primary"/>
+       
+        <Button 
+                        Text="End Month"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="50"
+                        Command="{Binding ResetTotalsCommand}"
+                        />
     </VerticalStackLayout>
 </ContentPage>

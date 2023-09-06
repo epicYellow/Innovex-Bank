@@ -277,6 +277,8 @@ function App() {
 * [x] Create Viewmodels for all relevant pages.
 * [x] Connect project frontend and backend.
 * [x] Funtionality & data display on pages.
+* [ ] Final end month  functionality that resets all the values and removes all transactions.
+* [ ] calculate total interest rate.
 
 
 

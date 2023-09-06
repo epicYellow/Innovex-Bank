@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Media.Audio;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -24,6 +25,8 @@ namespace Innovex_Bank.ViewModels
 
         public ObservableCollection<Transactions> SelectedTransactions { get; set; }
 
+        public ICommand ResetTotalsCommand { get; }
+       
 
         private float _totalTransactionFees;
         public float TotalTransactionFees
@@ -47,6 +50,12 @@ namespace Innovex_Bank.ViewModels
             set => SetProperty(ref _totalTransactionAmount, value);
         }
 
+        private void ExecuteResetTotalsCommand()
+        {
+            // Call the ResetTotalAmounts function when the button is clicked
+            ResetTotalAmounts();
+        }
+
 
 
 
@@ -59,16 +68,19 @@ namespace Innovex_Bank.ViewModels
             AllAccounts = new ObservableCollection<Accounts>();
 
             TotalTransactionFees = 0;
-        }
 
-        public async Task GetAllTransactions()
+             ResetTotalsCommand = new Command(ExecuteResetTotalsCommand);
+
+    }
+
+    public async Task GetAllTransactions()
         {
             var Items = await _transactionRestService.RefreshDataAsync();
 
             AllTransactions.Clear();
 
             List<int> accountIds = new List<int>();
-            float totalAmount = 0; // Add this variable to keep track of the total amount
+            float totalAmount = 0;
 
             foreach (var transaction in Items)
             {
@@ -76,14 +88,10 @@ namespace Innovex_Bank.ViewModels
 
                 accountIds.Add(transaction.Account_Id);
 
-                // Add the transaction amount to the totalAmount
                 totalAmount += transaction.Amount;
             }
 
-            // Now you have the totalAmount
-            // You can use this value as needed
 
-            // If you want to display it or use it elsewhere, you can assign it to a property
             TotalTransactionAmount = totalAmount;
         }
 
@@ -100,14 +108,9 @@ namespace Innovex_Bank.ViewModels
             {
                 AllAccounts.Add(account);
                 Debug.WriteLine(account);
-
-
-                //float totalTransactionFee = account.Transaction_fee;
                 
                 float TotalTransactionFee = CalculateTotalTransactionFeeForAccount(account.Id);
                
-
-                //account.Transaction_fee = TotalTransactionFee;
 
                 OverallTotalTransactionFee += TotalTransactionFee;
                 Debug.WriteLine(OverallTotalTransactionFee);
@@ -126,7 +129,7 @@ namespace Innovex_Bank.ViewModels
             {
                 if (account.Id == accountId)
                 {
-                    // Use the account's Transaction_fee directly
+                    
                     totalFee += account.Transaction_fee;
                 }
             }
@@ -135,17 +138,25 @@ namespace Innovex_Bank.ViewModels
         }
 
 
+        public void ResetTotalAmounts()
+        {
+
+            OverallTotalTransactionFee = 0;
+            TotalTransactionAmount = 0;
+            Debug.WriteLine("Month values reset");
+        }
+
 
         //calculate oercentage of transaction amounts
         //private float CalculateTransactionFee(float transactionAmount)
         //{
-            
-          //  float feePercentage = 0.02f; 
-           // float fee = transactionAmount * feePercentage;
 
-         
+        //  float feePercentage = 0.02f; 
+        // float fee = transactionAmount * feePercentage;
 
-            //return fee;
+
+
+        //return fee;
         //}
 
 
