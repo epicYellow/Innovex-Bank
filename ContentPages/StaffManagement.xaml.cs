@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using Innovex_Bank.Models;
 using Innovex_Bank.ViewModels;
+using Windows.System;
 
 namespace Innovex_Bank.ContentPages;
 
@@ -33,5 +35,17 @@ public partial class StaffManagement : ContentPage
     {
         base.OnAppearing();
 		await _staffViewModel.FetchAllStaff();
+    }
+
+    private async void NavigateToEditStaff(object sender, EventArgs e)
+    {
+        Debug.WriteLine("Hey mannn navigate");
+        if (sender is Button button && button.BindingContext is Staff selectedUser)
+        {
+            Debug.WriteLine("Selected User Name: " + selectedUser.Name);
+
+            // Navigate to the EditStaff page and pass the selected user object
+            await Navigation.PushAsync(new EditStaff(selectedUser));
+        }
     }
 }

@@ -29,10 +29,6 @@ public class LoginVModel : BaseViewModel
   
     }
 
- 
-
-
-
     private async Task UserLogin()
     {
         var user = new Staff
@@ -41,11 +37,25 @@ public class LoginVModel : BaseViewModel
             Password = Password
         };
 
-        var authState = await _authService.LoginUser(user);
+        Debug.WriteLine(user.Email);
+        Debug.WriteLine(user.Password);
+
+        var (authState, userId) = await _authService.LoginUser(user);
+        var test = await _authService.LoginUser(user);
 
         if (authState)
         {
+            // Store the user ID in a property for future use
+            int loggedInUserId = userId; // This is the user ID
+            Debug.WriteLine(userId);
+
+            // You can now navigate to another page or perform any other actions based on the user ID.
             await Shell.Current.GoToAsync($"//{nameof(DashBoard)}");
+        }
+        else
+        {
+            // Handle authentication failure
+            Debug.WriteLine("Something happened");
         }
     }
 }

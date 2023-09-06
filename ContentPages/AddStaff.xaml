@@ -83,7 +83,7 @@
                     </Picker.Items>
                 </Picker>
 
-                <Button Grid.Column="3" Grid.Row="8" Text="Add Client" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
+                <Button Grid.Column="3" Grid.Row="8" Text="Add Staff Member" BorderColor="{DynamicResource Active}" TextColor="{DynamicResource White}"
                         CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Command="{Binding AddNewMemberCommand}"/>
             </Grid>
         </StackLayout>

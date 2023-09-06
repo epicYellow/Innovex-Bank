@@ -48,7 +48,7 @@ namespace Innovex_Bank.Services
         }
 
         // Set Authenticated User
-        public async Task<bool> LoginUser(Staff staff)
+        public async Task<(bool IsAuthenticated, int UserId)> LoginUser(Staff staff)
         {
             Uri uri = new(string.Format(baseUrl + "Auth/login", string.Empty));
 
@@ -63,24 +63,46 @@ namespace Innovex_Bank.Services
 
                 if (res.IsSuccessStatusCode)
                 {
-                    Preferences.Default.Set<bool>(AuthStateKey, true);
-                    Debug.WriteLine(@"\t AuthSuccessful");
-                    return true;
+                    var responseContent = await res.Content.ReadAsStringAsync();
+                    Debug.WriteLine("Response Content:");
+                    Debug.WriteLine(responseContent);
+                    Debug.WriteLine(responseContent);
+
+                    var responseObj = JsonSerializer.Deserialize<Dictionary<string, string>>(responseContent);
+
+                    if (responseObj.TryGetValue("token", out var token) && responseObj.TryGetValue("userId", out var userIdString))
+                    {
+                        Debug.WriteLine("It got the token and userid");
+                        if (int.TryParse(userIdString, out var userId))
+                        {
+                            // userId is now an integer, and you can use it as needed
+                            Preferences.Default.Set<int>("UserId", userId);
+
+                            Preferences.Default.Set<bool>(AuthStateKey, true);
+                            Debug.WriteLine(@"\t AuthSuccessful");
+                            Debug.WriteLine(userId);
+                            Debug.WriteLine(staff.Email);
+
+                            return (true, userId);
+                        }
+                    }
                 }
 
-                return false;
+                return (false, -1); // Return -1 as the user ID to indicate failure.
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tError {0}", ex.Message);
-                return false;
+                return (false, -1);
             }
         }
+
 
         // Remove Authenticated user
         public void Logout()
         {
             Preferences.Default.Set<bool>(AuthStateKey, false);
+            Preferences.Default.Remove("UserId"); // Remove the UserId preference
         }
 
     }

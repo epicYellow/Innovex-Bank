@@ -34,13 +34,22 @@ namespace Innovex_Bank.ViewModels
 
         public ICommand AddNewMemberCommand { get; }
 
+        private int _selectedUserId;
+
         public StaffViewModel(StaffService staffService)
 		{
             _staffService = staffService;
 			StaffList = new ObservableCollection<Staff>();
 
             AddNewMemberCommand = new Command(async () => AddMember());
-		}
+        }
+
+        public async Task UpdateStaffAsync(Staff updatedUser)
+        {
+            // Update the user data in the backend
+            await _staffService.UpdateStaffAsync(updatedUser);
+            await Shell.Current.GoToAsync("..");
+        }
 
         private async void AddMember()
         {
@@ -75,7 +84,7 @@ namespace Innovex_Bank.ViewModels
                 };
                 Debug.WriteLine(newMember);
                 await _staffService.SaveStaffAsync(newMember, true);
-                /*await Shell.Current.GoToAsync("..");*/
+                await Shell.Current.GoToAsync("..");
             }
            
         }

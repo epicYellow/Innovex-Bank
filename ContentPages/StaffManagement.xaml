@@ -100,17 +100,14 @@
                                         Text="{Binding Income}" 
                                         MinimumWidthRequest="100"
                                     />
-
-                                    <Button 
-                                        Text="Edit" 
-                                        VerticalOptions="End" 
-                                        BorderColor="{DynamicResource Black}" 
-                                        x:Name="mainButton" 
+                                    <Button Text="Edit"
+                                        VerticalOptions="End"
+                                        BorderColor="{DynamicResource Black}"
                                         TextColor="{DynamicResource Black}"
-                                        MaximumHeightRequest="40" 
-                                        CornerRadius="3"  
-                                        BorderWidth="1" 
-                                    />
+                                        MaximumHeightRequest="40"
+                                        CornerRadius="3"
+                                        BorderWidth="1"
+                                        Clicked="NavigateToEditStaff" />
                                 </FlexLayout>
                             </ContentView>
                         </ViewCell>
