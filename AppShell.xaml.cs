@@ -13,6 +13,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("AddAccount", typeof(AddAccount));
         Routing.RegisterRoute("EditClient", typeof(EditClient));
         Routing.RegisterRoute("EditAccount", typeof(EditAccount));
+        Routing.RegisterRoute("MakeTransaction", typeof(MakeTransaction));
 
     }
 

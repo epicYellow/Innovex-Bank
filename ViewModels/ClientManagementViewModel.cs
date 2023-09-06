@@ -52,11 +52,10 @@ namespace Innovex_Bank.ViewModels
 
         private async Task AddClient()
         {
-            Debug.WriteLine("lol");
-
             if (First_name == string.Empty || Last_name == string.Empty || Id_number == string.Empty || Phone_number == string.Empty || Address == string.Empty ||
                 Gender == string.Empty || Email == string.Empty || Date_of_birth == string.Empty )
             {
+                Debug.WriteLine("lol");
                 ErrorMessage = "Please fill in all the fields";
             } else
             {
@@ -77,6 +76,7 @@ namespace Innovex_Bank.ViewModels
                 await _rest.SaveClientAsync(newClient, true);
                 await Shell.Current.GoToAsync("..");
             }
+            OnPropertyChanged(nameof(ErrorMessage));
         }
 
         public async Task getAllClients()

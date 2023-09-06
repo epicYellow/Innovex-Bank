@@ -46,4 +46,14 @@ public partial class AccountManagement : ContentPage
         }
     }
 
+    private async void MakeTransaction(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        if (button.BindingContext is Accounts accountData)
+        {
+            await Navigation.PushAsync(new MakeTransaction(accountData));
+        }
+    }
+
 }

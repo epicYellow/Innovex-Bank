@@ -91,7 +91,7 @@
                                                 </VerticalStackLayout>
                                                 <Button Margin="5" Text="Transact" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
                                                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
-                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                    Clicked="MakeTransaction" VerticalOptions="End" HorizontalOptions="End"/>
                                                 <Button Margin="5" Text="History" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
                                                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
                                                     Clicked="GetClientTransaction" VerticalOptions="End" HorizontalOptions="End"/>
@@ -177,8 +177,41 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <ContentView>
-                                        <AccManControls:TransactionItem TransactionId="#33445566"
-                                             TransactionAmount="R120.80" TransactionFee="R12.45" TransactionTransType="Withdrawl"/>
+                                        <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" Margin="0,0,0,10" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="60" BackgroundColor="White" >
+                                            <Label 
+                                                Margin="10,0,0,0"
+                                                Text="{Binding Id}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" 
+                                                WidthRequest="90"
+                                                FontSize="Caption"
+                                                TextColor="{DynamicResource Black}"/>
+                                            <Label 
+                                                Text="{Binding Amount}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center"
+                                                Margin="5"
+                                                WidthRequest="100"
+                                                FontSize="Caption"
+                                                TextColor="{DynamicResource Black}"/>
+                                            <Label 
+                                                Text="{Binding Transaction_fee}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" 
+                                                Margin="5"
+                                                WidthRequest="80"
+                                                FontSize="Caption"
+                                                TextColor="{DynamicResource Black}"/>
+                                            <Label 
+                                                Text="{Binding Transaction_type}"
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center" 
+                                                Margin="5"
+                                                WidthRequest="80"
+                                                FontSize="Caption"
+                                                TextColor="{DynamicResource Secondary}"/>
+                                            <Image Source="info_circle.png" Margin="5,5,10,5" />
+                                        </FlexLayout>
                                     </ContentView>
                                 </ViewCell>
                             </DataTemplate>

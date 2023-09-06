@@ -16,5 +16,6 @@ namespace Innovex_Bank.Models
         public int Client_id { get; set;}
         public int Free_transactions_left { get; set; }
         public string Client_name { get; set; }
+
     }
 }
