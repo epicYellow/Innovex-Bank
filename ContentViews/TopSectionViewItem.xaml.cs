@@ -1,23 +1,14 @@
 namespace Innovex_Bank.ContentViews;
 public partial class TopSectionViewItem : ContentView
 {
-    public static BindableProperty TopSectionTitleProperty =
-        BindableProperty.Create(nameof(Title), typeof(string), typeof(PageHeader), default(string));
+    public string Title { get; set; }
+    public int Total { get; set; }
 
-    public static BindableProperty TopSectionTotalProperty =
-        BindableProperty.Create(nameof(Total), typeof(int), typeof(PageHeader), default(int));
+    public int TotalGoldCheque { get; set; }
+    public int TotalDiamondAccounts { get; set; }
+    public int TotalTaxFreeAccounts { get; set; }
+    public int TotalEasyAccessSavings { get; set; }
 
-    public string Title
-    {
-        get => (string)GetValue(TopSectionTitleProperty);
-        set => SetValue(TopSectionTitleProperty, value);
-    }
-
-    public int Total
-    {
-        get => (int)GetValue(TopSectionTotalProperty);
-        set => SetValue(TopSectionTotalProperty, value);
-    }
     public TopSectionViewItem()
 	{
 		InitializeComponent();
