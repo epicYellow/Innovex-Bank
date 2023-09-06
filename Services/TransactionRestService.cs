@@ -38,7 +38,7 @@ namespace Innovex_Bank.Services
         {
             Transactions = new List<Transactions>();
 
-            Uri uri = new(string.Format(baseUrl, string.Empty));
+            Uri uri = new(string.Format($"{baseUrl}Transactions/", string.Empty));
 
             try
             {
