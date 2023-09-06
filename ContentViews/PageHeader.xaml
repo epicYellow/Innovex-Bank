@@ -10,7 +10,7 @@
             <Ellipse VerticalOptions="Center" Fill="{DynamicResource Black}"
                  Aspect="Uniform"
                 WidthRequest="40"/>
-            <Label VerticalOptions="Center" Text="Test" Margin="0,0,0,0" TextColor="{DynamicResource Black}"/>
+            <Label VerticalOptions="Center" Text="Justin Koster" Margin="0,0,0,0" TextColor="{DynamicResource Black}"/>
             <Button Text="Logout"  BorderColor="{DynamicResource Active}" x:Name="mainButton" TextColor="{DynamicResource White}"
                     CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1" Margin="10" Clicked="Logout_Clicked" />
         </HorizontalStackLayout>

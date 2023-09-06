@@ -23,13 +23,18 @@
                    TextColor="Black"
                    BackgroundColor="LightGray"
                    />
+            <!-- Add these labels to display error messages -->
+            <Label Text="{Binding EmailErrorMessage}" TextColor="Red" Margin="150, 0, 0, 0"/>
+            
+
             <Entry Text="{Binding Password}"
-                   Margin="150, 25, 150, 100"
+                   Margin="150, 25, 150, 0"
                    TextColor="Black"
                    IsPassword="True"
                    Placeholder="Enter Password"
                    BackgroundColor="LightGray"
                    />
+            <Label Text="{Binding PasswordErrorMessage}" TextColor="Red" Margin="150, 0, 0, 100"/>
             <Button Text="Sign in" WidthRequest="400" CornerRadius="2" BackgroundColor="Black" TextColor="white" FontAttributes="Bold" FontSize="Large" Command="{Binding LoginCommand}"/>
         </VerticalStackLayout>
 
