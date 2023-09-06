@@ -33,6 +33,17 @@ namespace Innovex_Bank.ViewModels
 
         public ObservableCollection<Accounts> AllAccounts { get; set; }
 
+        //total amount
+        private float _totalAllTransactions;
+        public float TotalAllTransactions
+        {
+            get => _totalAllTransactions;
+            set
+            {
+                _totalAllTransactions = value;
+                OnPropertyChanged(nameof(_totalAllTransactions));
+            }
+        }
 
         //total withdrawn 
         private float _totalWithdrawn;
@@ -106,7 +117,7 @@ namespace Innovex_Bank.ViewModels
             AllAccounts = new ObservableCollection<Accounts>();  
         }
 
- 
+
         //get all transactions and withdrawl and deposits
         public async Task GetAllTransactions()
         {
@@ -114,16 +125,19 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions.Clear();
 
-         
             TotalWithdrawn = 0;
             TotalDeposited = 0;
+            TotalAllTransactions = 0;
+            float TotalTransactions = 0;
 
             foreach (var transaction in Items)
             {
                 AllTransactions.Add(transaction);
-                Debug.WriteLine(transaction.Amount);
+                //Debug.WriteLine(transaction.Amount);
 
-             
+                TotalTransactions += transaction.Amount; 
+                Debug.WriteLine(TotalTransactions);
+
                 if (transaction.Transaction_type == "Withdrawl")
                 {
                     TotalWithdrawn += transaction.Amount;
@@ -133,8 +147,11 @@ namespace Innovex_Bank.ViewModels
                     TotalDeposited += transaction.Amount;
                 }
             }
+
+            TotalAllTransactions = TotalTransactions;
+
         }
-        
+
 
 
 
@@ -147,14 +164,13 @@ namespace Innovex_Bank.ViewModels
             {
                 totalAmount += transaction.Amount;
             }
-
             return totalAmount;
         }
 
         //sets total amount for all transactions
         public float TotalAmount
         {
-            get => CalculateTotalAmount(); 
+           get => CalculateTotalAmount(); 
         }
 
         public float TotalStaff { get; set; }
@@ -168,15 +184,15 @@ namespace Innovex_Bank.ViewModels
                 if (Items != null)
                 {
                     TotalStaff = Items.Count;
-                    Debug.WriteLine("This is the count of the number of staff member");
-                    Debug.WriteLine(TotalStaff);
+                    //Debug.WriteLine("This is the count of the number of staff member");
+                   // Debug.WriteLine(TotalStaff);
 
                     OnPropertyChanged(nameof(TotalStaff));
                     foreach (var staff in Items)
                     {
                         AllStaff.Add(staff);
-                        Debug.WriteLine("Testing");
-                        Debug.WriteLine(staff.Name);
+                       // Debug.WriteLine("Testing");
+                       // Debug.WriteLine(staff.Name);
                     }
                 }
                 else

@@ -23,7 +23,7 @@
                 <Label Text="Total Income" TextColor="{DynamicResource Black}" 
                HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                 <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Label Text="{Binding TotalTransactionAmount, StringFormat='R  {0}'}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
             </VerticalStackLayout>
         </FlexLayout>
         

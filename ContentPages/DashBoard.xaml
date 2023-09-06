@@ -35,7 +35,7 @@
                 <Label Text="Total Admins" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
                 <Label Text="{Binding TotalStaff}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
                 <Button 
-                        Text="Manages"
+                        Text="Manage"
                         VerticalOptions="End"
                         HorizontalOptions="End"
                         
@@ -46,7 +46,7 @@
                         BackgroundColor="{DynamicResource Active}"
                         BorderWidth="1"
                         Margin="0,0,40,0"
-                    Clicked="NavigateToAdminPageAsync"
+                        Clicked="NavigateToAdminPageAsync"
                         />
             </VerticalStackLayout>
             <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
@@ -168,7 +168,8 @@
                 <VerticalStackLayout BackgroundColor="{DynamicResource SecondaryWhite}">
                     <Label 
 
-                   x:Name="totalAmountLabel" 
+                   x:Name="totalAmountLabel"
+                    
                    TextColor="#252B63" 
                    FontSize="40" 
                    Margin="0, 20, 0, 0" 
@@ -239,7 +240,7 @@
                                                     TextColor="Black" 
                                                     HorizontalOptions="Center" />
                                                 <Label 
-                                                    Text="{Binding TotalAmount}" 
+                                                    Text="{Binding TotalWithdrawn}" 
                                                     TextColor="red" 
                                                     FontSize="25" 
                                                     FontAttributes="Bold"/>

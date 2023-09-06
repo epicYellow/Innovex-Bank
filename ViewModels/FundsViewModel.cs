@@ -40,6 +40,13 @@ namespace Innovex_Bank.ViewModels
             set => SetProperty(ref overallTotalTransactionFee, value);
         }
 
+        private float _totalTransactionAmount;
+        public float TotalTransactionAmount
+        {
+            get => _totalTransactionAmount;
+            set => SetProperty(ref _totalTransactionAmount, value);
+        }
+
 
 
 
@@ -60,19 +67,24 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions.Clear();
 
-           
             List<int> accountIds = new List<int>();
+            float totalAmount = 0; // Add this variable to keep track of the total amount
 
             foreach (var transaction in Items)
             {
                 AllTransactions.Add(transaction);
-                
 
-               
                 accountIds.Add(transaction.Account_Id);
 
-               
+                // Add the transaction amount to the totalAmount
+                totalAmount += transaction.Amount;
             }
+
+            // Now you have the totalAmount
+            // You can use this value as needed
+
+            // If you want to display it or use it elsewhere, you can assign it to a property
+            TotalTransactionAmount = totalAmount;
         }
 
 

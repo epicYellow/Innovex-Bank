@@ -43,6 +43,7 @@ namespace Innovex_Bank.ContentPages
             totalAmountLabel.Text = _viewModel.TotalAmount.ToString();
             //totalClientsLabel.Text = _viewModel.totalClients.ToString();
 
+            //float totalAllTransactions = _viewModel.TotalAllTransactions;
             float totalWithdrawn = _viewModel.TotalWithdrawn;
             float totalDeposited = _viewModel.TotalDeposited;
             int totalClients = _viewModel.TotalClients;

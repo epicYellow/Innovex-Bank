@@ -1,4 +1,4 @@
-# Innovex Bank<!--
+ï»¿# Innovex Bank<!--
 
 <div align="center">
 
@@ -34,12 +34,12 @@
    
 <h4>
     <a href="https://github.com/Louis3797/awesome-readme-template/">View Demo</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template">Documentation</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Report Bug</a>
-  <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature</a>
+  <span> ï¿½ </span>
+    <a href="https://github.com/epicYellow/Innovex-Bank.App">Documentation</a>
+  <span> ï¿½ </span>
+    <a href="https://github.com/epicYellow/Innovex-Bank.App/issues">Report Bug</a>
+  <span> ï¿½ </span>
+    <a href="https://github.com/epicYellow/Innovex-Bank.App/issues">Request Feature</a>
   </h4>
 </div>
 
@@ -121,28 +121,59 @@
   </ul>
 </details>
 
-<details>
-<summary>DevOps</summary>
-  <ul>
-    <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-    <li><a href="https://circleci.com/">CircleCLI</a></li>
-  </ul>
-</details>
+
 
 <!-- Features -->
 ### :dart: Features
 
+## DashBoard
+
+- Overview of Admin users.
+- Overview of recent transactions.
+- Overview of funds pool.
+- Overview of total clients.
+- Overview of total Accounts.
+- Overview of total admin staff.
+
+## Cliet Management
+
+- View all Clients.
+- Search for clients.
+- edit client.
+
+## Account Management 
+
+- View all accounts.
+- Account search functionality.
+- Account add functionality
+- Account edit functionality.
+
+## Admin Page
+
+- View all admins.
+- Search all Admins.
+- Edit Admin information.
+
+## Funds Page
+
+- Display total income from all transactions.
+- display total transaction fees for all transacions linked to accounts.
+- End month functionality
+
+<!--
 - Dashboard to see an overview of information regrading the bank.
-- Client management section to view all the relevant details of all clients.
-- Account management section to view all the relevant details of all the accounts.
+- Client management section to view and search all the relevant details of all clients.
+- Account management section to view and search all the relevant details of all the accounts.
+- Funds page where the total amount on transaction fees are displayed and end month functionality.
+-->
+
 
 <!-- Color Reference -->
 ### :art: Color Reference
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#FFFFF](https://via.placeholder.com/10/FFFFF?text=+) #FFFFF |
+| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
 | Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
 | Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
 | Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
@@ -154,8 +185,6 @@
 to run this project you need to have visual studio 
 
 `API_KEY`
-
-`ANOTHER_API_KEY`
 
 <!-- Getting Started -->
 ## 	:toolbox: Getting Started
@@ -194,7 +223,7 @@ To run tests, run the following command
 Clone the project
 
 ```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
+  git clone https://github.com/epicYellow/Innovex-Bank.App
 ```
 
 Go to the project directory
@@ -243,21 +272,32 @@ function App() {
 <!-- Roadmap -->
 ## :compass: Roadmap
 
-* [x] Todo 1
-* [ ] Todo 2
+* [x] Create the frontend using XAML.
+* [x] Establish a backend service.
+* [x] Create Viewmodels for all relevant pages.
+* [x] Connect project frontend and backend.
+* [x] Funtionality & data display on pages.
+
 
 
 <!-- Contributing -->
 ## :wave: Contributing
-
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
+<p>
+<a href="https://github.com/epicYellow">
+  <img src="https://avatars.githubusercontent.com/u/105212574?v=4" width="100" height="auto" style="border-radius:50%"/>
 </a>
 
+<a href="https://github.com/vian-duppie">
+  <img src="https://avatars.githubusercontent.com/u/125647194?v=4"  width="100" height="auto" style="border-radius:50%" />
+</a>
 
-Contributions are always welcome!
+<a href="https://github.com/Justin-OwiStudent" style="border-radius:50%">
+  <img src="https://avatars.githubusercontent.com/u/90196387?v=4"  width="100" height="auto"  />
+</a>
+</p>
 
-See `contributing.md` for ways to get started.
+
+
 
 
 <!-- Code of Conduct -->
@@ -300,5 +340,4 @@ Use this section to mention useful resources and libraries that you have used in
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
  - [Readme Template](https://github.com/othneildrew/Best-README-Template)
-
 
