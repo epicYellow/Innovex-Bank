@@ -31,7 +31,7 @@
                     <Image Source="final_logo.png" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
                     <VerticalStackLayout VerticalOptions="Center">
                         <Label Text="Innovex Bank" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
-                        <Label Text="viandupie@gmail.com" FontSize="Small" HorizontalOptions="Start"/>
+                        <Label Text="{Binding Email}" FontSize="Small" HorizontalOptions="Start"/>
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
             </Grid>
