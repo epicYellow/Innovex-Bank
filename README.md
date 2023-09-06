@@ -74,7 +74,11 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+  <img src="ReadMeAssets\Mockup_2.png" alt="screenshot" width="600px" />
+</div>
+
+<div align="center"> 
+  <img src="ReadMeAssets\Mockup_1.png" alt="screenshot" width="600px"/>
 </div>
 
 <!-- TechStack -->
