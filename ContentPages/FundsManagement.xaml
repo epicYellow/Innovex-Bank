@@ -14,21 +14,33 @@
                 <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
             </VerticalStackLayout>
             <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
-                <Label Text="Total Interest" TextColor="{DynamicResource Black}" 
+                <Label Text="Total Transaction Fees" TextColor="{DynamicResource Black}" 
                HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                 <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Label Text="{Binding OverallTotalTransactionFee, StringFormat='R  {0}'}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
             </VerticalStackLayout>
             <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
-                <Label Text="Total Interest" TextColor="{DynamicResource Black}" 
+                <Label Text="Total Income" TextColor="{DynamicResource Black}" 
                HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                 <Label Text="Total Clients" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
-                <Label Text="12%" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
+                <Label Text="{Binding TotalTransactionAmount, StringFormat='R  {0}'}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
             </VerticalStackLayout>
         </FlexLayout>
         
         <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
 
-        <Controls:ButtonControl HorizontalOptions="EndAndExpand" Margin="40" ButtonText="End Month" ButtonType="Primary"/>
+       
+        <Button 
+                        Text="End Month"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="50"
+                        Command="{Binding ResetTotalsCommand}"
+                        />
     </VerticalStackLayout>
 </ContentPage>

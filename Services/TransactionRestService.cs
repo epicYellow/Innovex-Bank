@@ -38,7 +38,7 @@ namespace Innovex_Bank.Services
         {
             Transactions = new List<Transactions>();
 
-            Uri uri = new(string.Format(baseUrl, string.Empty));
+            Uri uri = new(string.Format($"{baseUrl}Transactions/"));
 
             try
             {
@@ -106,6 +106,7 @@ namespace Innovex_Bank.Services
             return Accounts;
         }
 
+
         public async Task SaveTransactionAsync(Transactions item, bool isNewItem = false)
         {
             Uri uri = new(string.Format($"{baseUrl}Transactions/", string.Empty));
@@ -123,11 +124,36 @@ namespace Innovex_Bank.Services
 
                 if (response.IsSuccessStatusCode)
                     Debug.WriteLine(@"\tTodoItem successfully saved.");
+
+
+        public async Task<List<Accounts>> RetrieveAccountById(int id)
+        {
+            Accounts = new List<Accounts>();
+
+            Uri uri = new(string.Format($"{baseUrl}Accounts/byId/{id}", string.Empty));
+
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Accounts = JsonSerializer.Deserialize<List<Accounts>>(content, _serializerOptions);
+                }
+                else if (response == null)
+                {
+                    Debug.WriteLine($"Account {id} not found.");
+                }
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
+
+        }
+
+            return Accounts;
         }
 
     }

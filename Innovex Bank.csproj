@@ -86,6 +86,9 @@
 	  <MauiXaml Update="ContentPages\AddClient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\AddStaff.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\DashBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -93,6 +96,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\EditClient.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\EditStaff.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\Login.xaml">
@@ -104,6 +110,9 @@
 	  <MauiXaml Update="ContentPages\MakeTransaction.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\UserDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
 	  <MauiXaml Update="ContentViews\AccountManagement\TopSectionViewAccManagement.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

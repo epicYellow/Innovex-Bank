@@ -14,13 +14,13 @@ namespace Innovex_Bank.ViewModels
     {
 
         //add rests
-        public ObservableCollection<StaffModel> AllStaff { get; set; }
+        public ObservableCollection<Staff> AllStaff { get; set; }
         
 
         //remove void and add rest return type
         public void AccountsViewModel()
         {
-            AllStaff = new ObservableCollection<StaffModel>();
+            AllStaff = new ObservableCollection<Staff>();
         }
        
 

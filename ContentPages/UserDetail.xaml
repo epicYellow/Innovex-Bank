@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Innovex_Bank.ContentPages.UserDetail"
+             Title="UserDetail"
+             BackgroundColor="{DynamicResource SecondaryWhite}">
+    
+    <StackLayout>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Row="1">
+                <!--
+                <Label Text="{Binding Username}" />
+                <Label Text="{Binding RoleTitle}" />
+                -->
+                <FlexLayout JustifyContent="SpaceBetween">
+                    <Label  Text="Username Details"
+                        VerticalTextAlignment="Center"
+                        
+                        TextColor="Black" 
+                        FontSize="Large" 
+                        FontAttributes="Bold"
+                        Margin="40,40,0,0"/>
+                   
+                </FlexLayout>
+
+
+                <Entry Placeholder="Username" 
+                   Text="{Binding Text}"
+                   Margin="40,40,0,0" 
+                   FontSize="Small" 
+                   TextColor="Black" />
+
+                <Entry Placeholder="Email" 
+                   Text="{Binding Text}"
+                   Margin="40,40,0,0"
+                       FontSize="Small" 
+                   TextColor="Black" />
+
+                <Entry Placeholder="Role" 
+                   Text="{Binding Text}"
+                       FontSize="Small" 
+                   Margin="40,40,0,0" 
+                   TextColor="Black" />
+
+                
+                <!-- 
+                <Label  Text="Username: "
+                        VerticalTextAlignment="Center"
+                        
+                        TextColor="Black" 
+                        FontSize="Medium" 
+                        FontAttributes="Bold"
+                        Margin="40,40,0,0"/>
+
+                <Label Text="Email: "
+                       TextColor="Black" 
+                    FontSize="Medium" 
+                    FontAttributes="Bold"
+                       Margin="40,40,0,0"/>
+
+
+                <Label Text="Role: "
+                       TextColor="Black" 
+                    FontSize="Medium" 
+                    FontAttributes="Bold"
+                       Margin="40,40,0,0"/>
+                -->
+                
+
+                <Button 
+                        Text="Edit Details"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        x:Name="viewButton"
+                        BorderColor="{DynamicResource Active}"
+                        TextColor="{DynamicResource White}"
+                        MaximumHeightRequest="40"
+                        CornerRadius="3"
+                        BackgroundColor="{DynamicResource Active}"
+                        BorderWidth="1"
+                        Margin="0,50,40,0"
+                       />
+
+            </VerticalStackLayout>
+
+
+        </Grid>
+
+            
+            
+
+
+            
+
+            
+    </StackLayout>
+</ContentPage>
