@@ -26,16 +26,6 @@
     <img src="https://img.shields.io/github/license/epicYellow/Innovex-Bank.App.svg" alt="license" />
   </a>
 </p>
-   
-<h4>
-    <a href="https://github.com/epicYellow/Innovex-Bank.App/">View Demo</a>
-  <span> � </span>
-    <a href="https://github.com/epicYellow/Innovex-Bank.App">Documentation</a>
-  <span> � </span>
-    <a href="https://github.com/epicYellow/Innovex-Bank.App/issues">Report Bug</a>
-  <span> � </span>
-    <a href="https://github.com/epicYellow/Innovex-Bank.App/issues">Request Feature</a>
-  </h4>
 </div>
 
 <br />
@@ -177,21 +167,18 @@ to run this project you need to have visual studio 2020
 
 ### :bangbang: Prerequisites
 
-This project uses Yarn as package manager
-
-```bash
- npm install --global yarn
-```
+This project was built and needs vs studio to be edited
 
 <!-- Installation -->
 
 ### :gear: Installation
 
-Install my-project with npm
+Pull into seperate folders
+For editing purposes
 
 ```bash
-  yarn install my-project
-  cd my-project
+  pull innovexBank.app from github: https://github.com/epicYellow/Innovex-Bank.App
+  pull innovekBackend from github: https://github.com/epicYellow/InnovexBackend
 ```
 
 <!-- Usage -->
