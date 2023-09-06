@@ -17,28 +17,24 @@
                         HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                     <Label Text="Total accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
                     <Label Text="{Binding TotalGoldCheque}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                    <Controls:ButtonControl ButtonText="Manage" ButtonType="Secondary"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
                     <Label Text="Diamond Cheque" TextColor="{DynamicResource Black}" 
                         HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                     <Label Text="Total accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
                     <Label Text="{Binding TotalDiamondAccounts}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                    <Controls:ButtonControl ButtonText="Manage" ButtonType="Secondary"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
                     <Label Text="Tax Free Savings" TextColor="{DynamicResource Black}" 
                         HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                     <Label Text="Total accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
                     <Label Text="{Binding TotalTaxFreeAccounts}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                    <Controls:ButtonControl ButtonText="Manage" ButtonType="Secondary"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout WidthRequest="220" Spacing="10" Margin="0,15,0,0">
                     <Label Text="Easy Access Savings" TextColor="{DynamicResource Black}" 
                         HeightRequest="75" FontAttributes="Bold" FontSize="Medium" />
                     <Label Text="Total accounts" TextColor="{DynamicResource LightBlack}"  FontSize="Body"/>
                     <Label Text="{Binding TotalEasyAccessSavings}" TextColor="{DynamicResource Primary}" FontAttributes="Bold" FontSize="Medium"/>
-                    <Controls:ButtonControl ButtonText="Manage" ButtonType="Secondary"/>
                 </VerticalStackLayout>
             </FlexLayout>
 
