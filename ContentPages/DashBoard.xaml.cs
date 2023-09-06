@@ -48,6 +48,7 @@ namespace Innovex_Bank.ContentPages
             float totalDeposited = _viewModel.TotalDeposited;
             int totalClients = _viewModel.TotalClients;
             int totalAccounts = _viewModel.TotalAccounts;
+            double percentageDifference = _viewModel.CalculatePercentageDifference();
 
             // Get the user ID from AuthService
             int userId = Preferences.Default.Get<int>("UserId", -1);

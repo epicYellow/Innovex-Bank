@@ -152,6 +152,22 @@ namespace Innovex_Bank.ViewModels
 
         }
 
+        public double CalculatePercentageDifference()
+        {
+            if (TotalDeposited == 0)
+            {
+                // Handle the case where there are no deposits to avoid division by zero.
+                return 0.0;
+            }
+
+            // Calculate the percentage difference as a positive value.
+            double percentageDifference = Math.Abs((TotalDeposited - TotalWithdrawn) / TotalDeposited) * 100.0;
+            Debug.WriteLine(percentageDifference);
+
+            return percentageDifference;
+            
+        }
+
 
 
 
