@@ -20,11 +20,16 @@ namespace Innovex_Bank.ContentPages
             _staffService = new StaffService();
             _authService = new AuthService();
 
-            _viewModel = new DashboardViewModel(new TransactionRestService(), new RestService(), new ClientRestService());
+            _viewModel = new DashboardViewModel(new TransactionRestService(), new RestService(), new ClientRestService(), new StaffService());
             BindingContext = _viewModel;
         }
 
         public string Fullname { get; set; }
+
+        private async void NavigateToAdminPageAsync(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("Admins");
+        }
 
         protected async override void OnAppearing()
         {
@@ -71,5 +76,3 @@ namespace Innovex_Bank.ContentPages
         }
     }
 }
-
-

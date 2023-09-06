@@ -21,11 +21,13 @@ namespace Innovex_Bank.ViewModels
         public ClientRestService _ClientRestService;
 
         public AccountRestService _accountRestService;
+
+        public StaffService _staffService;
         
 
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
-        public ObservableCollection<StaffModel> AllStaff { get; set; }
+        public ObservableCollection<Staff> AllStaff { get; set; }
 
         public ObservableCollection<Client> AllClients { get; set; }
 
@@ -88,15 +90,16 @@ namespace Innovex_Bank.ViewModels
 
 
 
-        public DashboardViewModel(TransactionRestService restService, RestService StaffRestService, ClientRestService ClientRestService)
+        public DashboardViewModel(TransactionRestService restService, RestService StaffRestService, ClientRestService ClientRestService, StaffService staffService)
         {
             _transactionRestService = restService;
             _StaffRestService = StaffRestService;
             _ClientRestService = ClientRestService;
+            _staffService = staffService;
 
             AllTransactions = new ObservableCollection<Transactions>();
 
-            AllStaff = new ObservableCollection<StaffModel>();
+            AllStaff = new ObservableCollection<Staff>();
 
             AllClients = new ObservableCollection<Client>();
 
@@ -158,7 +161,7 @@ namespace Innovex_Bank.ViewModels
             get => CalculateTotalAmount(); 
         }
 
-
+        public float TotalStaff { get; set; }
 
 
         //get staff with error handling
@@ -166,15 +169,20 @@ namespace Innovex_Bank.ViewModels
         {
             try
             {
-                var Items = await _StaffRestService.RefreshDataAsync();
+                var Items = await _staffService.RefreshStaffAsync();
                 AllStaff.Clear();
                 if (Items != null)
                 {
-                    
+                    TotalStaff = Items.Count;
+                    Debug.WriteLine("This is the count of the number of staff member");
+                    Debug.WriteLine(TotalStaff);
+
+                    OnPropertyChanged(nameof(TotalStaff));
                     foreach (var staff in Items)
                     {
                         AllStaff.Add(staff);
-                        Debug.WriteLine(staff.Fullname);
+                        Debug.WriteLine("Testing");
+                        Debug.WriteLine(staff.Name);
                     }
                 }
                 else
@@ -224,7 +232,6 @@ namespace Innovex_Bank.ViewModels
 
         public async Task GetAllAccounts()
         {
-
             try
             {
                 var Items = await _transactionRestService.RefreshAccountsync();
@@ -253,16 +260,6 @@ namespace Innovex_Bank.ViewModels
                 // Handle exceptions that may occur during the operation.
                 Debug.WriteLine($"An error occurred: {ex.Message}");
             }
-
-           
         }
-
-
-
-
-
-
     }
-
-
 }

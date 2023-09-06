@@ -23,6 +23,7 @@ public partial class AppShell : Shell
         _authService = new AuthService();
         BindingContext = this;
         Routing.RegisterRoute("UserDetails", typeof(UserDetail));
+        Routing.RegisterRoute("Admins", typeof(StaffManagement));
     }
     public string Email { get; set; }
     async protected override void OnAppearing()

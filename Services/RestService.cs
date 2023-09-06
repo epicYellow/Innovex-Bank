@@ -15,7 +15,7 @@ namespace Innovex_Bank.Services
 		internal string clientsUrl = "https://localhost:7230/api/";
 
         // List of Staff
-        public List<StaffModel> Items { get; private set; }
+        public List<Staff> Items { get; private set; }
 		public List<Client> Clients { get; private set; }
 
         // Creating httpClient
@@ -30,10 +30,9 @@ namespace Innovex_Bank.Services
 			};
 		}
 
-
-        public async Task<List<StaffModel>> RefreshDataAsync()
+        public async Task<List<Staff>> RefreshStaffAsync()
         {
-            Items = new List<StaffModel>();
+            Items = new List<Staff>();
 
             Uri uri = new(string.Format($"{baseUrl}Staff/", string.Empty));
 
@@ -43,7 +42,7 @@ namespace Innovex_Bank.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Items = JsonSerializer.Deserialize<List<StaffModel>>(content, _serializerOptions);
+                    Items = JsonSerializer.Deserialize<List<Staff>>(content, _serializerOptions);
                 }
             }
             catch (Exception ex)
