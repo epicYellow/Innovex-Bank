@@ -44,7 +44,6 @@ namespace Innovex_Bank.ViewModels
         public ObservableCollection<Transactions> SelectedTransactions { get; set; }
         //Side Column bindings
         public string AccountHolderName { get; set; } = "AccountHolder Name";
-        public ICommand GetAccountTransactions { get; private set; }
 
         //remove void and add rest return type
         public AccountManageViewModel(TransactionRestService restService, ClientRestService clientRest, AccountRestService accountRestService)
@@ -63,7 +62,6 @@ namespace Innovex_Bank.ViewModels
 
             SelectedTransactions = new ObservableCollection<Transactions>();
 
-            GetAccountTransactions = new Command(async () => await GetTransactionsById());
             AddAccount = new Command(async () => await AddNewAccount());
         }
 
@@ -105,29 +103,28 @@ namespace Innovex_Bank.ViewModels
             await updateCounts();
         }
 
-        public async Task GetTransactionsById()
+        public async Task GetTransactionsById(int Id, string name)
         {
-            if(Account_Id == 0)
+
+            IdError = string.Empty;
+            SelectedTransactions.Clear();
+            var Items = await _transactionRest.RetrieveTransactionsById(Id);
+            if(Items == null || Items.Count == 0)
             {
-                IdError = "Please enter an id";
+                IdError = "No transactions found";
             } else
             {
-                IdError = string.Empty;
-                SelectedTransactions.Clear();
-                var Items = await _transactionRest.RetrieveTransactionsById(Account_Id);
-                if(Items == null || Items.Count == 0)
+                foreach (var transaction in Items)
                 {
-                    IdError = "No such id or no transactions found";
-                } else
-                {
-                    foreach (var transaction in Items)
-                    {
-                        SelectedTransactions.Add(transaction);
-                    }
+                    SelectedTransactions.Add(transaction);
                 }
             }
 
+            AccountHolderName = name;
+
+
             OnPropertyChanged(nameof(SelectedTransactions));
+            OnPropertyChanged(nameof(AccountHolderName));
             OnPropertyChanged(nameof(IdError));
         }
 

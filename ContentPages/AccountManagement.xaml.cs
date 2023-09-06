@@ -1,5 +1,6 @@
 namespace Innovex_Bank.ContentPages;
 
+using Innovex_Bank.Models;
 using Innovex_Bank.ViewModels;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -25,4 +26,15 @@ public partial class AccountManagement : ContentPage
     {
         await Shell.Current.GoToAsync("AddAccount");
     }
+
+    private async void GetClientTransaction(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+
+        if (button.BindingContext is Accounts accountData)
+        {
+            await _viewModel.GetTransactionsById(accountData.Id, accountData.Client_name );
+        }
+    }
+
 }

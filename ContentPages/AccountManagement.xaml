@@ -94,7 +94,7 @@
                                                     Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
                                                 <Button Margin="5" Text="History" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
                                                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
-                                                    Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
+                                                    Clicked="GetClientTransaction" VerticalOptions="End" HorizontalOptions="End"/>
                                                 <Button Margin="5" Text="Edit" BorderColor="{DynamicResource Black}" TextColor="{DynamicResource Primary}"
                                                     MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="Transparent" BorderWidth="1"
                                                     Clicked="NavigateToAdd" VerticalOptions="End" HorizontalOptions="End"/>
@@ -121,17 +121,15 @@
                         <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                    <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" HeightRequest="25" Text="Transactions" FontSize="Small" FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
-                        <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0" HeightRequest="25" Text="{Binding AccountHolderName}" FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End" TextColor="{DynamicResource Black}"  />
-
-                        <Button Grid.Column="1" Text="Search transactions" BorderColor="{DynamicResource Active}" x:Name="mainButton" Grid.Row="1" TextColor="{DynamicResource White}"
-                            MaximumHeightRequest="40" CornerRadius="3" BackgroundColor="{DynamicResource Active}" BorderWidth="1"
-                            Command="{Binding GetAccountTransactions}" VerticalOptions="End" HorizontalOptions="End"/>
-                    
-                        <Label HorizontalOptions="Start" VerticalOptions="Center" MaximumWidthRequest="120" Grid.Column="0" Grid.Row="1" Text="Account id:" TextColor="Black"/>
-                        <Entry HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="Black" Placeholder="Type in account id" Text="{Binding Account_Id}"/>
-
-                        <Label Grid.Row="2" Text="{Binding IdError}" TextColor="{DynamicResource Tertiary}"/>
+                    <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0"
+                           HeightRequest="25" Text="Transactions" FontSize="Small"
+                           FontAttributes="Bold" TextColor="{DynamicResource Black}"  />
+                    <Label HorizontalOptions="End" Grid.Column="1" Grid.Row="0"
+                           HeightRequest="25" Text="{Binding AccountHolderName}"
+                           FontSize="Small" FontAttributes="Bold" FlexLayout.AlignSelf="End"
+                           TextColor="{DynamicResource Black}"  />
+                    <Label Grid.Row="2" Text="{Binding IdError}"
+                           TextColor="{DynamicResource Tertiary}"/>
 
                     </Grid>
                 <BoxView BackgroundColor="Black" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
