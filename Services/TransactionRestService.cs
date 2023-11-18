@@ -19,7 +19,7 @@ namespace Innovex_Bank.Services
       
         // List of Staff
         public List<Transactions> Transactions { get; private set; }
-        public List<Accounts> Accounts { get; private set; }
+        public List<Innovex_Bank.Accounts.Accounts> Accounts { get; private set; }
 
         // Creating httpClient
         public TransactionRestService()
@@ -83,9 +83,9 @@ namespace Innovex_Bank.Services
             return Transactions;
         }
 
-        public async Task<List<Accounts>> RefreshAccountsync()
+        public async Task<List<Innovex_Bank.Accounts.Accounts>> RefreshAccountsync()
         {
-            Accounts = new List<Accounts>();
+            Accounts = new List<Innovex_Bank.Accounts.Accounts>();
 
             Uri uri = new(string.Format($"{baseUrl}Accounts", string.Empty));
 
@@ -95,7 +95,7 @@ namespace Innovex_Bank.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    Accounts = JsonSerializer.Deserialize<List<Accounts>>(content, _serializerOptions);
+                    Accounts = JsonSerializer.Deserialize<List<Innovex_Bank.Accounts.Accounts>>(content, _serializerOptions);
                 }
             }
             catch (Exception ex)

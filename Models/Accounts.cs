@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Innovex_Bank.Models
+namespace Innovex_Bank.Accounts
 {
      public class Accounts
     {

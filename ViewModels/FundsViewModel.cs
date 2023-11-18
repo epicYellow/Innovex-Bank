@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.Media.Audio;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Innovex_Bank.ViewModels
@@ -19,7 +18,7 @@ namespace Innovex_Bank.ViewModels
 
         public AccountRestService _accountRestService;
 
-        public ObservableCollection<Accounts> AllAccounts { get; set; }
+        public ObservableCollection<Innovex_Bank.Accounts.Accounts> AllAccounts { get; set; }
 
         public ObservableCollection<Transactions> AllTransactions { get; set; }
 
@@ -65,7 +64,7 @@ namespace Innovex_Bank.ViewModels
 
             AllTransactions = new ObservableCollection<Transactions>();
 
-            AllAccounts = new ObservableCollection<Accounts>();
+            AllAccounts = new ObservableCollection<Innovex_Bank.Accounts.Accounts>();
 
             TotalTransactionFees = 0;
 

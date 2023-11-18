@@ -8,7 +8,6 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Foundation.Collections;
 
 namespace Innovex_Bank.ViewModels
 {
@@ -31,7 +30,7 @@ namespace Innovex_Bank.ViewModels
 
         public ObservableCollection<Client> AllClients { get; set; }
 
-        public ObservableCollection<Accounts> AllAccounts { get; set; }
+        public ObservableCollection<Innovex_Bank.Accounts.Accounts> AllAccounts { get; set; }
 
         //total amount
         private float _totalAllTransactions;
@@ -114,7 +113,7 @@ namespace Innovex_Bank.ViewModels
 
             AllClients = new ObservableCollection<Client>();
 
-            AllAccounts = new ObservableCollection<Accounts>();  
+            AllAccounts = new ObservableCollection<Innovex_Bank.Accounts.Accounts>();  
         }
 
 

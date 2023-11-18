@@ -30,7 +30,7 @@ public partial class AccountManagement : ContentPage
     {
         Button button = (Button)sender;
 
-        if (button.BindingContext is Accounts accountData)
+        if (button.BindingContext is Innovex_Bank.Accounts.Accounts accountData)
         {
             await _viewModel.GetTransactionsById(accountData.Id, accountData.Client_name);
         }
@@ -40,7 +40,7 @@ public partial class AccountManagement : ContentPage
     {
         Button button = (Button)sender;
 
-        if (button.BindingContext is Accounts accountData)
+        if (button.BindingContext is Innovex_Bank.Accounts.Accounts accountData)
         {
             await Navigation.PushAsync(new EditAccount(accountData));
         }
@@ -50,7 +50,7 @@ public partial class AccountManagement : ContentPage
     {
         Button button = (Button)sender;
 
-        if (button.BindingContext is Accounts accountData)
+        if (button.BindingContext is Innovex_Bank.Accounts.Accounts accountData)
         {
             await Navigation.PushAsync(new MakeTransaction(accountData));
         }

@@ -11,7 +11,7 @@ namespace Innovex_Bank.Services
     {
         Task<List<Transactions>> RefreshDataAsync();
 
-        Task<List<Accounts>> RefreshAccountsync();
+        Task<List<Innovex_Bank.Accounts.Accounts>> RefreshAccountsync();
 
         Task<List<Transactions>> RetrieveTransactionsById(int id);
     }

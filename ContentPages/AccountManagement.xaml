@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Controls="clr-namespace:Innovex_Bank.ContentViews"
@@ -47,8 +47,8 @@
             </Grid.ColumnDefinitions>
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
 
             <VerticalStackLayout Grid.Column="0" Grid.Row="0" Padding="0,0,25,0">
@@ -63,17 +63,17 @@
             </VerticalStackLayout>
 
                 
-                <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" VerticalOptions="FillAndExpand">
-                    <ScrollView VerticalOptions="FillAndExpand">
+                <VerticalStackLayout Grid.Column="0" Grid.Row="1" Margin="0,15,25,0" FlexLayout.AlignSelf="Start" HeightRequest="700">
+                    <ScrollView HeightRequest="450">
                         <ListView ItemsSource="{Binding AllAccounts}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <ContentView>
-                                            <FlexLayout Wrap="Wrap" Margin="0,0,0,15" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="80" BackgroundColor="White" Padding="10,0,10,0">
+                                        <ContentView HeightRequest="220" Margin="0,2, 0, 2">
+                                            <FlexLayout Wrap="Wrap" Margin="0,0,0,10" JustifyContent="SpaceBetween" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="400" BackgroundColor="White" Padding="10,0,10,0">
                                                 <Ellipse Margin="5,0,5,0" VerticalOptions="Center" WidthRequest="44" HeightRequest="44" Fill="Black"/>
-                                                <VerticalStackLayout MinimumWidthRequest="130" VerticalOptions="Center">
-                                                    <HorizontalStackLayout>
+                                                <VerticalStackLayout MinimumWidthRequest="75" VerticalOptions="Center" Margin="0,10,0,10">
+                                                    <HorizontalStackLayout >
                                                         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="AccNumber:" MinimumWidthRequest="100"/>
                                                         <Label FontSize="Body" TextColor="{DynamicResource Black}" Text="{Binding Account_number}" MinimumWidthRequest="100"/>
                                                     </HorizontalStackLayout>
@@ -173,7 +173,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <ContentView>
-                                        <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" Margin="0,0,0,10" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="60" BackgroundColor="White" >
+                                        <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" Margin="0,0,0,10" AlignContent="Center" AlignItems="Center" MinimumHeightRequest="120" BackgroundColor="White" >
                                             <Label 
                                                 Margin="10,0,0,0"
                                                 Text="{Binding Id}"

@@ -6,7 +6,8 @@ namespace Innovex_Bank.ContentPages;
 public partial class EditAccount : ContentPage
 {
 	private AccountManageViewModel _viewModel;
-	public EditAccount(Accounts accountData)
+	public EditAccount(Innovex_Bank.Accounts.Accounts accountData)
+
 	{
 		InitializeComponent();
         _viewModel = new AccountManageViewModel(new Services.TransactionRestService(), new Services.ClientRestService(), new Services.AccountRestService());

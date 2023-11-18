@@ -53,13 +53,13 @@ namespace Innovex_Bank.Services
             return AccountsTypes;
         }
 
-        public async Task SaveAccountAsync(Accounts item, bool isNewItem = false)
+        public async Task SaveAccountAsync(Innovex_Bank.Accounts.Accounts item, bool isNewItem = false)
         {
             Uri uri = new(string.Format($"{baseUrl}Accounts/", string.Empty));
 
             try
             {
-                string json = JsonSerializer.Serialize<Accounts>(item, _serializerOptions);
+                string json = JsonSerializer.Serialize<Innovex_Bank.Accounts.Accounts>(item, _serializerOptions);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
@@ -77,13 +77,13 @@ namespace Innovex_Bank.Services
             }
         }
 
-        public async Task UpdateAccountAsync(Accounts item, bool isNewItem = false)
+        public async Task UpdateAccountAsync(Innovex_Bank.Accounts.Accounts item, bool isNewItem = false)
         {
             Uri uri = new Uri(string.Format($"{baseUrl}Accounts/{item.Id}", string.Empty));
 
             try
             {
-                string json = JsonSerializer.Serialize<Accounts>(item, _serializerOptions);
+                string json = JsonSerializer.Serialize<Innovex_Bank.Accounts.Accounts>(item, _serializerOptions);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;

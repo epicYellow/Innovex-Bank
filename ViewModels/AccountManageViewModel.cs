@@ -19,14 +19,14 @@ namespace Innovex_Bank.ViewModels
         public ClientRestService _clientRestService;
 
         public AccountRestService _accountRestService;
-        public ObservableCollection<Accounts> AllAccounts { get; set; }
+        public ObservableCollection<Innovex_Bank.Accounts.Accounts> AllAccounts { get; set; }
         public ObservableCollection<Transactions> AllTransactions { get; set; }
         public ObservableCollection<AccountTypes> AllAccountTypes { get; set; }
         public ObservableCollection<string> TransType { get; set; } = new ObservableCollection<string>() { "Withdrawal", "Deposit", "Transfer" };
 
         //All clients for add account dropdown
         public ObservableCollection<Client> AllClients { get; set; }
-        public Accounts Ind_Account { get; set; }
+        public Innovex_Bank.Accounts.Accounts Ind_Account { get; set; }
 
         public string Account_number { get; set; }
         public string Type_id { get; set; }
@@ -71,7 +71,7 @@ namespace Innovex_Bank.ViewModels
             _clientRestService = clientRest;
             _accountRestService = accountRestService;
 
-            AllAccounts = new ObservableCollection<Accounts>();
+            AllAccounts = new ObservableCollection<Innovex_Bank.Accounts.Accounts>();
 
             AllTransactions = new ObservableCollection<Transactions>();
 
@@ -106,7 +106,7 @@ namespace Innovex_Bank.ViewModels
 
             if (ClientSelection != null && TypeSelection != null)
             {
-                var newAccount = new Accounts
+                var newAccount = new Innovex_Bank.Accounts.Accounts
                 {
                     Account_number = randomAccountNumber.ToString(),
                     Type_id = TypeSelection.Id,
@@ -164,7 +164,7 @@ namespace Innovex_Bank.ViewModels
             OnPropertyChanged(nameof(TotalGoldCheque));
         }
 
-        public async Task updateEditValues(Accounts accountData)
+        public async Task updateEditValues(Innovex_Bank.Accounts.Accounts accountData)
         {
             Ind_Account = accountData;
 
@@ -178,7 +178,7 @@ namespace Innovex_Bank.ViewModels
             OnPropertyChanged(nameof(Ind_Account));
         }
 
-        public async Task updateTransValues(Accounts accountData)
+        public async Task updateTransValues(Innovex_Bank.Accounts.Accounts accountData)
         {
             Ind_Account = accountData;
 
@@ -243,7 +243,7 @@ namespace Innovex_Bank.ViewModels
 
         public async Task updateAccount()
         {
-            var updatedAccount = new Accounts
+            var updatedAccount = new Innovex_Bank.Accounts.Accounts
             {
                 Id = Ind_Account.Id,
                 Account_number = Ind_Account.Account_number,
@@ -312,11 +312,11 @@ namespace Innovex_Bank.ViewModels
                         if (accounts != null)
                         {
 
-                            Accounts targetAccount = accounts.FirstOrDefault(account => account.Account_number == AccountNumberEntry);
+                            Innovex_Bank.Accounts.Accounts targetAccount = accounts.FirstOrDefault(account => account.Account_number == AccountNumberEntry);
                             if(targetAccount != null)
                             {
                                 Debug.WriteLine(targetAccount);
-                                var target = new Accounts
+                                var target = new Innovex_Bank.Accounts.Accounts
                                 {
                                     Id = targetAccount.Id,
                                     Account_number = targetAccount.Account_number,
@@ -328,7 +328,7 @@ namespace Innovex_Bank.ViewModels
                                     Client_name = targetAccount.Client_name,
                                 };
 
-                                var From = new Accounts
+                                var From = new Innovex_Bank.Accounts.Accounts
                                 {
                                     Id = Ind_Account.Id,
                                     Account_number = Ind_Account.Account_number,

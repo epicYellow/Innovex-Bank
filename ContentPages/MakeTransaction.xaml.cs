@@ -7,7 +7,7 @@ namespace Innovex_Bank.ContentPages;
 public partial class MakeTransaction : ContentPage
 {
 	private AccountManageViewModel _accountManageViewModel;
-	public MakeTransaction(Accounts accountData)
+	public MakeTransaction(Innovex_Bank.Accounts.Accounts accountData)
 	{
 		InitializeComponent();
 		_accountManageViewModel = new AccountManageViewModel(new Services.TransactionRestService(), new Services.ClientRestService(), new Services.AccountRestService());
